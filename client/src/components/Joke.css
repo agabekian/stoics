@@ -7,11 +7,13 @@
   padding: 1rem;
 }
 .face img {
-  opacity: 0.6;
+  /* opacity: 0.6; */
   width: 50px;
   border-radius: 50%;
   padding: 5px;
   margin-right: 15px;
+  box-shadow: inset 0px -1px 15px -2px #c7c7c7;
+
 }
 
 .Joke-buttons {

@@ -22,7 +22,6 @@
       background-color: rgb(114, 84, 114);
   }
       .App {
-        display: flex;
         height:50%;
       }
   }
