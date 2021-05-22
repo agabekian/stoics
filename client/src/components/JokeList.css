@@ -1,58 +1,102 @@
 .JokeList {
-    display: flex;
-    width:80%;
-    height:80%;
+  display: flex;
+  width: 80%;
+  height: 80%;
 }
 
-.JokeList-sidebar{
-    background-color: rgb(245, 245, 245);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width:28%;
-    border-radius: 3%;
-    box-shadow:inset 0px -1px 15px -2px #000000;
-    overflow:auto;
-
+.JokeList-title {
+  font-size: 1rem;
+  margin-top: 1rem;
+  color: rgb(39, 73, 25);
+  letter-spacing: 0.2rem;
+  opacity: 0.7;
+  font-family: Cinzel;
+  color: #d9d9d9;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+    1px 1px 1px rgba(0, 0, 0, 0.5);
 }
-.JokeList-title{
-    font-size: 2rem;
-    margin:2rem;
-    color: rgb(39, 73, 25);
-    letter-spacing: 0.2rem;
-    opacity: .7;
-    font-family: Cinzel;
+.JokeList-sidebar {
+  background-color: rgb(245, 245, 245);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 28%;
+  border-radius: 3%;
+  box-shadow: inset 0px -1px 15px -2px #000000;
+  overflow: auto;
 }
-.JokeList-title span{
-    font-size: 1rem;
-    font-weight: 300;
-    letter-spacing: 0;
-    width: 50%;
-    display: block;
+/* .JokeList-title span {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0;
+  width: 50%;
+  display: block;
+} */
+.JokeList-sidebar img {
+  width: 100%;
+  padding: 10%;
+  border-radius: 5%;
+  box-shadow: inset 0px -1px 15px -2px #000000;
+  z-index: 2;
+  opacity: 0.3;
 }
-.JokeList-sidebar img{
-    width: 100%;
-    padding:10%;
-    border-radius: 5% ;
-    box-shadow:inset 0px -1px 15px -2px #000000;
-    z-index: 2;
-    opacity: 0.3;
-
+.image2 {
+  display: none;
 }
-.getmore{
-    font-style: italic;
-    font-size: .8rem;
-    line-height: 0px;
-    border: none;
-    opacity: 0.4;
-    
+.getmore {
+  /* font-style: italic; */
+  font-size: 0.6rem;
+  border: none;
+  color: #999191;
+  font-style: oblique;
+  margin-top: 1%;
+  background-color: transparent;
+  font-family: Cinzel;
+  text-decoration: underline;
 }
 .JokeList-jokes {
-    height: 100%;
-    width: 72%;
-    background: white;
-    align-self: center;
-    overflow: scroll;
-    box-shadow:inset 0px 1px 15px -2px #000000;
+  height: 100%;
+  width: 72%;
+  background: white;
+  align-self: center;
+  overflow: scroll;
+  box-shadow: inset 0px 1px 15px -2px #000000;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    background-color: lightgreen;
+  }
+  .JokeList {
+    /* display: flex; */
+    height: 100vh;
+    width: 100%;
+  }
+  .JokeList-jokes {
+    width: 100%;
+    background: #e4e4e4;
+  }
+  .JokeList-sidebar {
+    /* flex-direction: column-reverse; */
+    padding: 5px;
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    bottom: 0;
+  }
+  .JokeList-title {
+    font-size: 0.6rem;
+  }
+  .JokeList-sidebar img {
+    width: 20%;
+    padding: 0%;
+    background-color: transparent;
+  }
+  /* .image2 {
+    display: block;
+  } */
+  .image1 {
+    display: none;
+  }
 }

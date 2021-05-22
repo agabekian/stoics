@@ -53,21 +53,21 @@ export default class JokeList extends Component {
         return (
             <div className="JokeList">
                 <div className="JokeList-sidebar">
-                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg/551px-Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg' />
-                        <h5 className="JokeList-title">Stoic<span>Companion</span></h5>
-                        <button className="getmore" onClick={this.handleClick}>More Quotes</button>
-                        {/* <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRU6ZSTPKlIUtGlPVpPlu4oKJT5ae-ycI0WA&usqp=CAU' /> */}
+                    <img className="image1" src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg/551px-Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg' />
+                    <button className="getmore" onClick={this.handleClick}>Add More Quotes</button>
+                        <p className="JokeList-title">Stoic Companion</p>
+                        <img className="image2" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRU6ZSTPKlIUtGlPVpPlu4oKJT5ae-ycI0WA&usqp=CAU' />
                 </div>
                 <div className="JokeList-jokes">
                     {this.state.quotes.map(j => (
                         <Joke
                             key={j.id}
-                            votes={j.votes}
+                            // votes={j.votes}
                             text={j.text}
                             author={j.author}
                             source={j.source}
-                            upvote={() => this.handleVote(j.id, 1)}
-                            downvote={() => this.handleVote(j.id, -1)}
+                        // upvote={() => this.handleVote(j.id, 1)}
+                        // downvote={() => this.handleVote(j.id, -1)}
                         />
                     ))};
                 </div>
