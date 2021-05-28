@@ -11,7 +11,7 @@ export default class List extends Component {
         return (
             <div className="Joke">
                 <div className="Joke-text">
-                    <p>{this.props.qid}</p>
+                    {/* <p>{this.props.qid}</p> */}
                     <p>{this.props.text}</p>
                     <br />
                     <span>{this.props.author}<br />
