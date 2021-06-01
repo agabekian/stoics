@@ -15,11 +15,10 @@
     height: 105vh;
     font-family: "Rubik", sans-serif;
     color: #303233;
-    background: grey;
+    background: rgb(209, 209, 209);
   }
   @media screen and (max-width: 480px) {
     body {
-      background-color: rgb(114, 84, 114);
   }
       .App {
         height:50%;

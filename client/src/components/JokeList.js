@@ -5,7 +5,7 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from '@reach/router';
 import PopUp from './PopUp';
-
+import About from './About';
 
 
 export default class JokeList extends Component {
@@ -25,7 +25,10 @@ export default class JokeList extends Component {
 
     }
     componentDidMount() {
-        if (this.state.quotes.length === 0) this.fetchQuotes();
+        if (this.state.quotes.length === 0){
+                this.setState({loading:true}),
+                this.fetchQuotes();
+        }
     }
 
     async fetchQuotes() {
@@ -117,7 +120,10 @@ export default class JokeList extends Component {
                 </div>
                 <div className="JokeList-jokes">
                     {this.state.modal ? <PopUp dupe={this.state.dupe} togglePop={this.togglePop} /> : null}
-                    {this.state.quotes.map((j, idx) => (
+                    {this.state.loading 
+                    ? <About loading={this.state.loading}/>
+                    :
+                    this.state.quotes.map((j, idx) => (
                         <Joke
                             key={idx}
                             togglePop={this.togglePop}
@@ -131,6 +137,7 @@ export default class JokeList extends Component {
                         // downvote={() => this.handleVote(j.id, -1)}
                         />
                     ))}
+    
                 </div>
             </div>
         )
