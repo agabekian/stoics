@@ -4,6 +4,7 @@ import JokeList from "./components/JokeList";
 import { Router } from '@reach/router';
 import Note from './components/Note';
 import Favs from "./components/Favs";
+import About from "./components/About";
 
 
 
@@ -18,6 +19,7 @@ class App extends Component {
           <JokeList  path="/"/>
           <Note path = "/note/new/"/>
           <Favs path = "/favs" />
+          <About path="/about"/>
       </Router>
     );
   }

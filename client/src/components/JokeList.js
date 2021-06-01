@@ -112,7 +112,7 @@ export default class JokeList extends Component {
                         {this.state.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i> : "Add More Quotes"}
                     </button>
                     <Link to="/favs/" style={{ color: "grey", marginTop: "5px" }}><i className="fas fa-scroll"></i></Link>
-                    <p className="JokeList-title">Stoic Companion</p>
+                    <Link to="/about/" className="JokeList-title">Stoic Companion</Link>
                     <img className="image2" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRU6ZSTPKlIUtGlPVpPlu4oKJT5ae-ycI0WA&usqp=CAU' />
                 </div>
                 <div className="JokeList-jokes">
