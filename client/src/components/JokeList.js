@@ -96,7 +96,7 @@ export default class JokeList extends Component {
                     console.log("grabbed quote", selectedQuote, qid, dbIndexes)
                     // if()
                     axios.post('http://localhost:8000/api/entries', {
-                        content: selectedQuote,
+                        content: selectedQuote, comments:[]
                     }, this.setState({ modal: true, dupe: false }))
                 } else {
                     this.setState({ modal: true, dupe: true })

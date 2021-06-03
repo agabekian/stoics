@@ -5,6 +5,8 @@ const ProductSchema = new mongoose.Schema({
     // required: [true, "- Dude, where is my title?"] 
     // },
     content: { type: Object },
+    title:{type: String},
+    comments: {type : Object}
 }, 
 { timestamps: true});
 

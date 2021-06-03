@@ -1,9 +1,9 @@
 const { Product } = require("../models/product.model")
 
 module.exports.createProduct = (request, response) => {
-    const{content} = request.body
+    const{content, comments} = request.body
     Product.create({
-        content
+        content, comments
     })
     .then(item => response.json(item))
     .catch(err => response.json(err))

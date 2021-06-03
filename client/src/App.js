@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <Router className="App">
           <JokeList  path="/"/>
-          <Note path = "/note/new/"/>
+          <Note path = "/note/:id/"/>
           <Favs path = "/favs" />
           <About path="/about"/>
       </Router>
