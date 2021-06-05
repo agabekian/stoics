@@ -1,0 +1,42 @@
+.Note-info{
+    color: blueviolet;
+    font-size: .5rem;
+}
+body {
+    background-image: "/client/public/images/marble.jpg";
+    text-align: center;
+}
+.Note-input{
+    border-radius: 6px;
+    border: 1px solid rgb(166, 172, 158);
+}
+.Note-input:focus {
+    border: 1px solid rgb(192, 187, 191);
+    background-color: rgb(251, 251, 251);
+    outline: none;
+    }
+
+.Note-form{
+        display: flex;
+        flex-direction: column;
+    }
+.submit{
+    margin-top: 10%;
+    color: rgb(237, 234, 240);
+    background-color: rgb(127, 145, 184);
+    width: 40%;
+    align-self: center;
+}
+label, .Note-comments {
+    letter-spacing: .5px;
+    color: rgb(98, 95, 90);
+    font-family: Roboto;
+    font-style: oblique;
+}
+.Note-comments {
+    display: ;
+    color: rgb(72, 80, 80);
+    border:1px solid rgb(248, 245, 245);
+    border-radius: 12px;
+    padding: 5px;
+}

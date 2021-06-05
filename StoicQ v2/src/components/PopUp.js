@@ -17,12 +17,7 @@ export default class PopUp extends Component {
         return (
             <div>
                 <div className="modal_content">
-                    {this.props.message
-                    ?
-                    <p className="text-danger">{this.props.message}</p>
-                    :
-                    this.props.dupe? <p>Already  saved!</p>:<p>Saved the quote.</p>
-                    }
+                    {this.props.dupe? <p>Already  saved!</p>:<p>Saved the quote.</p>}
                 </div>
             </div>
 

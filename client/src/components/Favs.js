@@ -1,10 +1,9 @@
 import React, { Component, useEffect } from 'react';
 import axios from 'axios';
 import List from './List';
-import { Link } from '@reach/router';
 import './Favs.css';
 import { v4 as uuidv4 } from 'uuid';
-import Note from "./Note"
+import Back from './scrap/Back';
 
 export default class Favs extends Component {
     constructor(props) {
@@ -45,17 +44,14 @@ export default class Favs extends Component {
         let idx = uuidv4();
         return (
             <div className="JokeList-jokes">
-                <div className="Favs-back">
-                    <Link to="/" style={{ color: 'white' }}><i className="fas fa-angle-left"></i></Link>
-                    <p className="Favs-title">saved quotes</p>
-                </div>
+                <Back title="saved quotes" link="/" />
                 {this.state.favs.length === 0
                     ? <p className="Favs-message">No saved quotes yet, you can add them by using a "+" button</p>
                     : this.state.favs.map((q, idx) =>
                     (
                         <div key={idx}>
                             <div className="close">
-                                <i className="fas fa-angle-left" onClick={(e) => { this.updateEntry(q._id) }}></i>
+                                <i className="fa fa-times" onClick={(e) => { this.deleteEntry(q._id) }}></i>
                             </div>
                             <List
                                 qid={q.content["0"].id}

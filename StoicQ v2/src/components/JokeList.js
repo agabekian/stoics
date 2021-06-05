@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from '@reach/router';
+import Joke from './Joke';
+import "./JokeList.css";
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import "./JokeList.css";
-import Joke from './Joke';
+import { Link } from '@reach/router';
 import PopUp from './PopUp';
-import About from './About';
+
+
 
 export default class JokeList extends Component {
     static defaultProps = {
@@ -14,21 +15,17 @@ export default class JokeList extends Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
-        this.toggleAbout = this.toggleAbout.bind(this);
         this.addThis = this.addThis.bind(this);
         this.togglePop = this.togglePop.bind(this)
         this.state = {
             quotes: JSON.parse(window.localStorage.getItem("quotes") || "[]"),
-            selected: [], loading: false, modal: false, dupe: false, about: false
+            selected: [], loading: false, modal: false, dupe: false,
         };
         this.seenQuotes = new Set(this.state.quotes.map(q => q.id));
 
     }
     componentDidMount() {
-        if (this.state.quotes.length === 0) {
-            this.setState({ loading: true }),
-                this.fetchQuotes();
-        }
+        if (this.state.quotes.length === 0) this.fetchQuotes();
     }
 
     async fetchQuotes() {
@@ -71,10 +68,8 @@ export default class JokeList extends Component {
 
         );
     }
-
     handleClick() {
         this.setState({ loading: true });
-        this.setState({ about: false })
         this.fetchQuotes();
     }
 
@@ -82,12 +77,10 @@ export default class JokeList extends Component {
         this.setState({
             modal: false
         });
-        console.log("state flip")
+        console.log("seen state flip")
     }
 
-    toggleAbout() {
-        this.setState({ about: !this.state.about })
-    }
+
 
     addThis(id) {
         const repsonse = axios.get('http://localhost:8000/api/entries')
@@ -100,7 +93,7 @@ export default class JokeList extends Component {
                     console.log("grabbed quote", selectedQuote, qid, dbIndexes)
                     // if()
                     axios.post('http://localhost:8000/api/entries', {
-                        content: selectedQuote, comments: []
+                        content: selectedQuote,
                     }, this.setState({ modal: true, dupe: false }))
                 } else {
                     this.setState({ modal: true, dupe: true })
@@ -114,35 +107,30 @@ export default class JokeList extends Component {
         return (
             <div className="JokeList">
                 <div className="JokeList-sidebar">
-                    <img src="images/logo.jpg" alt="logo" />
+                    <img className="image1" src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg/551px-Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg' />
                     <button className="getmore" onClick={this.handleClick}>
                         {this.state.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i> : "Add More Quotes"}
                     </button>
                     <Link to="/favs/" style={{ color: "grey", marginTop: "5px" }}><i className="fas fa-scroll"></i></Link>
-                    <div classNam onClick={this.toggleAbout} className="JokeList-title">Stoic Companion
-                    </div>
-                    {/* <img className="image2" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRU6ZSTPKlIUtGlPVpPlu4oKJT5ae-ycI0WA&usqp=CAU' /> */}
+                    <p className="JokeList-title">Stoic Companion</p>
+                    <img className="image2" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRU6ZSTPKlIUtGlPVpPlu4oKJT5ae-ycI0WA&usqp=CAU' />
                 </div>
                 <div className="JokeList-jokes">
-                    {this.state.about ? <About about={this.toggleAbout} /> : ""}
                     {this.state.modal ? <PopUp dupe={this.state.dupe} togglePop={this.togglePop} /> : null}
-                    {this.state.loading
-                        ? <About loading={this.state.loading} email="armasconi@gmail.com" />
-                        :
-                        this.state.quotes.map((j, idx) => (
-                            <Joke
-                                key={idx}
-                                id={j.id}
-                                // votes={j.votes}
-                                text={j.text}
-                                author={j.author}
-                                source={j.source}
-                                addThis={this.addThis}
-                            // upvote={() => this.handleVote(j.id, 1)}
-                            // downvote={() => this.handleVote(j.id, -1)}
-                            />
-                        ))}
-
+                    {this.state.quotes.map((j, idx) => (
+                        <Joke
+                            key={idx}
+                            togglePop={this.togglePop}
+                            id={j.id}
+                            // votes={j.votes}
+                            text={j.text}
+                            author={j.author}
+                            source={j.source}
+                            addThis={this.addThis}
+                        // upvote={() => this.handleVote(j.id, 1)}
+                        // downvote={() => this.handleVote(j.id, -1)}
+                        />
+                    ))}
                 </div>
             </div>
         )

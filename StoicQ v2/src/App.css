@@ -15,24 +15,11 @@
     height: 105vh;
     font-family: "Rubik", sans-serif;
     color: #303233;
-    /* background: rgb(209, 209, 209); */
+    background: grey;
   }
-  body::after{
-    background: url("marble.jpg")no-repeat center center ;
-    background-size:cover;
-    content: "";
-    opacity: 0.4;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: -1;   
-  }
-  body {
-}
   @media screen and (max-width: 480px) {
     body {
+      background-color: rgb(114, 84, 114);
   }
       .App {
         height:50%;

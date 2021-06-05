@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Joke.css';
 import GetFace from './GetFace';
+import { Link } from '@reach/router';
+
 
 export default class Joke extends Component {
     constructor(props) {
@@ -30,8 +32,11 @@ export default class Joke extends Component {
                 <div className="Joke-text">
                     <p></p>{this.props.text}
                     <br />
+                    {/* confirmation popup */}
                     <span>{this.props.author},<br></br> {getSource(source)}</span>
                     <button className="Joke-addButton" onClick={this.handleClick}>+</button>
+
+                    {/* <Link to="/note/new/">Add note</Link> */}
                 </div>
             </div>
         )

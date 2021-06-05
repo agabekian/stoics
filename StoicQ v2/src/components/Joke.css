@@ -1,7 +1,6 @@
 .Joke {
   display: flex;
   border-bottom: 2px solid #eeeeee;
-  text-align: left;
   align-items: center;
   justify-content: center;
   font-weight: 400;
@@ -27,8 +26,8 @@
 
 .Joke-text {
   font-size: 1rem;
-  /* font-weight: 500; */
-  font-family: 'Cinzel', serif;}
+  font-family: Cinzel;
+}
 
 .Joke-text span {
   color: rgb(141, 141, 141);
@@ -150,10 +149,4 @@
   margin-right: 5px;;
   opacity: .3;
   font-size: 1.2rem;
-}
-@media screen and (max-width: 480px) {
-  .Joke-text {
-    font-size: 1rem;
-    font-weight: 500;
-    font-family: 'Cinzel', serif;}
 }

@@ -2,17 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { Link, navigate } from '@reach/router'
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import Preview from "./Preview";
+import "./Note.css";
+import Back from './scrap/Back';
+import PopUp from './PopUp';
 
 export default (props) => {
     const { id } = props;
     const [title, setTitle] = useState("");
-    const [comments, setComments] = useState([])
-    const [comment, setComment] = useState("")
-    const [error, setError] = useState("")
-    const [entry, setEntry] = useState({})
-
-    const [accept, setAccept] = useState(false)
+    const [comments, setComments] = useState([]);
+    const [comment, setComment] = useState("");
+    const [error, setError] = useState("");
 
     const displayEntry = () => {
         // console.log("checking for props", id)
@@ -25,9 +24,15 @@ export default (props) => {
     )
 
     useEffect(() => {
+        setError("");
         axios.put('http://localhost:8000/api/entries/' + id, {
             comments,
-        })
+        }).then(res => {
+            console.log("rezz", res);
+            if (res.data.errors) {
+                setErrors(res.data.errors);
+            }
+        }).catch(err => console.log(err));
     }, [comments]
     )
     const SubmitHandler = e => {
@@ -45,24 +50,23 @@ export default (props) => {
     }
 
     return (
-        <>
-            <p>{error ? <p className="text-danger">{error}</p> : ""}</p>
+        <div className="JokeList-jokes">
+            <Back link="/favs" title="wall" />
+            <p>{error ? <PopUp message={error} /> : ""}</p>
             <Link to="/">Home</Link>
-            <form onSubmit={SubmitHandler}>
-                <p>{id}</p>
-                {comments.map(e => <div key={uuidv4()}>{e}</div>)}
-                <p>{entry.data}</p>
+            <form className="Note-form" onSubmit={SubmitHandler}>
+                <p className="Note-info">{id}</p>
+                {comments.map(e => <span className="Note-comments" key={uuidv4()}>{e}</span>)}
                 <div>
-                    <h3>Thoughts</h3>
-                    <label>Title:</label><br />
-                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <label>title</label><br />
+                    <input className="Note-input" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </div>
                 <div>
-                    <label>Comment:</label><br />
-                    <input type="text" value={comment} onChange={(e) => setComment(e.target.value)} />
+                    <label>comment</label><br />
+                    <textarea className="Note-input" cols={23} value={comment} onChange={(e) => setComment(e.target.value)} />
                 </div>
-                <input className="btn btn-primary" type="submit" value="Add Note" />
+                <input className="btn btn-primary submit" type="submit" value="post" />
             </form>
-        </>
+        </div>
     )
 }
