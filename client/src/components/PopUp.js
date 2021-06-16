@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import "./Favs.css"
 
 export default class PopUp extends Component {
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
+    }
 
     componentDidMount() {
         const timer = setTimeout(() => {
@@ -15,17 +15,14 @@ export default class PopUp extends Component {
 
     render() {
         return (
-            <div>
-                <div className="modal_content">
-                    {this.props.message
+            <div className="modal_content">
+                {this.props.message
                     ?
-                    <p className="text-danger">{this.props.message}</p>
+                    this.props.message
                     :
-                    this.props.dupe? <p>Already  saved!</p>:<p>Saved the quote.</p>
-                    }
-                </div>
+                    this.props.dupe ? "Already  saved!" : "Saved the quote."
+                }
             </div>
-
         )
     }
 }

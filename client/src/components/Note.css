@@ -27,7 +27,7 @@ body {
     width: 40%;
     align-self: center;
 }
-label, .Note-comments {
+.Note-comments {
     letter-spacing: .5px;
     color: rgb(98, 95, 90);
     font-family: Roboto;
@@ -39,4 +39,7 @@ label, .Note-comments {
     border:1px solid rgb(248, 245, 245);
     border-radius: 12px;
     padding: 5px;
+}
+label {
+    font-family: 'Courier New', Courier, monospace;
 }

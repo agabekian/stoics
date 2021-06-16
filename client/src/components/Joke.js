@@ -19,7 +19,7 @@ export default class Joke extends Component {
             source.includes("Meditations") ? <a href="http://classics.mit.edu/Antoninus/meditations.mb.txt" target="_blank">Mediations</a> : this.props.source
 
         return (
-            
+
             <div className="Joke">
                 <GetFace source={this.props.source} author={this.props.author} />
                 {/* <div className="Joke-buttons">

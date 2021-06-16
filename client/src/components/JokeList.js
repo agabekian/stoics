@@ -16,10 +16,9 @@ export default class JokeList extends Component {
         this.handleClick = this.handleClick.bind(this);
         this.toggleAbout = this.toggleAbout.bind(this);
         this.addThis = this.addThis.bind(this);
-        this.togglePop = this.togglePop.bind(this)
         this.state = {
             quotes: JSON.parse(window.localStorage.getItem("quotes") || "[]"),
-            selected: [], loading: false, modal: false, dupe: false, about: false
+            selected: [], loading: false, dupe: false, about: false
         };
         this.seenQuotes = new Set(this.state.quotes.map(q => q.id));
 
@@ -78,13 +77,6 @@ export default class JokeList extends Component {
         this.fetchQuotes();
     }
 
-    togglePop() { //if u change this to reg function it breaks
-        this.setState({
-            modal: false
-        });
-        console.log("state flip")
-    }
-
     toggleAbout() {
         this.setState({ about: !this.state.about })
     }
@@ -96,14 +88,18 @@ export default class JokeList extends Component {
                 // console.log("is a set now", this.state.compare)
                 const selectedQuote = this.state.quotes.filter(q => q.id == id);
                 const qid = selectedQuote[0].id
+                this.props.togglePop()
                 if (!dbIndexes.has(qid)) {
+
+
                     console.log("grabbed quote", selectedQuote, qid, dbIndexes)
                     // if()
-                    axios.post('http://localhost:8000/api/entries', {
-                        content: selectedQuote, comments: []
-                    }, this.setState({ modal: true, dupe: false }))
+                    axios.post('http://localhost:8000/api/entries',
+                        {
+                            content: selectedQuote, comments: []
+                        }, this.setState({ dupe: false }))
                 } else {
-                    this.setState({ modal: true, dupe: true })
+                    this.setState({ dupe: true })
                     console.log("you alreay saved the quote", qid)
                 }
             })
@@ -125,7 +121,7 @@ export default class JokeList extends Component {
                 </div>
                 <div className="JokeList-jokes">
                     {this.state.about ? <About about={this.toggleAbout} /> : ""}
-                    {this.state.modal ? <PopUp dupe={this.state.dupe} togglePop={this.togglePop} /> : null}
+                    {this.props.modal ? <PopUp dupe={this.state.dupe} togglePop={this.props.togglePop} modal={this.state.modal} /> : null}
                     {this.state.loading
                         ? <About loading={this.state.loading} email="armasconi@gmail.com" />
                         :

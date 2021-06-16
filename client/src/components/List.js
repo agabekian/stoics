@@ -16,7 +16,7 @@ export default class List extends Component {
                     <span>{this.props.author}<br />
                         {this.props.source}
                         <br />
-                        <Link to={`/note/${this.props.id}/`} style={{fontFamily:"roboto", letterSpacing:"1px"}}>annotate</Link>
+                        <Link to={`/note/${this.props.id}/`} style={{ fontFamily: "roboto", letterSpacing: "1px" }}>annotate</Link>
                     </span>
                 </div>
             </div>
