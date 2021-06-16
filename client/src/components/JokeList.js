@@ -110,11 +110,11 @@ export default class JokeList extends Component {
         return (
             <div className="JokeList">
                 <div className="JokeList-sidebar">
-                    <img src="images/logo.jpg" alt="logo" />
+                    <img className="image1" src="images/logo.jpg" alt="logo" />
                     <button className="getmore" onClick={this.handleClick}>
                         {this.state.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i> : "Add More Quotes"}
                     </button>
-                    <Link to="/favs/" style={{ color: "grey", marginTop: "5px" }}><i className="fas fa-scroll"></i></Link>
+                    <Link to="/favs/" style={{ color: "#8a0303", marginTop: "5px" }}><i className="fas fa-scroll"></i></Link>
                     <div classNam onClick={this.toggleAbout} className="JokeList-title">Stoic Companion
                     </div>
                     {/* <img className="image2" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRU6ZSTPKlIUtGlPVpPlu4oKJT5ae-ycI0WA&usqp=CAU' /> */}
