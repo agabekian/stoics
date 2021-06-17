@@ -11,9 +11,8 @@ import About from "./components/About";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { modal: false }
-    this.togglePop = this.togglePop.bind(this)
-
+    this.state = { modal: false, num_of_comments: 0 }
+    this.togglePop = this.togglePop.bind(this);
   }
 
   togglePop() {
@@ -23,12 +22,13 @@ class App extends Component {
     console.log("state flip")
   }
 
+
   render() {
     return (
       <Router className="App">
         <JokeList path="/" togglePop={this.togglePop} modal={this.state.modal} />
         <Note path="/note/:id/" togglePop={this.togglePop} modal={this.state.modal} />
-        <Favs path="/favs" />
+        <Favs path="/favs" noc={this.state.num_of_comments}/>
         <About path="/about" />
       </Router>
     );

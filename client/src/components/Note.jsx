@@ -14,13 +14,13 @@ export default (props) => {
     const [error, setError] = useState("");
 
     const displayEntry = () => {
-        console.log("checking for props", togglePop)
+        // console.log("checking for props", togglePop)
         axios.get("http://localhost:8000/api/entries/" + id)
             .then(res => setComments(res.data.comments))
             .catch(err => console.log("bummer, error:", err))
     }
 
-    useEffect(() => { displayEntry() }, []
+    useEffect(() => { displayEntry(); }, []
     )
 
     useEffect(() => {
@@ -53,10 +53,7 @@ export default (props) => {
             setComments([...comments, comment])
         }
     }
-
-
-
-
+    
     return (
         <div className="JokeList-jokes">
             <Back link="/favs" title="wall" />
