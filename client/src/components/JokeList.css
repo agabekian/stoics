@@ -1,20 +1,21 @@
 .JokeList {
   display: flex;
   width: 80%;
-  height: 80%;
+  height: 100%;
 }
 
 .JokeList-title {
   font-size: .8rem;
   margin: 1rem;
   color: rgb(39, 73, 25);
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1rem;
   opacity: 0.7;
   font-family: Cinzel;
   color: #686666;
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
     1px 1px 1px rgba(5, 5, 5, 0.5);
 }
+
 .JokeList-sidebar {
   background-color: rgb(245, 245, 245);
   display: flex;
@@ -45,18 +46,20 @@
   display: none;
 }
 .getmore {
-  font-size: .7rem;
-  color: #f0eeee;
+  font-size: .9rem;
+  /* color: #f0eeee; */
   font-style: oblique;
-  margin-top: 3%;
-  background-color: rgb(155, 147, 147);
+  margin-top: 5%;
+  margin-bottom: 10%;
+  /* background-color: rgb(155, 147, 147); */
   font-family: Cinzel;
   letter-spacing: 0.1rem;
   border-radius: 10%;
+  border-color: rgb(226, 223, 218);
   padding: 10px;
   line-height: 10px;
-  border-width: 5px;
-  border-color: white;
+  border-width: 3px;
+  /* border-color: white; */
   border-style: solid;
   width: 80%;
   height:10%;
@@ -82,13 +85,14 @@
   .JokeList-sidebar {
     padding: 5px;
     width: 100%;
+    background-color:#e4e4e4;
     height: 15%;
     position: absolute;
     bottom: 0;
   }
   .JokeList-title {
     font-size: 1.5vh;
-    /* //viewport -cool */
+    /* //viewport*/
     line-height: 0px;
     color:rgb(0, 0, 0);
   }
@@ -104,10 +108,11 @@
   .getmore{
     display: flex;
     justify-content: center;
-    border: none;
+    border:1px solid rgb(187, 181, 181);
+    padding-bottom: 18px;
+    margin:2%;
     max-width: 50%;
-    border-radius: 0px;
-    height: 60%;
-    font-size: 1.5vh;
+    border-radius: 2px;
+    /* font-size: 1.5vh; */
   }
 }

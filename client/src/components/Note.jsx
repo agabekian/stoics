@@ -33,7 +33,10 @@ export default (props) => {
                 setErrors(res.data.errors);
             }
         }).catch(err => console.log(err));
+        setComment("");
+        setTitle("");
     }, [comments]
+
     )
     const SubmitHandler = e => {
 
