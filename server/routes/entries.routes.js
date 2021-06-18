@@ -11,5 +11,5 @@ module.exports = app => {
     app.patch('/api/entries/:id', controller.addComment)
     //D
     app.delete('/api/entries/:id', controller.deleteProduct)
-    app.put('/api/entries/cut/:id/:cid', controller.deleteComment)
+    app.patch('/api/entries/cut/:id/:cid', controller.deleteComment)
 }
