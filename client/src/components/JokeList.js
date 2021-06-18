@@ -91,12 +91,11 @@ export default class JokeList extends Component {
                 this.props.togglePop()
                 if (!dbIndexes.has(qid)) {
 
-
                     console.log("grabbed quote", selectedQuote, qid, dbIndexes)
                     // if()
                     axios.post('http://localhost:8000/api/entries',
                         {
-                            content: selectedQuote, comments: []
+                            content: selectedQuote, comments:[]
                         }, this.setState({ dupe: false }))
                 } else {
                     this.setState({ dupe: true })
@@ -115,9 +114,8 @@ export default class JokeList extends Component {
                         {this.state.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i> : "Add More Quotes"}
                     </button>
                     <Link to="/favs/" style={{ color: "#8a0303", marginTop: "5px" }}><i className="fas fa-scroll"></i></Link>
-                    <div classNam onClick={this.toggleAbout} className="JokeList-title">stoic companion
+                    <div onClick={this.toggleAbout} className="JokeList-title">stoic companion
                     </div>
-                    {/* <img className="image2" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRU6ZSTPKlIUtGlPVpPlu4oKJT5ae-ycI0WA&usqp=CAU' /> */}
                 </div>
                 <div className="JokeList-jokes">
                     {this.state.about ? <About about={this.toggleAbout} /> : ""}

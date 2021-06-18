@@ -9,7 +9,7 @@ import PopUp from './PopUp';
 export default (props) => {
     const { id, modal, togglePop } = props;
     const [title, setTitle] = useState("");
-    const [comments, setComments] = useState([]);
+    const [comments, setComments] = useState([{}]);
     const [comment, setComment] = useState("");
     const [error, setError] = useState("");
 
@@ -25,10 +25,11 @@ export default (props) => {
 
     useEffect(() => {
         setError("");
-        axios.put('http://localhost:8000/api/entries/' + id, {
-            comments,
+        axios.patch('http://localhost:8000/api/entries/' + id, {
+            "author": title, "text": comment
+            // used to be whole comments state above 
+            // (whole object would get inserted into quote obj, now seperate models)
         }).then(res => {
-            console.log("rezz", res);
             if (res.data.errors) {
                 setErrors(res.data.errors);
             }
@@ -39,7 +40,6 @@ export default (props) => {
 
     )
     const SubmitHandler = e => {
-
         e.preventDefault();
         if (title.length < 3) {
             setError("title needs 3+ chars")
@@ -50,10 +50,19 @@ export default (props) => {
             togglePop();
         }
         else {
-            setComments([...comments, comment])
+            const date = new
+                setComments([...comments, { text: comment, author: title, date: Date() }]);
         }
     }
-    
+    const deleteComment = (id, cid) => {
+        let link = `http://localhost:8000/api/entries/cut/${id}/${cid}`
+        console.log(link)
+        axios.put(link)
+            .then(res => {
+            }).catch(err => console.log(err));
+        // setComments(...comments.filter(i => i._id != cid) )  // would cause map is not a func (... spread op)
+        setComments(comments.filter(i => i._id != cid))
+    }
     return (
         <div className="JokeList-jokes">
             <Back link="/favs" title="wall" />
@@ -61,8 +70,16 @@ export default (props) => {
             {modal ? <PopUp message={error} togglePop={togglePop} /> : ""}
 
             <Link to="/">h o m e</Link>
+            <p>quoteId {id}</p>
+            {comments.map(c =>
+                <div key={uuidv4()}>
+                    <p>{c._id}</p>
+                    <p className="Note-comments" >{c.text} {c.author}</p>
+                    <p>{c.rating}</p>
+                    <button onClick={(e) => deleteComment(id, c._id)}>delete</button>
+                </div>
+            )}
             <form className="Note-form" onSubmit={SubmitHandler}>
-                {comments.map(e => <span className="Note-comments" key={uuidv4()}>{e}</span>)}
                 <div>
                     <label >title</label><br />
                     <input className="Note-input" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />

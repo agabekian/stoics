@@ -44,7 +44,6 @@ export default class Favs extends Component {
         let idx = uuidv4();
         return (
             <div className="JokeList-jokes">
-                {/* <p>xxx{this.props.nums}</p> */}
                 <Back title="saved quotes" link="/" />
                 {this.state.favs.length === 0
                     ? <p className="Favs-message">No saved quotes yet, you can add them by using a "+" button</p>
@@ -61,7 +60,7 @@ export default class Favs extends Component {
                                 author={q.content["0"].author}
                                 source={q.content["0"].source}
                                 update={this.updateEntry}
-                                nums_of_comms={q.comments.length}
+                                nums_of_comms={q.comments ? q.comments.length : 0}
                             />
                         </div>
                     ))}

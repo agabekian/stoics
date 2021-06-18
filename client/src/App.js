@@ -11,7 +11,7 @@ import About from "./components/About";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { modal: false, num_of_comments: 0 }
+    this.state = { modal: false }
     this.togglePop = this.togglePop.bind(this);
   }
 
@@ -28,7 +28,7 @@ class App extends Component {
       <Router className="App">
         <JokeList path="/" togglePop={this.togglePop} modal={this.state.modal} />
         <Note path="/note/:id/" togglePop={this.togglePop} modal={this.state.modal} />
-        <Favs path="/favs" noc={this.state.num_of_comments}/>
+        <Favs path="/favs" />
         <About path="/about" />
       </Router>
     );
