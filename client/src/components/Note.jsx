@@ -16,7 +16,6 @@ export default (props) => {
             .then(res => setComments(res.data.comments))
             .catch(err => console.log("bummer, error:", err))
     }
-
     useEffect
         (
             () => { displayEntry() }, [comments]
@@ -49,13 +48,14 @@ export default (props) => {
             togglePop();
         }
         else {
-            const date = new
                 setComments([...comments, { text: comment, author: title, date: Date() }]);
             setError("");
             axios.patch('http://localhost:8000/api/entries/' + id, { "author": title, "text": comment }
             ).then(res => {
-                if (res.data.errors) {
-                    setErrors(res.data.errors);
+                console.log(res)
+                if (res.data.err) {
+                    setError(res.data.err);
+                    togglePop();
                 }
             }).catch(err => console.log(err));
             setComment("");
@@ -74,6 +74,14 @@ export default (props) => {
             }).catch(err => console.log(err));
 
     }
+
+    const date = (uTime)=> 
+    {
+        let local =  new Date(uTime).toString().split('')
+        local.splice(local.indexOf('G')-4).join('')
+        return local
+    }
+
     return (
         <div className="JokeList-jokes">
             <Back link="/favs" title="musings" />
@@ -81,11 +89,12 @@ export default (props) => {
             {modal ? <PopUp message={error} togglePop={togglePop} /> : ""}
             {/* <p>{id}</p> */}
             {comments.map((c, idx) =>
-                <div className="Note-comments" index={idx}>
+                <div className="Note-comments" index={idx} key={idx}>
                     <div className="close" onClick={(e) => deleteComment(id, c._id, idx)}>
                         <i className="fa fa-times"></i>
                     </div>
                     <p>{c.author} wrote: <br /> <span>{c.text}</span></p>
+                    <p>{date(c.time)}</p>
                     {/* <p>{c.rating}not rating the greats</p> */}
                 </div>
             )}

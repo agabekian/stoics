@@ -52,7 +52,7 @@ module.exports.addComment = (req, res) => {
                     { $addToSet: { comments: req.body } },
                     { runValidators: true, useFindAndModify: false, new: true })
             } else {
-                res.json({ error: "Already here.." });
+                res.json({ err: "You already posted a comment.." });
             }
         })
         .then(data => res.json(data))

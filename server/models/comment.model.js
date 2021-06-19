@@ -13,7 +13,8 @@ const CommentSchema = new mongoose.Schema({
         type: Number,
         min: [1, "Rating must be at least 1 star"],
         max: [5, "Max rating is 5 stars"]
-    }
+    },
+    time : { type : Date, default: Date.now}
 },
     { timestamps: true });
 
