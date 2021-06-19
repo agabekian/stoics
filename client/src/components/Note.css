@@ -1,3 +1,6 @@
+/* *{
+    border:1px solid rgb(223, 86, 8);
+} */
 .Note-info{
     color: blueviolet;
     font-size: .5rem;
@@ -17,9 +20,11 @@ body {
     }
 
 .Note-form{
-        display: flex;
-        flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
     }
+    
 .submit{
     margin-top: 10%;
     color: rgb(237, 234, 240);
@@ -32,12 +37,11 @@ body {
     color: rgb(98, 95, 90);
     font-family: Roboto;
     font-style: oblique;
-}
-.Note-comments {
-    color: rgb(72, 80, 80);
-    border:1px solid rgb(248, 245, 245);
-    border-radius: 12px;
-    padding: 5px;
+    background-color: rgb(236, 232, 226);
+    border: 2px solid rgb(163, 160, 160);
+    border-top:0;
+    border-radius:5px;
+    padding:5px;
 }
 label {
     font-family: 'Courier New', Courier, monospace;

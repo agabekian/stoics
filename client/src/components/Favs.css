@@ -3,7 +3,6 @@
     background: grey;
     font-size: 1.2rem;
     justify-content: space-between;
-    text-align: center;
     text-shadow: 1px 1px #999999;
     padding: 0px 20px 0px 20px;
     color: rgb(223, 221, 221);
@@ -29,4 +28,20 @@
 .arrow{
     font-size: 2rem ;
 }
+.Favs-title  {
+    margin-top:8px;
+    width:30%
+}
+.home{
+    color:rgb(223, 219, 219);
+    margin:12px 0px 0px 133px ;
+}
+@media screen and (max-width: 480px) {
+    .Favs-back {
+        flex-direction: row;
+    }
+    .home{
+        margin:13px 0px 0px 80px ;
 
+    }
+}

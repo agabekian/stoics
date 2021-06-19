@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from '@reach/router'
 import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
-import "./Note.css";
 import Back from './scrap/Back';
 import PopUp from './PopUp';
+import "./Note.css";
 
 export default (props) => {
     const { id, modal, togglePop } = props;
@@ -12,7 +10,6 @@ export default (props) => {
     const [comments, setComments] = useState([{}]);
     const [comment, setComment] = useState("");
     const [error, setError] = useState("");
-    const [sub, setSub] = useState(false);
 
     const displayEntry = () => {
         axios.get("http://localhost:8000/api/entries/" + id)
@@ -22,8 +19,8 @@ export default (props) => {
 
     useEffect
         (
-            () => { displayEntry() }, []
-        )
+            () => { displayEntry()}, [comments]
+        );
 
     // useEffect(() => {
     //     setError("");
@@ -59,44 +56,47 @@ export default (props) => {
             ).then(res => {
                 if (res.data.errors) {
                     setErrors(res.data.errors);
+                    displayEntry()
                 }
             }).catch(err => console.log(err));
             setComment("");
             setTitle("");
-            setSub(true)
         }
     }
 
-    const deleteComment = (id, cid) => {
+    const deleteComment = (id, cid, index) => {
         let link = `http://localhost:8000/api/entries/cut/${id}/${cid}`
         axios.patch(link)
             .then(res => {
+                // setComments([...comments.filter(c => comments.indexOf(c) != index)])
+                // setComments(res.data.comments)
+                // displayEntry();
+                // if(comments) is still not processed pop a modal
             }).catch(err => console.log(err));
-        setComments(comments.filter(i => i._id != cid))
+
     }
     return (
         <div className="JokeList-jokes">
-            <Back link="/favs" title="wall" />
+            <Back link="/favs" title="musings" />
 
             {modal ? <PopUp message={error} togglePop={togglePop} /> : ""}
-
-            <Link to="/">h o m e</Link>
-            {/* <p>quoteId {id}</p> */}
-            {comments.map(c =>
-                <div key={uuidv4()}>
-                    {/* <p>{c._id}</p> */}
-                    <p className="Note-comments" >{c.text} {c.author}</p>
-                    <p>{c.rating}</p>
-                    <button onClick={(e) => deleteComment(id, c._id)}>delete</button>
+            {/* <p>{id}</p> */}
+            {comments.map((c,idx) =>
+                <div className="Note-comments" index={idx}>
+                    <div className="close" onClick={(e) => deleteComment(id, c._id, idx)}>
+                        <i className="fa fa-times"></i>
+                    </div>
+                    <p>{c.author} wrote: <br/> <span>{c.text}</span></p>
+                    {/* <p>{c.rating}not rating the greats</p> */}
                 </div>
             )}
             <form className="Note-form" onSubmit={SubmitHandler}>
                 <div>
-                    <label >title</label><br/>
+                    <label >Name</label><br />
                     <input className="Note-input" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </div>
                 <div>
-                    <label >comment</label><br/>
+                    <label >Comment</label><br />
                     <textarea className="Note-input" cols={23} value={comment} onChange={(e) => setComment(e.target.value)} />
                 </div>
                 <input className="btn btn-primary submit" type="submit" value="post" />

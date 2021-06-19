@@ -15,9 +15,8 @@ export default class List extends Component {
             <div className="Joke">
                 <div className="Joke-text">
                     {/* <p>{this.props.id}</p> */}
-                    <p>{this.props.text}</p>
-                    <br />
-                    <span>{this.props.author}<br />
+                    <p>{this.props.text}</p><br/>
+                    <span>{this.props.author}<br/>
                         {this.props.source}
                         <br />
                         <Link to={`/note/${this.props.id}/`} style={{ fontFamily: "arial", fontSize:".7rem", letterSpacing: ".6px" }}>notes ({this.props.nums_of_comms})</Link>
