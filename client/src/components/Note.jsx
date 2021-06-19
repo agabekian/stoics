@@ -19,7 +19,7 @@ export default (props) => {
 
     useEffect
         (
-            () => { displayEntry()}, [comments]
+            () => { displayEntry() }, [comments]
         );
 
     // useEffect(() => {
@@ -81,12 +81,12 @@ export default (props) => {
 
             {modal ? <PopUp message={error} togglePop={togglePop} /> : ""}
             {/* <p>{id}</p> */}
-            {comments.map((c,idx) =>
+            {comments.map((c, idx) =>
                 <div className="Note-comments" index={idx}>
                     <div className="close" onClick={(e) => deleteComment(id, c._id, idx)}>
                         <i className="fa fa-times"></i>
                     </div>
-                    <p>{c.author} wrote: <br/> <span>{c.text}</span></p>
+                    <p>{c.author} wrote: <br /> <span>{c.text}</span></p>
                     {/* <p>{c.rating}not rating the greats</p> */}
                 </div>
             )}
