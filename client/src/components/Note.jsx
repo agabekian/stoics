@@ -56,9 +56,9 @@ export default (props) => {
             ).then(res => {
                 if (res.data.errors) {
                     setErrors(res.data.errors);
-                    displayEntry()
                 }
             }).catch(err => console.log(err));
+            displayEntry()
             setComment("");
             setTitle("");
         }
