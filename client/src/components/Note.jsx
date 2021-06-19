@@ -58,7 +58,6 @@ export default (props) => {
                     setErrors(res.data.errors);
                 }
             }).catch(err => console.log(err));
-            displayEntry()
             setComment("");
             setTitle("");
         }
