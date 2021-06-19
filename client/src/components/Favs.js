@@ -11,19 +11,18 @@ export default class Favs extends Component {
         this.state = { favs: [] }
         this.deleteEntry = this.deleteEntry.bind(this)
     }
+
     getSavedQuotes() {
         axios.get('http://localhost:8000/api/entries')
             .then(res => {
-                // console.log(res.data)
                 this.setState({ favs: res.data })
-                console.log("saved is", this.state)
-                // setLoaded(true)
             })
     }
 
     componentDidMount() {
         this.getSavedQuotes();
     }
+
     updateEntry(entryId) {
         console.log(entryId)
         axios.put('http://localhost:8000/api/entries/' + entryId)
@@ -55,7 +54,7 @@ export default class Favs extends Component {
                             </div>
                             <List
                                 qid={q.content["0"].id}
-                                id={q._id}//db id
+                                id={q._id}
                                 text={q.content["0"].text}
                                 author={q.content["0"].author}
                                 source={q.content["0"].source}

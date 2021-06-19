@@ -36,7 +36,6 @@ export default class JokeList extends Component {
             while (quotes.length < this.props.numJokesToGet) {
                 let res = await axios.get("https://stoic-server.herokuapp.com/random");
                 let rez = res.data[0]
-                console.log(res)
                 if (!this.seenQuotes.has(rez.id)) {
 
                     quotes.push({ text: rez.body, author: rez.author, source: rez.quotesource, id: rez.id });
@@ -47,7 +46,7 @@ export default class JokeList extends Component {
                     )
                 }
             }
-            console.log(quotes);
+            // console.log(quotes);
             this.setState(
                 st => ({
                     loading: false,
@@ -95,7 +94,7 @@ export default class JokeList extends Component {
                     // if()
                     axios.post('http://localhost:8000/api/entries',
                         {
-                            content: selectedQuote, comments:[]
+                            content: selectedQuote, comments: []
                         }, this.setState({ dupe: false }))
                 } else {
                     this.setState({ dupe: true })

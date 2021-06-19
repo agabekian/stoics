@@ -1,10 +1,10 @@
-const controller = require('../controllers/entries.controller')
+const controller = require('../controllers/controller')
 
 module.exports = app => {
     //C
     app.post('/api/entries', controller.createProduct)
     //R
-    app.get('/api/entries',controller.getAllProducts)
+    app.get('/api/entries', controller.getAllProducts)
     app.get('/api/entries/:id', controller.getProduct)
     // // U
     // app.put('/api/entries/:id', controller.updateProduct)

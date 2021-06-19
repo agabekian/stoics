@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 const { CommentSchema } = require('./comment.model')
 const ProductSchema = new mongoose.Schema({
-    // title: {
-    //     type: String,
-    //     required: [true, "- Dude, where is my title?"]
-    // },
     content: {
         type: Object
     },
