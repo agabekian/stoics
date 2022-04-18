@@ -1,7 +1,6 @@
+const mongoose = require('mongoose')
 
-const mongoose =  process.env.MONGODB_URI || require('mongoose')
-
-mongoose.connect(MONGODB_URI || "mongodb://localhost/crmdb",{
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/crmdb",{
     // crmdb is used by multiple projects
     useNewUrlParser: true,
     useUnifiedTopology: true,
