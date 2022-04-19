@@ -1,7 +1,9 @@
+require('dotenv').config() //for heroku 
 
 const mongoose = require('mongoose')
 
-const url = "mongodb+srv://agabek:Mongo.8@cluster0.ocgyc.mongodb.net/Cluster0?retryWrites=true&w=majority"
+const url = config.MongoURI
+// const url = "mongodb+srv://agabek:Mongo.8@cluster0.ocgyc.mongodb.net/Cluster0?retryWrites=true&w=majority"
 
 mongoose.connect(url,
 {
