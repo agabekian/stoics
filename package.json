@@ -15,9 +15,12 @@
         "react-scripts": "^4.0.3",
         "uuid": "^3.4.0"
     },
+
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
+        "build":"cd client && npm run build",
+        "install-client":"cd client && npm install",
+        "heroku-postbuild":"npm run install-client && npm run build",
+        "start": "node server.js",
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject"
     },

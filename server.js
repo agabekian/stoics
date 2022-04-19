@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const app = express();
+const app = express(); 
 
 require('dotenv').config() //for heroku 
 
@@ -12,6 +12,10 @@ app.use(express.urlencoded({ extended: true }))
 require('./server/config/mongoose.config')
 
 require('./server/routes/entries.routes')(app)
+
+if(process.env.NODE_ENV==='production'){
+    app.use(express.static('/build'))
+}
 
 const port =  process.env.PORT||8000
 app.listen(port, () => console.log(`Now listening on port ${port}`))
