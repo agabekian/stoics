@@ -3,7 +3,7 @@ require('dotenv').config() //for heroku
 const mongoose = require('mongoose')
 // const url = process.env.MONGODB_URI
 
-const url = process.env.MONGODB_URI||"mongodb://localhost/crmdb"
+const url = process.env.MONGODB_URI
 
 // var db = mongoose.connection;
 mongoose.connect(url,
