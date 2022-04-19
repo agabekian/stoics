@@ -13,5 +13,5 @@ require('./server/config/mongoose.config')
 
 require('./server/routes/entries.routes')(app)
 
-const port =  process.env.PORT
+const port =  process.env.PORT||8000
 app.listen(port, () => console.log(`Now listening on port ${port}`))
