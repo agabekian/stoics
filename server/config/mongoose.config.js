@@ -9,7 +9,7 @@ mongoCFG = {
     retryWrites: true,
     useUnifiedTopology: true,
   }
-const url = config.MONGODB_URI
+const url = process.env.MONGODB_URI
 // const url = "mongodb+srv://agabek:Mongo.8@cluster0.ocgyc.mongodb.net/Cluster0?retryWrites=true&w=majority"
 
 mongoose.connect(url,mongoCFG)
