@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 
 // const url = process.env.MONGODB_URI
 const url = "mongodb+srv://agabek:Mongo.8@cluster0.ocgyc.mongodb.net/myFirstDatabase?retryWrites=true&w=majorityretryWrites=true"
-
+// var db = mongoose.connection;
 mongoose.connect(url,
 {
     
