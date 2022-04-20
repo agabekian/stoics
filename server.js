@@ -1,25 +1,22 @@
 const express = require('express');
 const cors = require('cors');
 const app = express(); 
+const mongoose = require('mongoose')
 
 require('dotenv').config() //for heroku 
 const path = require("path");
-
-// Step 1:
-// app.use(express.static(path.resolve(__dirname, "./build")));
-// // Step 2:
-// app.get("*", function (request, response) {
-//   response.sendFile(path.resolve(__dirname, "./build", "index.html"));
-// });
 
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-require('./server/config/mongoose.config')
+// require('./server/config/mongoose.config')
 
 require('./server/routes/entries.routes')(app)
-
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
+const conn = mongoose.connection;
+mongoose.connection.once('open', () => { console.log('MongoDB Connected'); });
+mongoose.connection.on('error', (err) => { console.log('MongoDB connection error: ', err); }); 
 
 
 const port =  process.env.PORT||8000
