@@ -14,7 +14,7 @@ export default class Favs extends Component {
     }
 
     getSavedQuotes() {
-        axios.get('http://process.env.PORT/api/entries')
+        axios.get(`http://localhost:8000/api/entries`)
             .then(res => {
                 this.setState({ favs: res.data })
             })
