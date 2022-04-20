@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 // const url = process.env.MONGODB_URI
 
 // const url = process.env.MONGODB_URI
-const url = "mongodb+srv://agabek:Mongo.8@cluster0.ocgyc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const url = process.env.MONGODB_URI
 
 // var db = mongoose.connection;
 mongoose.connect(url,
