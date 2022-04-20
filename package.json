@@ -16,17 +16,13 @@
         "uuid": "^3.4.0"
     },
     "scripts": {
+        "start": "react-scripts start",
         "server": "nodemon server.js",
         "build": "react-scripts build",
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
-
-"start": "node index.js",
-"client": "npm run start --prefix client",
-
-
-"dev": "concurrently \"npm run client\" \"npm run server\""
-    }
+        "dev": "concurrently \"cd server && npm run start\" \"node server.js\""
+    },
     "devDependencies": {
         "enzyme": "^3.8.0",
         "enzyme-adapter-react-16": "^1.7.1",
