@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 import List from './List';
 import './Favs.css';
@@ -13,7 +13,7 @@ export default class Favs extends Component {
     }
 
     getSavedQuotes() {
-        axios.get('http://localhost:8000/api/entries')
+        axios.get('http://process.env.PORT/api/entries')
             .then(res => {
                 this.setState({ favs: res.data })
             })
