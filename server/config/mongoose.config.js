@@ -10,7 +10,7 @@ const url = process.env.MONGODB_URI
 mongoose.connect(url,
 {
     
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/crmdb",{
+// mongoose.connect(process.env.MONGODB_URI || mongodb+srv://agabek:Mongo.8@cluster0.drmmf.mongodb.net/<quotesDB>?retryWrites=true&w=majority,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // useCreateIndex: true //new add
