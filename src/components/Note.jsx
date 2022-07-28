@@ -12,7 +12,7 @@ export default (props) => {
     const [error, setError] = useState("");
 
     const displayEntry = () => {
-        axios.get("http://localhost:8000/api/entries/" + id)
+        axios.get("/api/entries/" + id)
             .then(res => setComments(res.data.comments))
             .catch(err => console.log("bummer, error:", err))
     }
@@ -50,7 +50,7 @@ export default (props) => {
         else {
                 setComments([...comments, { text: comment, author: title, date: Date() }]);
             setError("");
-            axios.patch('http://localhost:8000/api/entries/' + id, { "author": title, "text": comment }
+            axios.patch('/api/entries/' + id, { "author": title, "text": comment }
             ).then(res => {
                 console.log(res)
                 if (res.data.err) {
@@ -64,7 +64,7 @@ export default (props) => {
     }
 
     const deleteComment = (id, cid, index) => {
-        let link = `http://localhost:8000/api/entries/cut/${id}/${cid}`
+        let link = `api/entries/cut/${id}/${cid}`
         axios.patch(link)
             .then(res => {
                 // setComments([...comments.filter(c => comments.indexOf(c) != index)])
