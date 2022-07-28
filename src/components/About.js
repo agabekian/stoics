@@ -18,7 +18,7 @@ export default class About extends Component {
                         <div onClick={this.props.about}>
                             <hr />
                             {/* <p onClick={() => window.location.href = `mailto:${this.props.email}`}>email</p> */}
-                            <p>Armen Agabekian (v2021)*</p>
+                            <p>Armen Agabekian (v2021-22)*</p>
                             <a href="mailto:armasconi@gmail.com">email</a>
                             <hr />
                         </div>
