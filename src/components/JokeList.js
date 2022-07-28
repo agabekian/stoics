@@ -108,7 +108,6 @@ export default class JokeList extends Component {
         return (
             <div className="JokeList">
                 <div className="JokeList-sidebar">
-                    <h1>Deploy</h1>
                     <img className="image1" src="images/logo.jpg" alt="logo" />
                     <button className="getmore" onClick={this.handleClick}>
                         {this.state.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i> : "Add More Quotes"}
