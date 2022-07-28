@@ -25,6 +25,7 @@ class App extends Component {
 
   render() {
     return (
+      <p>TESTING</p>
       <Router className="App">
         <JokeList path="/" togglePop={this.togglePop} modal={this.state.modal} />
         <Note path="/note/:id/" togglePop={this.togglePop} modal={this.state.modal} />
