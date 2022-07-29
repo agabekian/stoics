@@ -16,12 +16,11 @@
         "uuid": "^3.4.0"
     },
     "scripts": {
+        "start": "node server.js",
+        "heroku-postbuild": "cd client && npm install && npm run build",
         "build": "react-scripts build",
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
-        "start": "nodemon server.js",
-        "server": "nodemon server.js",
-        "client": "npm start --prefix client",
         "dev": "concurrently \"cd server && npm server\" \"npm run client\""
     },
     "devDependencies": {
