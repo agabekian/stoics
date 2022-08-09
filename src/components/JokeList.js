@@ -81,10 +81,9 @@ export default class JokeList extends Component {
     }
 
     addThis(id) {
-        const repsonse = axios.get('/api/entries')
+        const repsonse = axios.get('http://localhost:8000/api/entries')
             .then(res => {
                 let dbIndexes = new Set(res.data.map(i => i.content[0].id))
-                // console.log("is a set now", this.state.compare)
                 const selectedQuote = this.state.quotes.filter(q => q.id == id);
                 const qid = selectedQuote[0].id
                 this.props.togglePop()
@@ -92,7 +91,7 @@ export default class JokeList extends Component {
 
                     console.log("grabbed quote", selectedQuote, qid, dbIndexes)
                     // if()
-                    axios.post('/api/entries',
+                    axios.post('http://localhost:8000/api/entries',
                         {
                             content: selectedQuote, comments: []
                         }, this.setState({ dupe: false }))
