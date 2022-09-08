@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './Joke.css';
+import './Quote.css';
 import GetFace from './GetFace';
 
-export default class Joke extends Component {
+export default class Quote extends Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
@@ -19,13 +19,13 @@ export default class Joke extends Component {
 
         return (
 
-            <div className="Joke">
+            <div className="Quote">
                 <GetFace source={this.props.source} author={this.props.author} />
-                <div className="Joke-text">
+                <div className="Quote-text">
                     <p></p>{this.props.text}
                     <br />
                     <span>{this.props.author},<br></br> {getSource(source)}</span>
-                    <button className="Joke-addButton" onClick={this.handleClick}>+</button>
+                    <button className="Quote-addButton" onClick={this.handleClick}>+</button>
                 </div>
             </div>
         )

@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
 import { v4 as uuidv4 } from 'uuid';
-import "./JokeList.css";
-import Joke from './Joke';
+import "./QList.css";
+import Quote from './Quote';
 import PopUp from './PopUp';
 import About from './About';
 import axios from 'axios';
 
-export default class JokeList extends Component {
+export default class QList extends Component {
     static defaultProps = {
-        numJokesToGet: 10
+        numQuotesToGet: 10
     }
+
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
@@ -33,20 +34,18 @@ export default class JokeList extends Component {
     async fetchQuotes() {
         try {
             let quotes = [];
-            while (quotes.length < this.props.numJokesToGet) {
+            while (quotes.length < this.props.numQuotesToGet) {
                 let res = await axios.get("https://stoic-server.herokuapp.com/random");
                 let rez = res.data[0]
                 if (!this.seenQuotes.has(rez.id)) {
-
                     quotes.push({ text: rez.body, author: rez.author, source: rez.quotesource, id: rez.id });
                 } else {
                     console.log("****************duplicate found ****************",
-                        // rez.body, 
                         res.id
                     )
                 }
             }
-            // console.log(quotes);
+
             this.setState(
                 st => ({
                     loading: false,
@@ -108,24 +107,24 @@ export default class JokeList extends Component {
     render() {
         let idx = uuidv4();
         return (
-            <div className="JokeList">
-                <div className="JokeList-sidebar">
+            <div className="QList">
+                <div className="QList-sidebar">
                     <img className="image1" src="images/logo.jpg" alt="logo" />
                     <button className="getmore" onClick={this.handleClick}>
                         {this.state.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i> : "Add More Quotes"}
                     </button>
                     <Link to="/favs/" style={{ color: "#8a0303", marginTop: "5px" }}><i className="fas fa-scroll"></i></Link>
-                    <div onClick={this.toggleAbout} className="JokeList-title">stoic companion
+                    <div onClick={this.toggleAbout} className="QList-title">stoic companion
                     </div>
                 </div>
-                <div className="JokeList-jokes">
+                <div className="QList-words">
                     {this.state.about ? <About about={this.toggleAbout} /> : ""}
                     {this.props.modal ? <PopUp dupe={this.state.dupe} togglePop={this.props.togglePop} modal={this.state.modal} /> : null}
                     {this.state.loading
                         ? <About loading={this.state.loading} email="armasconi@gmail.com" />
                         :
                         this.state.quotes.map((j, idx) => (
-                            <Joke
+                            <Quote
                                 key={idx}
                                 id={j.id}
                                 // votes={j.votes}

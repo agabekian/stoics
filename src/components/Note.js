@@ -12,7 +12,7 @@ export default (props) => {
     const [error, setError] = useState("");
 
     const displayEntry = () => {
-        axios.get(process.env.REACT_APP_SERVER+"/api/entries/" + id)
+        axios.get(process.env.REACT_APP_SERVER + "/api/entries/" + id)
             .then(res => setComments(res.data.comments))
             .catch(err => console.log("bummer, error:", err))
     }
@@ -32,9 +32,9 @@ export default (props) => {
             togglePop();
         }
         else {
-                setComments([...comments, { text: comment, author: title, date: Date() }]);
+            setComments([...comments, { text: comment, author: title, date: Date() }]);
             setError("");
-            axios.patch(process.env.REACT_APP_SERVER+'/api/entries/' + id, { "author": title, "text": comment }
+            axios.patch(process.env.REACT_APP_SERVER + '/api/entries/' + id, { "author": title, "text": comment }
             ).then(res => {
                 console.log(res)
                 if (res.data.err) {
@@ -51,23 +51,17 @@ export default (props) => {
         let link = `${process.env.REACT_APP_SERVER}/api/entries/cut/${id}/${cid}`
         axios.patch(link)
             .then(res => {
-                // setComments([...comments.filter(c => comments.indexOf(c) != index)])
-                // setComments(res.data.comments)
-                // displayEntry();
-                // if(comments) is still not processed pop a modal
             }).catch(err => console.log(err));
-
     }
 
-    const date = (uTime)=> 
-    {
-        let local =  new Date(uTime).toString().split('')
-        local.splice(local.indexOf('G')-4).join('')
+    const date = (uTime) => {
+        let local = new Date(uTime).toString().split('')
+        local.splice(local.indexOf('G') - 4).join('')
         return local
     }
 
     return (
-        <div className="JokeList-jokes">
+        <div className="QList-words">
             <Back link="/favs" title="musings" />
 
             {modal ? <PopUp message={error} togglePop={togglePop} /> : ""}
@@ -79,7 +73,6 @@ export default (props) => {
                     </div>
                     <p>{c.author} wrote: <br /> <span>{c.text}</span></p>
                     <p>{date(c.time)}</p>
-                    {/* <p>{c.rating}not rating the greats</p> */}
                 </div>
             )}
             <form className="Note-form" onSubmit={SubmitHandler}>

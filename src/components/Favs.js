@@ -43,7 +43,7 @@ export default class Favs extends Component {
     render() {
         let idx = uuidv4();
         return (
-            <div className="JokeList-jokes">
+            <div className="QList-words">
                 <Back title="saved quotes" link="/" />
                 {this.state.favs.length === 0
                     ? <p className="Favs-message">No saved quotes yet, you can add them by using a "+" button</p>

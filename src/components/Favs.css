@@ -1,4 +1,4 @@
-.Favs-back{
+.Favs-back {
     display: flex;
     background: grey;
     font-size: 1.2rem;
@@ -8,6 +8,7 @@
     color: rgb(223, 221, 221);
     font-family: cinzel;
 }
+
 .modal_content {
     display: flex;
     opacity: .9;
@@ -20,28 +21,28 @@
     border-radius: 5px;
     border: 2px solid rgb(167, 159, 159);
 }
+
 .Favs-message {
-    color:rgb(124, 124, 124);
+    color: rgb(124, 124, 124);
     text-align: center;
     margin-top: 2rem;
 }
-.arrow{
-    font-size: 2rem ;
+
+.arrow {
+    font-size: 2rem;
 }
-.Favs-title  {
-    margin-top:8px;
-    width:30%
+
+.home {
+    color: rgb(223, 219, 219);
+    margin: 12px 0px 0px 133px;
 }
-.home{
-    color:rgb(223, 219, 219);
-    margin:12px 0px 0px 133px ;
-}
+
 @media screen and (max-width: 480px) {
     .Favs-back {
         flex-direction: row;
     }
-    .home{
-        margin:13px 0px 0px 80px ;
 
+    .home {
+        margin: 13px 0px 0px 80px;
     }
 }
