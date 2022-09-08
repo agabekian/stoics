@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
-import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import "./JokeList.css";
 import Joke from './Joke';
 import PopUp from './PopUp';
 import About from './About';
+import axios from 'axios';
 
 export default class JokeList extends Component {
     static defaultProps = {
@@ -81,7 +81,8 @@ export default class JokeList extends Component {
     }
 
     addThis(id) {
-        const repsonse = axios.get('http://localhost:8000/api/entries')
+        console.log("posting to",process.env.REACT_APP_SERVER)
+        const repsonse = axios.get(`${process.env.REACT_APP_SERVER}/api/entries`)
             .then(res => {
                 let dbIndexes = new Set(res.data.map(i => i.content[0].id))
                 const selectedQuote = this.state.quotes.filter(q => q.id == id);
@@ -91,10 +92,12 @@ export default class JokeList extends Component {
 
                     console.log("grabbed quote", selectedQuote, qid, dbIndexes)
                     // if()
-                    axios.post('http://localhost:8000/api/entries',
+                    axios.post(`${process.env.REACT_APP_SERVER}/api/entries`,
                         {
                             content: selectedQuote, comments: []
-                        }, this.setState({ dupe: false }))
+                        }, 
+                        this.setState({ dupe: false }))
+                        console.log(res);
                 } else {
                     this.setState({ dupe: true })
                     console.log("you alreay saved the quote", qid)

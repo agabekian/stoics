@@ -12,7 +12,6 @@ export default class Joke extends Component {
         this.props.addThis(this.props.id);
     }
 
-
     render() {
         const source = this.props.source;
         const getSource = source =>
