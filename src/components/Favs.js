@@ -26,14 +26,14 @@ export default class Favs extends Component {
 
     updateEntry(entryId) {
         console.log(entryId)
-        axios.put(`${process.env.REACT_APP_SERVER}/api/entries/entryId`)
+        axios.put(`${process.env.REACT_APP_SERVER}/api/entries/${entryId}`)
             .then(res => {
             }).catch(err => console.log(err));
     }
 
     deleteEntry(entryId) {
         console.log("deleted: ", entryId)
-        axios.delete(`${process.env.REACT_APP_SERVER}/api/entries/entryId`)
+        axios.delete(`${process.env.REACT_APP_SERVER}/api/entries/${entryId}`)
             .then(res => {
             }).catch(err => console.log(err));
         this.setState({ favs: this.state.favs.filter(i => i._id != entryId) })

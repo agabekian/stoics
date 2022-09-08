@@ -111,10 +111,10 @@ export default class QList extends Component {
                 <div className="QList-sidebar">
                     <img className="image1" src="images/logo.jpg" alt="logo" />
                     <button className="getmore" onClick={this.handleClick}>
-                        {this.state.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i> : "Add More Quotes"}
+                        {this.state.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i> : <h5>Add More Quotes</h5>}
                     </button>
-                    <Link to="/favs/" style={{ color: "#8a0303", marginTop: "5px" }}><i className="fas fa-scroll"></i></Link>
-                    <div onClick={this.toggleAbout} className="QList-title">stoic companion
+                    <Link to="/favs/" style={{ color: "#8a0303", marginTop: "25px" }}><i className="fas fa-scroll fa-2x"></i></Link>
+                    <div onClick={this.toggleAbout} className="QList-title" style={{fontSize:"24px", marginTop:"45px"}}>stoic companion
                     </div>
                 </div>
                 <div className="QList-words">
