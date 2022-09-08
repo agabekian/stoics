@@ -42,6 +42,7 @@ export default class Favs extends Component {
     render() {
         let idx = uuidv4();
         return (
+            <>
             <div className="QList-words">
                 <Back title="saved quotes" link="/" />
                 {this.state.favs.length === 0
@@ -64,6 +65,7 @@ export default class Favs extends Component {
                         </div>
                     ))}
             </div>
+            </>
         )
     }
 }

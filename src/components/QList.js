@@ -24,6 +24,7 @@ export default class QList extends Component {
         this.seenQuotes = new Set(this.state.quotes.map(q => q.id));
 
     }
+
     componentDidMount() {
         if (this.state.quotes.length === 0) {
             this.setState({ loading: true }),

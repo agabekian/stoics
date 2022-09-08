@@ -1,48 +1,54 @@
 /* *{
     border:1px solid rgb(223, 86, 8);
 } */
-.Note-info{
+.Note-info {
     color: blueviolet;
     font-size: .5rem;
 }
+
 body {
-    background-image: "/client/public/images/marble.jpg";
+    background-image: url('/src/images/marble.jpg');
     text-align: center;
 }
-.Note-input{
+
+.Note-input {
     border-radius: 6px;
     border: 1px solid rgb(166, 172, 158);
 }
+
 .Note-input:focus {
     border: 1px solid rgb(192, 187, 191);
     background-color: rgb(251, 251, 251);
     outline: none;
-    }
+}
 
-.Note-form{
+.Note-form {
     display: flex;
     flex-direction: column;
     text-align: center;
-    }
-    
-.submit{
+}
+
+.submit {
     margin-top: 10%;
     color: rgb(237, 234, 240);
     background-color: rgb(127, 145, 184);
-    width: 40%;
+    width: 20%;
     align-self: center;
 }
+
 .Note-comments {
     letter-spacing: .5px;
     color: rgb(98, 95, 90);
     font-family: Roboto;
     font-style: oblique;
+    text-align: center;
     background-color: rgb(236, 232, 226);
     border: 2px solid rgb(163, 160, 160);
-    border-top:0;
-    border-radius:5px;
-    padding:5px;
+    border-top: 0;
+    border-radius: 8px;
+    padding: 5px;
 }
+
 label {
     font-family: 'Courier New', Courier, monospace;
 }

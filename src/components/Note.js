@@ -63,9 +63,7 @@ export default (props) => {
     return (
         <div className="QList-words">
             <Back link="/favs" title="musings" />
-
             {modal ? <PopUp message={error} togglePop={togglePop} /> : ""}
-            {/* <p>{id}</p> */}
             {comments.map((c, idx) =>
                 <div className="Note-comments" index={idx} key={idx}>
                     <div className="close" onClick={(e) => deleteComment(id, c._id, idx)}>
@@ -81,10 +79,10 @@ export default (props) => {
                     <input className="Note-input" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </div>
                 <div>
-                    <label >Comment</label><br />
+                    <label >You say</label><br />
                     <textarea className="Note-input" cols={23} value={comment} onChange={(e) => setComment(e.target.value)} />
                 </div>
-                <input className="btn btn-primary submit" type="submit" value="post" />
+                <input className="btn btn-primary submit" type="submit" value="POST COMMENT" />
             </form>
         </div>
     )

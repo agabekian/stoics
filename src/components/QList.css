@@ -36,9 +36,6 @@
   opacity: 0.3;
 }
 
-.image2 {
-  display: none;
-}
 
 .getmore {
   font-size: .9rem;
@@ -72,10 +69,6 @@
     width: 100%;
   }
 
-  .QList-words {
-    width: 100%;
-    background: #e4e4e4;
-  }
 
   .QList-sidebar {
     padding: 5px;
@@ -90,10 +83,6 @@
     font-size: 1.5vh;
     line-height: 0px;
     color:rgb(0, 0, 0);
-  }
-
-  .image1 {
-    display: none;
   }
 
   .getmore{
