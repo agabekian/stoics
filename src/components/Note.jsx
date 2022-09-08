@@ -12,7 +12,7 @@ export default (props) => {
     const [error, setError] = useState("");
 
     const displayEntry = () => {
-        axios.get("http://localhost:8000/api/entries/" + id)
+        axios.get(process.env.REACT_APP_SERVER+"/api/entries/" + id)
             .then(res => setComments(res.data.comments))
             .catch(err => console.log("bummer, error:", err))
     }
@@ -20,22 +20,6 @@ export default (props) => {
         (
             () => { displayEntry() }, [comments]
         );
-
-    // useEffect(() => {
-    //     setError("");
-    //     axios.patch('http://localhost:8000/api/entries/' + id, {
-    //              comments
-    //         // used to be whole 'comments' state above 
-    //         // (whole object would get inserted into quote obj, now seperate models)
-    //     }).then(res => {
-    //         if (res.data.errors) {
-    //             setErrors(res.data.errors);
-    //         }
-    //     }).catch(err => console.log(err));
-    //     setComment("");
-    //     setTitle("");
-    // }, [comments]
-    // )
 
     const SubmitHandler = e => {
         e.preventDefault();
@@ -50,7 +34,7 @@ export default (props) => {
         else {
                 setComments([...comments, { text: comment, author: title, date: Date() }]);
             setError("");
-            axios.patch('http://localhost:8000/api/entries/' + id, { "author": title, "text": comment }
+            axios.patch(process.env.REACT_APP_SERVER+'/api/entries/' + id, { "author": title, "text": comment }
             ).then(res => {
                 console.log(res)
                 if (res.data.err) {
@@ -64,7 +48,7 @@ export default (props) => {
     }
 
     const deleteComment = (id, cid, index) => {
-        let link = `http://localhost:8000/api/entries/cut/${id}/${cid}`
+        let link = `${process.env.REACT_APP_SERVER}/api/entries/cut/${id}/${cid}`
         axios.patch(link)
             .then(res => {
                 // setComments([...comments.filter(c => comments.indexOf(c) != index)])

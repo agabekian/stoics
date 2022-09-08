@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import List from './List';
 import './Favs.css';
@@ -14,7 +14,7 @@ export default class Favs extends Component {
     }
 
     getSavedQuotes() {
-        axios.get("http://localhost:8000/api/entries")
+        axios.get(`${process.env.REACT_APP_SERVER}/api/entries`)
             .then(res => {
                 this.setState({ favs: res.data })
             })
@@ -26,7 +26,7 @@ export default class Favs extends Component {
 
     updateEntry(entryId) {
         console.log(entryId)
-        axios.put('http://localhost:8000/api/entries/' + entryId)
+        axios.put(`${process.env.REACT_APP_SERVER}/api/entries/entryId`)
             .then(res => {
             }).catch(err => console.log(err));
     }
@@ -34,7 +34,7 @@ export default class Favs extends Component {
 
     deleteEntry(entryId) {
         console.log("deleted: ", entryId)
-        axios.delete('http://localhost:8000/api/entries/' + entryId)
+        axios.delete(`${process.env.REACT_APP_SERVER}/api/entries/entryId`)
             .then(res => {
             }).catch(err => console.log(err));
         this.setState({ favs: this.state.favs.filter(i => i._id != entryId) })
@@ -66,6 +66,5 @@ export default class Favs extends Component {
                     ))}
             </div>
         )
-
     }
 }

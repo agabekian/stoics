@@ -22,11 +22,6 @@ export default class Joke extends Component {
 
             <div className="Joke">
                 <GetFace source={this.props.source} author={this.props.author} />
-                {/* <div className="Joke-buttons">
-                    <i className="fas fa-arrow-up" onClick={this.props.upvote}></i>
-                    <span className="Joke-votes">{this.props.votes}</span>
-                    <i className="fas fa-arrow-down" onClick={this.props.downvote}></i>
-                </div> */}
                 <div className="Joke-text">
                     <p></p>{this.props.text}
                     <br />
