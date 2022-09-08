@@ -31,7 +31,6 @@ export default class Favs extends Component {
             }).catch(err => console.log(err));
     }
 
-
     deleteEntry(entryId) {
         console.log("deleted: ", entryId)
         axios.delete(`${process.env.REACT_APP_SERVER}/api/entries/entryId`)

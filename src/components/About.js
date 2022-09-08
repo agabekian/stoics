@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import "./About.css";
-import { Link } from '@reach/router';
-
 
 export default class About extends Component {
 
@@ -15,7 +12,7 @@ export default class About extends Component {
                             <i className="fas fa-spinner fa-pulse" style={{ fontSize: '4rem' }}></i>
                         </div>
                         :
-                        <div onClick={this.props.about}>
+                        <div onClick={this.props.about} style={{fontFamily:"Cinzel"}}>
                             <hr />
                             {/* <p onClick={() => window.location.href = `mailto:${this.props.email}`}>email</p> */}
                             <p>Armen Agabekian (v2021-22)*</p>
