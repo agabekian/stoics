@@ -81,7 +81,7 @@ export default class QList extends Component {
     }
 
     addThis(id) {
-        console.log("posting to",process.env.REACT_APP_SERVER)
+        console.log("posting to", process.env.REACT_APP_SERVER)
         const repsonse = axios.get(`${process.env.REACT_APP_SERVER}/api/entries`)
             .then(res => {
                 let dbIndexes = new Set(res.data.map(i => i.content[0].id))
@@ -95,9 +95,9 @@ export default class QList extends Component {
                     axios.post(`${process.env.REACT_APP_SERVER}/api/entries`,
                         {
                             content: selectedQuote, comments: []
-                        }, 
+                        },
                         this.setState({ dupe: false }))
-                        console.log(res);
+                    console.log(res);
                 } else {
                     this.setState({ dupe: true })
                     console.log("you alreay saved the quote", qid)
@@ -111,11 +111,18 @@ export default class QList extends Component {
             <div className="QList">
                 <div className="QList-sidebar">
                     <img className="image1" src="images/logo.jpg" alt="logo" />
-                    <button className="getmore" onClick={this.handleClick}>
-                        {this.state.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i> : <h5>Add More Quotes</h5>}
-                    </button>
+
+                    {this.state.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i>
+                        :
+                        <>
+                        <button className="getmore" onClick={this.handleClick}>
+                            <div className="full">get more quotes</div>
+                        </button>
+                            <button onClick={this.handleClick} className="short">MORE</button>
+                        </>
+                    }
                     <Link to="/favs/" style={{ color: "#8a0303", marginTop: "25px" }}><i className="fas fa-scroll fa-2x"></i></Link>
-                    <div onClick={this.toggleAbout} className="QList-title" style={{fontSize:"24px", marginTop:"45px"}}>stoic companion
+                    <div onClick={this.toggleAbout} className="QList-title" style={{ fontSize: "24px", marginTop: "45px" }}>stoic companion
                     </div>
                 </div>
                 <div className="QList-words">

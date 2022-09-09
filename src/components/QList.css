@@ -22,11 +22,12 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 28%;
+  min-width: 28%;
   border-radius: 3%;
   box-shadow: inset 0px -1px 15px -2px #000000;
   overflow: auto;
 }
+
 .QList-sidebar img {
   width: 100%;
   padding: 10%;
@@ -38,29 +39,33 @@
 
 
 .getmore {
-  font-size: .9rem;
-  font-style: oblique;
   margin-top: 5%;
-  margin-bottom: 10%;
   font-family: Cinzel;
+  color:grey;
   letter-spacing: 0.1rem;
   border-radius: 10%;
-  border-color: rgb(226, 223, 218);
+  border-color: rgb(223, 219, 212);
   padding: 10px;
   line-height: 10px;
-  border-width: 3px;
+  border-width: 2px;
   border-style: solid;
-  width: 80%;
-  height:10%;
+  height: 10%;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+  1px 1px 1px rgba(5, 5, 5, 0.5);
+  box-shadow: inset 0px 1px 15px -2px #d0cccc;
+  
 }
 
 .QList-words {
   height: 100%;
-  width: 72%;
+  width: 100%;
   background: white;
   align-self: center;
   overflow: scroll;
   box-shadow: inset 0px 1px 15px -2px #000000;
+}
+.short {
+  display:none
 }
 
 @media screen and (max-width: 480px) {
@@ -73,7 +78,7 @@
   .QList-sidebar {
     padding: 5px;
     width: 100%;
-    background-color:#e4e4e4;
+    background-color: #e4e4e4;
     height: 15%;
     position: absolute;
     bottom: 0;
@@ -82,16 +87,26 @@
   .QList-title {
     font-size: 1.5vh;
     line-height: 0px;
-    color:rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
   }
 
-  .getmore{
-    display: flex;
-    justify-content: center;
-    border:1px solid rgb(187, 181, 181);
-    padding-bottom: 18px;
-    margin:2%;
-    max-width: 50%;
-    border-radius: 2px;
+  .image1 {
+    display: none;
+  }
+
+  .full{
+    display: none;
+  }
+  .short{
+    font-family: Cinzel;
+    display: block;
+    border: 1px solid white;
+    border-radius: 1px;
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+    1px 1px 1px rgba(5, 5, 5, 0.5);
+    
+  }
+  .getmore {
+    display: none;
   }
 }
