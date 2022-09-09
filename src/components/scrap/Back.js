@@ -7,16 +7,14 @@ export default class Back extends Component {
     render() {
         return (
             <div>
-                <div className="Favs-back" style={{ margin: "auto" }}>
+                <div className="Favs-back">
                     <Link to={this.props.link} style={{ color: 'white' }}>
-                        <span className="arrow">
-                            <i className="fas fa-angle-left"></i>
-                        </span>
+                            <i className="fas fa-angle-left arrow"></i>
                     </Link>
                     <Link to="/">
-                        <i className="fas fa-archway home " style={{ position: "absolute",top: "0px", left: "920px"}}></i>
+                        <i className="fas fa-archway home " ></i>
                     </Link>
-                    <p className="Favs-title">{this.props.title}</p>
+                    <span className="Favs-title"> {this.props.title} </span>
                 </div>
             </div>
         )

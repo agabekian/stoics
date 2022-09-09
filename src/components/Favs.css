@@ -30,11 +30,18 @@
 
 .arrow {
     font-size: 2rem;
+    margin-top: 4px;
 }
 
 .home {
     color: rgb(223, 219, 219);
-    margin: 12px 0px 0px 133px;
+    margin-top: 10px;
+    text-align: center;
+
+}
+
+.Favs-title{
+    margin-top: 5px;
 }
 
 @media screen and (max-width: 480px) {

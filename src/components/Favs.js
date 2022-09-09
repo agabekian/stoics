@@ -44,7 +44,7 @@ export default class Favs extends Component {
         return (
             <>
             <div className="QList-words">
-                <Back title="saved quotes" link="/" />
+                <Back title="saved" link="/" />
                 {this.state.favs.length === 0
                     ? <p className="Favs-message">No saved quotes yet, you can add them by using a "+" button</p>
                     : this.state.favs.map((q, idx) =>

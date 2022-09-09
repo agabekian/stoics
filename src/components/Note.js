@@ -62,7 +62,7 @@ export default (props) => {
 
     return (
         <div className="QList-words">
-            <Back link="/favs" title="musings" />
+            <Back link="/favs" title="blah..." />
             {modal ? <PopUp message={error} togglePop={togglePop} /> : ""}
             {comments.map((c, idx) =>
                 <div className="Note-comments" index={idx} key={idx}>
@@ -75,14 +75,14 @@ export default (props) => {
             )}
             <form className="Note-form" onSubmit={SubmitHandler}>
                 <div>
-                    <label >Name</label><br />
+                    <label >You be?</label><br />
                     <input className="Note-input" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </div>
                 <div>
-                    <label >You say</label><br />
+                    <label >And thou sayeth</label><br />
                     <textarea className="Note-input" cols={23} value={comment} onChange={(e) => setComment(e.target.value)} />
                 </div>
-                <input className="btn btn-primary submit" type="submit" value="POST COMMENT" />
+                <input className="btn btn-outline-secondary submit" type="submit" value="POST COMMENT" />
             </form>
         </div>
     )
