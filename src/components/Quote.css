@@ -32,7 +32,6 @@
   text-align: left;
   overflow: hidden
   /*overflow: stop wrapping text around img */
-
 }
 
 .Quote-text span {
@@ -43,8 +42,8 @@
 
 .Quote-text :last-child {
   float: right;
-
 }
+
 .Quote-addButton {
   float: right;
   align-self: center;
@@ -71,6 +70,7 @@
   opacity: .3;
   font-size: 1.2rem;
 }
+
 @media screen and (max-width: 480px) {
   .Quote-text {
     font-size: 1rem;

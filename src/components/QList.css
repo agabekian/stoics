@@ -39,7 +39,7 @@
 
 
 .getmore {
-  margin-top: 5%;
+  margin-top: 55%;
   font-family: Cinzel;
   color:grey;
   letter-spacing: 0.1rem;
@@ -69,6 +69,8 @@
   display:none
 }
 
+
+
 @media screen and (max-width: 480px) {
   .QList {
     height: 100vh;
@@ -95,6 +97,7 @@
   }
 
   .full{
+
     display: none;
   }
   .short{

@@ -115,14 +115,14 @@ export default class QList extends Component {
                     {this.state.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i>
                         :
                         <>
+                            <Link to="/favs/" style={{ color: "#8a0303", marginTop:"140px"}}><i className="fas fa-scroll fa-2x"></i></Link>
                         <button className="getmore" onClick={this.handleClick}>
                             <div className="full">get more quotes</div>
                         </button>
                             <button onClick={this.handleClick} className="short">MORE</button>
                         </>
                     }
-                    <Link to="/favs/" style={{ color: "#8a0303", marginTop: "25px" }}><i className="fas fa-scroll fa-2x"></i></Link>
-                    <div onClick={this.toggleAbout} className="QList-title" style={{ fontSize: "24px", marginTop: "45px" }}>stoic companion
+                    <div onClick={this.toggleAbout} className="QList-title" style={{ fontSize: "24px",position:"absolute", bottom:"0"  }}>stoic companion
                     </div>
                 </div>
                 <div className="QList-words">
