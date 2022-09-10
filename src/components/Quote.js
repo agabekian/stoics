@@ -19,15 +19,18 @@ export default class Quote extends Component {
 
         return (
 
+            <>
             <div className="Quote">
                 <GetFace source={this.props.source} author={this.props.author} />
                 <div className="Quote-text">
-                    <p></p>{this.props.text}
-                    <br />
-                    <span>{this.props.author},<br></br> {getSource(source)}</span>
                     <button className="Quote-addButton" onClick={this.handleClick}>+</button>
+                    {this.props.text}
+                    <br />
+                    <span>{this.props.author},<br />{getSource(source)}</span>
                 </div>
             </div>
+                    
+            </>
         )
     }
 }

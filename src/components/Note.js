@@ -75,11 +75,11 @@ export default (props) => {
             )}
             <form className="Note-form" onSubmit={SubmitHandler}>
                 <div>
-                    <label >You be?</label><br />
+                    <label >Name:</label><br />
                     <input className="Note-input" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </div>
                 <div>
-                    <label >And thou sayeth</label><br />
+                    <label >Thou sayeth:</label><br />
                     <textarea className="Note-input" cols={23} value={comment} onChange={(e) => setComment(e.target.value)} />
                 </div>
                 <input className="btn btn-outline-secondary submit" type="submit" value="POST COMMENT" />

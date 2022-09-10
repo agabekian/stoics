@@ -13,11 +13,21 @@ export default class Favs extends Component {
         this.deleteEntry = this.deleteEntry.bind(this)
     }
 
-    getSavedQuotes() {
-        axios.get(`${process.env.REACT_APP_SERVER}/api/entries`)
-            .then(res => {
-                this.setState({ favs: res.data })
-            })
+    // getSavedQuotes() {
+    //     axios.get(`${process.env.REACT_APP_SERVER}/api/entries`)
+    //         .then(res => {
+    //             this.setState({ favs: res.data })
+    //         })
+    // }
+    getSavedQuotes = async () => {
+        try {
+            // make a call to my server/cats to get cats
+            let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
+            this.setState({ favs: savedQuotes.data })
+
+        } catch (error) {
+            console.log('we have an error: ', error.response);
+        }
     }
 
     componentDidMount() {
@@ -43,28 +53,28 @@ export default class Favs extends Component {
         let idx = uuidv4();
         return (
             <>
-            <div className="QList-words">
-                <Back title="saved" link="/" />
-                {this.state.favs.length === 0
-                    ? <p className="Favs-message">No saved quotes yet, you can add them by using a "+" button</p>
-                    : this.state.favs.map((q, idx) =>
-                    (
-                        <div key={idx}>
-                            <div className="close">
-                                <i className="fa fa-times" onClick={(e) => { this.deleteEntry(q._id) }}></i>
+                <div className="QList-words">
+                    <Back title="saved" link="/" />
+                    {this.state.favs.length === 0
+                        ? <p className="Favs-message">No saved quotes yet, you can add them by using a "+" button</p>
+                        : this.state.favs.map((q, idx) =>
+                        (
+                            <div key={idx}>
+                                <div className="close">
+                                    <i className="fa fa-times" onClick={(e) => { this.deleteEntry(q._id) }}></i>
+                                </div>
+                                <List
+                                    qid={q.content["0"].id}
+                                    id={q._id}
+                                    text={q.content["0"].text}
+                                    author={q.content["0"].author}
+                                    source={q.content["0"].source}
+                                    update={this.updateEntry}
+                                    nums_of_comms={q.comments ? q.comments.length : 0}
+                                />
                             </div>
-                            <List
-                                qid={q.content["0"].id}
-                                id={q._id}
-                                text={q.content["0"].text}
-                                author={q.content["0"].author}
-                                source={q.content["0"].source}
-                                update={this.updateEntry}
-                                nums_of_comms={q.comments ? q.comments.length : 0}
-                            />
-                        </div>
-                    ))}
-            </div>
+                        ))}
+                </div>
             </>
         )
     }

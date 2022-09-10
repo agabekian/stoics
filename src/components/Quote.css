@@ -1,51 +1,53 @@
 .Quote {
-  display: flex;
   border-bottom: 2px solid #eeeeee;
-  text-align: left;
-  align-items: center;
-  justify-content: center;
   font-weight: 400;
-  padding: 1rem;
+  padding: 2.5rem;
 }
 
 .face img {
   /* opacity: 0.6; */
+  float:left;
+  display: block;
   width: 50px;
   border-radius: 50%;
   padding: 5px;
   margin-right: 15px;
+  margin-left: px;
   box-shadow: inset 0px -1px 15px -2px #c7c7c7;
 
 }
 
-.Quote-buttons {
+/* .Quote-buttons {
   display: flex;
   margin-right: 1rem;
   align-items: center;
   justify-content: center;
   width: 15%;
-}
+} */
 
 .Quote-text {
   font-size: 1rem;
   /* font-weight: 500; */
-  font-family: 'Cinzel', serif;}
+  font-family: 'Cinzel', serif;
+  text-align: left;
+  overflow: hidden
+  /*overflow: stop wrapping text around img */
+
+}
 
 .Quote-text span {
   color: rgb(141, 141, 141);
   font-size: 0.6rem;
   font-style: italic;
-  display: inline-block;
-  /* width: 90%; */
-  text-decoration: none;
-  margin-right: 10%;
 }
 
 .Quote-text :last-child {
-  text-align: right;
   float: right;
+
 }
 .Quote-addButton {
+  float: right;
+  align-self: center;
   border-radius: 50%;
   border: solid;
   background-color: #fbfdf9;
@@ -55,20 +57,14 @@
   box-shadow: inset 1px 6px 12px rgb(246, 239, 239), inset -1px -10px 5px rgb(235, 238, 235), 1px 2px 1px rgb(235, 235, 235);
   color: rgb(158, 150, 150);
   text-shadow: 1px 1px #d1cece;
+  font-weight:bold;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* .Quote-votes {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  border-radius: 12%;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 300;
-  border: 3px solid rgb(184, 181, 181);
-  box-shadow: 0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1);
-} */
+.Quote-addButton:hover {
+  color: rgb(158, 8, 8);
+  text-shadow: 0 5px 15px rgba(222, 55, 17, 0.4);
+}
 
 .close{
   color:rgb(93, 92, 92);
