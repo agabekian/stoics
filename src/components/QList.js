@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 import "./QList.css";
 import Quote from './Quote';
 import PopUp from './PopUp';
 import About from './About';
-import axios from 'axios';
+import Profile from './auth/Profile';
+import NavBarCompact from './NavBarCompact';
 
 export default class QList extends Component {
     static defaultProps = {
@@ -14,15 +16,16 @@ export default class QList extends Component {
 
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
         this.toggleAbout = this.toggleAbout.bind(this);
         this.addThis = this.addThis.bind(this);
         this.state = {
             quotes: JSON.parse(window.localStorage.getItem("quotes") || "[]"),
-            selected: [], loading: false, dupe: false, about: false
+            selected: [], 
+            loading: false, 
+            dupe: false, 
+            about: false
         };
         this.seenQuotes = new Set(this.state.quotes.map(q => q.id));
-
     }
 
     componentDidMount() {
@@ -59,18 +62,7 @@ export default class QList extends Component {
         }
     }
 
-    handleVote(id, delta) {
-        this.setState(
-            st => ({
-                quotes: st.quotes.map(j =>
-                    j.id === id ? { ...j, votes: j.votes + delta } : j
-                )
-            }), () => window.localStorage.setItem("quotes", JSON.stringify(this.state.quotes))
-
-        );
-    }
-
-    handleClick() {
+    handleClick = () => {
         this.setState({ loading: true });
         this.setState({ about: false })
         this.fetchQuotes();
@@ -100,51 +92,47 @@ export default class QList extends Component {
                     console.log(res);
                 } else {
                     this.setState({ dupe: true })
-                    console.log("you alreay saved the quote", qid)
+                    console.log("you have alreay saved this quote", qid)
                 }
             })
     }
 
     render() {
         let idx = uuidv4();
+        let color1 = "#8a0303";
         return (
             <div className="QList">
                 <div className="QList-sidebar">
+                    {/* <NavBarCompact/> */}
+                        <Profile toggleAbout={this.toggleAbout} />
                     <img className="image1" src="images/logo.jpg" alt="logo" />
-
                     {this.state.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i>
                         :
                         <>
-                            <Link to="/favs/" style={{ color: "#8a0303", marginTop:"140px"}}><i className="fas fa-scroll fa-2x"></i></Link>
-                        <button className="getmore" onClick={this.handleClick}>
-                            <div className="full">get more quotes</div>
-                        </button>
+                            {this.state.about ? <PopUp message={<About />} togglePop={this.toggleAbout} bColor={color1} fontColor='white' /> : ""}
+                            <Link to="/favs/" style={{ color: color1, marginTop: "40px" }}><i className="fas fa-scroll fa-4x"></i></Link>
+                            <button className="getmore" onClick={this.handleClick}>
+                                <div className="full">get more quotes</div>
+                            </button>
                             <button onClick={this.handleClick} className="short">MORE</button>
                         </>
                     }
-                    <div onClick={this.toggleAbout} className="QList-title" style={{ fontSize: "24px",position:"absolute", bottom:"0"  }}>stoic companion
-                    </div>
                 </div>
                 <div className="QList-words">
-                    {this.state.about ? <About about={this.toggleAbout} /> : ""}
-                    {this.props.modal ? <PopUp dupe={this.state.dupe} togglePop={this.props.togglePop} modal={this.state.modal} /> : null}
+                    {this.props.modal ? <PopUp dupe={this.state.dupe} fontColor="grey" togglePop={this.props.togglePop} modal={this.props.modal} /> : null}
                     {this.state.loading
-                        ? <About loading={this.state.loading} email="armasconi@gmail.com" />
+                        ? <About loading={this.state.loading} />
                         :
                         this.state.quotes.map((j, idx) => (
                             <Quote
                                 key={idx}
                                 id={j.id}
-                                // votes={j.votes}
                                 text={j.text}
                                 author={j.author}
                                 source={j.source}
                                 addThis={this.addThis}
-                            // upvote={() => this.handleVote(j.id, 1)}
-                            // downvote={() => this.handleVote(j.id, -1)}
                             />
                         ))}
-
                 </div>
             </div>
         )

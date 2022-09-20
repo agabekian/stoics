@@ -4,7 +4,18 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Auth0Provider } from "@auth0/auth0-react";
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+
+
+ReactDOM.render(
+  <Auth0Provider
+    domain={process.env.REACT_APP_DOMAIN}
+    clientId={process.env.REACT_APP_CLIENTID}
+    redirectUri={window.location.origin}
+  >
+    <App />
+  </Auth0Provider>,
+  document.getElementById("root")
+);

@@ -5,13 +5,12 @@
 }
 
 .QList-title {
-  font-size: .8rem;
   margin: 1rem;
   color: rgb(39, 73, 25);
   letter-spacing: 0.1rem;
-  opacity: 0.7;
   font-family: Cinzel;
-  color: #686666;
+  color: #d8c1c1;
+  font-size: 24px;
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
     1px 1px 1px rgba(5, 5, 5, 0.5);
 }
@@ -24,7 +23,7 @@
   text-align: center;
   min-width: 28%;
   border-radius: 3%;
-  box-shadow: inset 0px -1px 15px -2px #000000;
+  box-shadow: 25px 25px 50px 0 white inset, -25px -25px 50px 0 white inset;
   overflow: auto;
 }
 
@@ -32,30 +31,30 @@
   width: 100%;
   padding: 10%;
   border-radius: 5%;
-  box-shadow: inset 0px -1px 15px -2px #000000;
+  /* box-shadow: inset 0px -1px 15px -2px #000000; */
   z-index: 2;
   opacity: 0.3;
 }
 
 
 .getmore {
-  margin-top: 55%;
+  background: url("../images/marble.jpg")no-repeat center center;
+  margin-top: 10%;
   font-family: Cinzel;
-  color:grey;
+  font-size: 1.5rem;
+  color: grey;
   letter-spacing: 0.1rem;
-  border-radius: 10%;
-  border-color: rgb(223, 219, 212);
-  padding: 10px;
-  line-height: 10px;
-  border-width: 2px;
-  border-style: solid;
+  border-radius: 6%;
+  border: 2px solid rgb(197, 190, 190);
   height: 10%;
   min-width: 60%;
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
-  1px 1px 1px rgba(5, 5, 5, 0.5);
-  box-shadow: inset 0px 1px 15px -2px #d0cccc;
-  
+    1px 1px 1px rgba(90, 84, 84, 0.5);
+  box-shadow: inset 0px 1px 15px -2px #474343;
+
 }
+
+
 
 .QList-words {
   height: 100%;
@@ -65,8 +64,9 @@
   overflow: scroll;
   box-shadow: inset 0px 1px 15px -2px #000000;
 }
+
 .short {
-  display:none
+  display: none
 }
 
 
@@ -96,20 +96,34 @@
     display: none;
   }
 
-  .full{
+  .full {
 
     display: none;
   }
-  .short{
+
+  .short {
     font-family: Cinzel;
     display: block;
     border: 1px solid white;
     border-radius: 1px;
     text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
-    1px 1px 1px rgba(5, 5, 5, 0.5);
-    
+      1px 1px 1px rgba(5, 5, 5, 0.5);
+
   }
+
   .getmore {
     display: none;
+  }
+
+
+  .QList-title {
+    margin: 1rem;
+    color: rgb(39, 73, 25);
+    letter-spacing: 0.1rem;
+    font-family: Cinzel;
+    color: #d8c1c1;
+    font-size: 24px;
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+      1px 1px 1px rgba(5, 5, 5, 0.5);
   }
 }

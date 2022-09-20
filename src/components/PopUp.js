@@ -15,12 +15,10 @@ export default class PopUp extends Component {
 
     render() {
         return (
-            <div className="modal_content">
-                {this.props.message
-                    ?
-                    this.props.message
-                    :
-                    this.props.dupe ? "Already  saved!" : "Saved the quote."
+            <div className="modal_content" onClick={this.props.togglePop} style={{backgroundColor:this.props.bColor,color:this.props.fontColor}}>
+                {this.props.message ? this.props.message :
+                
+                this.props.dupe ? "Already  saved!" : "Saved the quote."
                 }
             </div>
         )

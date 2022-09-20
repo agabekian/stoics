@@ -4,7 +4,7 @@ export default class About extends Component {
 
     render() {
         return (
-            <div className="About">
+            <div className="About" style={{textAlign:"center" ,fontFamily:"Cinzel"}}>
                 <div>
                     {this.props.loading ?
                         <div>
@@ -12,11 +12,10 @@ export default class About extends Component {
                             <i className="fas fa-spinner fa-pulse" style={{ fontSize: '4rem' }}></i>
                         </div>
                         :
-                        <div onClick={this.props.about} style={{fontFamily:"Cinzel"}}>
+                        <div onClick={this.props.toggleAbout} style={{fontFamily:"Cinzel"}}>
                             <hr />
-                            {/* <p onClick={() => window.location.href = `mailto:${this.props.email}`}>email</p> */}
-                            <p>Armen Agabekian (2022)*</p>
-                            <a href="mailto:armasconi@gmail.com">email</a>
+                            <p>Armen Agabekian (2022)</p>
+                            <a style={{color:'grey'}} href="mailto:armasconi@gmail.com">email</a>
                             <hr />
                         </div>
                     }
