@@ -59,7 +59,7 @@
   height: 100%;
   width: 100%;
   background: white;
-  align-self: center;
+  /* align-self: center; */
   overflow: scroll;
   box-shadow: inset 0px 1px 15px -2px #000000;
 }
