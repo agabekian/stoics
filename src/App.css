@@ -12,8 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 105vh;
-    font-family: "Rubik", sans-serif;
+    height: 100vh;
     color: #303233;
     /* background: rgb(209, 209, 209); */
   }
@@ -33,8 +32,6 @@
     margin: 0;
     height: 100%;
     overflow: hidden;
-        background-color: yellow;
-
 
 }
   @media screen and (max-width: 480px) {
