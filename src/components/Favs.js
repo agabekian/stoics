@@ -23,7 +23,8 @@ export default class Favs extends Component {
         try {
             // make a call to my server/cats to get cats
             let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
-            this.setState({ favs: savedQuotes.data })
+            this.setState({ favs: savedQuotes.data });
+            this.toggleLoading();
 
         } catch (error) {
             console.log('we have an error: ', error.response);
@@ -31,7 +32,10 @@ export default class Favs extends Component {
     }
 
     componentDidMount() {
-        this.getSavedQuotes();
+        if (this.state.favs.length === 0) {
+            this.props.toggleLoading();
+            this.getSavedQuotes();
+        }
     }
 
     updateEntry(entryId) {

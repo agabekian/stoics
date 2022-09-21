@@ -10,7 +10,7 @@ import Favs from "./components/Favs";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { modal: false }
+    this.state = { modal: false, loading:false}
   }
 
   togglePop = () => {
@@ -19,14 +19,19 @@ class App extends Component {
     });
   }
 
+  toggleLoading = () => {
+    this.setState({
+      loading: !this.state.loading
+    });
+  }
   render() {
     return (
       this.props.auth0.isAuthenticated ?
         <>
           <Router className="App">
-            <QList path="/" togglePop={this.togglePop} modal={this.state.modal} />
+            <QList path="/" togglePop={this.togglePop} modal={this.state.modal} toggleLoading={this.toggleLoading} loading={this.state.loading}  />
             <Note path="/note/:id/" togglePop={this.togglePop} modal={this.state.modal} />
-            <Favs path="/favs" />
+            <Favs path="/favs" toggleLoading={this.toggleLoading}/>
           </Router>
         </>
         :

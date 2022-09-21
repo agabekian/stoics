@@ -23,9 +23,8 @@ export default class QList extends Component {
         this.addThis = this.addThis.bind(this);
         this.state = {
             quotes: JSON.parse(window.localStorage.getItem("quotes") || "[]"),
-            selected: [], 
-            loading: false, 
-            dupe: false, 
+            selected: [],
+            dupe: false,
             about: false
         };
         this.seenQuotes = new Set(this.state.quotes.map(q => q.id));
@@ -33,7 +32,7 @@ export default class QList extends Component {
 
     componentDidMount() {
         if (this.state.quotes.length === 0) {
-            this.setState({ loading: true }),
+            this.props.toggleLoading(),
                 this.fetchQuotes();
         }
     }
@@ -55,18 +54,18 @@ export default class QList extends Component {
 
             this.setState(
                 st => ({
-                    loading: false,
                     quotes: [...st.quotes, ...quotes],
                 }),
                 () => window.localStorage.setItem("quotes", JSON.stringify(this.state.quotes))
-            );
+                );
+                this.props.toggleLoading();
         } catch (err) {
             alert(err);
         }
     }
 
     handleClick = () => {
-        this.setState({ loading: true });
+        this.props.toggleLoading();
         this.setState({ about: false })
         this.fetchQuotes();
     }
@@ -107,9 +106,9 @@ export default class QList extends Component {
             <div className="QList">
                 <div className="QList-sidebar">
                     {/* <NavBarCompact/> */}
-                        <Profile  toggleAbout={this.toggleAbout} />
+                    <Profile toggleAbout={this.toggleAbout} />
                     <img className="image1" src="images/logo.jpg" alt="logo" />
-                    {this.state.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i>
+                    {this.props.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i>
                         :
                         <>
                             {this.state.about ? <PopUp message={<About />} togglePop={this.toggleAbout} bColor={color1} fontColor='white' /> : ""}
@@ -117,16 +116,16 @@ export default class QList extends Component {
                             <button className="getmore" onClick={this.handleClick}>
                                 <div className="full">get more quotes</div>
                             </button>
-                            <button  className='btn-responsive' onClick={this.handleClick} >More</button>
+                            <button className='btn-responsive' onClick={this.handleClick} >More</button>
                             <Logout />
-                        
+
                         </>
                     }
                 </div>
                 <div className="QList-words">
                     {this.props.modal ? <PopUp dupe={this.state.dupe} fontColor="grey" togglePop={this.props.togglePop} autoClose={true} /> : null}
-                    {this.state.loading
-                        ? <About loading={this.state.loading} />
+                    {this.props.loading
+                        ? <About loading={this.props.loading} />
                         :
                         this.state.quotes.map((j, idx) => (
                             <Quote
