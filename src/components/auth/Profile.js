@@ -1,6 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
-import Logout from './Logout'
 
 const Profile = (props) => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -23,10 +22,11 @@ const Profile = (props) => {
             alt={user.name}
             style={{ borderRadius: '50%' }}
           /> */}
+          
         </div>
-        <div >
+        {/* <div >
           <p>{user.name}</p>
-        </div>
+        </div> */}
       </div>
     )
   );
