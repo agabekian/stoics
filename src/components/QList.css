@@ -55,7 +55,6 @@
 }
 
 
-
 .QList-words {
   height: 100%;
   width: 100%;
@@ -65,10 +64,10 @@
   box-shadow: inset 0px 1px 15px -2px #000000;
 }
 
-.short {
-  display: none
+.btn-responsive{
+  display: none;
+  /* background-color:rgb(222, 186, 5); */
 }
-
 
 
 @media screen and (max-width: 480px) {
@@ -92,6 +91,17 @@
     color: rgb(0, 0, 0);
   }
 
+  .btn-responsive {
+    margin-top: 10px;
+    font-family: Cinzel;
+    display: block;
+    border:none;
+    /* border-radius: 1px;
+    border: 1px solid rgb(236, 239, 236);
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+      1px 1px 1px rgba(5, 5, 5, 0.5); */
+  }
+
   .image1 {
     display: none;
   }
@@ -101,20 +111,10 @@
     display: none;
   }
 
-  .short {
-    font-family: Cinzel;
-    display: block;
-    border: 1px solid white;
-    border-radius: 1px;
-    text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
-      1px 1px 1px rgba(5, 5, 5, 0.5);
-
-  }
 
   .getmore {
     display: none;
   }
-
 
   .QList-title {
     margin: 1rem;
@@ -122,8 +122,17 @@
     letter-spacing: 0.1rem;
     font-family: Cinzel;
     color: #d8c1c1;
-    font-size: 24px;
+    /* font-size: 24px; */
     text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
       1px 1px 1px rgba(5, 5, 5, 0.5);
+  }
+
+  .modal {
+    position: fixed;
+    top: 3%;
+    right: 3%;
+    left: 3%;
+    width: auto;
+    margin: 0;
   }
 }

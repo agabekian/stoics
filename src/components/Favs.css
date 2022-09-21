@@ -20,6 +20,7 @@
     padding: 20px;
     border-radius: 5px;
     border: 2px solid rgb(167, 159, 159);
+
 }
 
 .Favs-message {
@@ -50,5 +51,14 @@
 
     .home {
         margin: 13px 0px 0px 80px;
+    }
+
+    .modal_content { 
+        position: fixed; 
+        top: 3%; 
+        right: 3%; 
+        left: 3%; 
+        width: auto; 
+        margin: 0; 
     }
 }

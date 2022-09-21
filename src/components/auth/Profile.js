@@ -26,7 +26,6 @@ const Profile = (props) => {
         </div>
         <div >
           <p>{user.name}</p>
-          <Logout />
         </div>
       </div>
     )

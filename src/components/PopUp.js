@@ -5,20 +5,26 @@ export default class PopUp extends Component {
     constructor(props) {
         super(props);
     }
-
+    
     componentDidMount() {
-        const timer = setTimeout(() => {
-            this.props.togglePop()
-        }, 1000);
-        return () => clearTimeout(timer);
+        if(this.props.autoClose){
+
+            const timer = setTimeout(() => {
+                this.props.togglePop()
+            }, 1000);
+    
+            return () => clearTimeout(timer);
+        }
+        console.log("sticky  modal");
+
     };
 
     render() {
         return (
-            <div className="modal_content" onClick={this.props.togglePop} style={{backgroundColor:this.props.bColor,color:this.props.fontColor}}>
+            <div className="modal_content" onClick={this.props.togglePop} style={{ backgroundColor: this.props.bColor, color: this.props.fontColor }}>
                 {this.props.message ? this.props.message :
-                
-                this.props.dupe ? "Already  saved!" : "Saved the quote."
+
+                    this.props.dupe ? "Already  saved! Tap this popup to open" : "Saved the quote."
                 }
             </div>
         )

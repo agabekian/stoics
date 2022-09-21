@@ -7,6 +7,9 @@ import Quote from './Quote';
 import PopUp from './PopUp';
 import About from './About';
 import Profile from './auth/Profile';
+import Button from 'react-bootstrap/Button';
+import Logout from '../components/auth/Logout'
+
 import NavBarCompact from './NavBarCompact';
 
 export default class QList extends Component {
@@ -104,7 +107,7 @@ export default class QList extends Component {
             <div className="QList">
                 <div className="QList-sidebar">
                     {/* <NavBarCompact/> */}
-                        <Profile toggleAbout={this.toggleAbout} />
+                        <Profile  toggleAbout={this.toggleAbout} />
                     <img className="image1" src="images/logo.jpg" alt="logo" />
                     {this.state.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i>
                         :
@@ -114,12 +117,14 @@ export default class QList extends Component {
                             <button className="getmore" onClick={this.handleClick}>
                                 <div className="full">get more quotes</div>
                             </button>
-                            <button onClick={this.handleClick} className="short">MORE</button>
+                            <button  className='btn-responsive' onClick={this.handleClick} >More</button>
+                            <Logout />
+                        
                         </>
                     }
                 </div>
                 <div className="QList-words">
-                    {this.props.modal ? <PopUp dupe={this.state.dupe} fontColor="grey" togglePop={this.props.togglePop} modal={this.props.modal} /> : null}
+                    {this.props.modal ? <PopUp dupe={this.state.dupe} fontColor="grey" togglePop={this.props.togglePop} autoClose={true} /> : null}
                     {this.state.loading
                         ? <About loading={this.state.loading} />
                         :
