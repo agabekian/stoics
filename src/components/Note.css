@@ -9,6 +9,8 @@
 body {
     background-image: url('/src/images/marble.jpg');
     text-align: center;
+    background-repeat: no-repeat;
+    background-size:cover;
 }
 
 .Note-input {

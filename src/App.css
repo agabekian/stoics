@@ -17,8 +17,7 @@
     color: #303233;
     /* background: rgb(209, 209, 209); */
   }
-  body::after{
-    /* background: url("marble.jpg")no-repeat center center ; */
+  /* body::after{
     background-size:cover;
     content: "";
     opacity: 0.4;
@@ -28,8 +27,15 @@
     right: 0;
     left: 0;
     z-index: -1;   
-  }
+  } */
+
   body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+        background-color: yellow;
+
+
 }
   @media screen and (max-width: 480px) {
     body {
