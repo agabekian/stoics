@@ -53,8 +53,8 @@ export default class QList extends Component {
                     quotes: [...st.quotes, ...quotes],
                 }),
                 () => window.localStorage.setItem("quotes", JSON.stringify(this.state.quotes))
-                );
-                this.props.toggleLoading();
+            );
+            this.props.toggleLoading();
         } catch (err) {
             alert(err);
         }
@@ -102,16 +102,16 @@ export default class QList extends Component {
             <div className="QList">
                 <div className="QList-sidebar">
                     {/* <NavBarCompact/> */}
-              
+
                     <img className="image1" src="images/logo.jpg" alt="logo" />
                     {this.props.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i>
                         :
                         <>
-                            {this.state.about ? <PopUp message={<About />} togglePop={this.toggleAbout} bColor={color1} fontColor='white' /> : ""}
+                            {/* {this.state.about ? <PopUp message={<About />} togglePop={this.toggleAbout} bColor={color1} fontColor='white' /> : ""} */}
                             {/* <Link to="/favs/" style={{ color: color1, marginTop: "40px" }}><i className="fas fa-scroll fa-4x"></i></Link> */}
-                            {/* <button className="getmore" onClick={this.handleClick}>
+                            <button className="getmore" onClick={this.handleClick}>
                                 <div className="full">get more quotes</div>
-                            </button> */}
+                            </button>
                             {/* <button className='btn-responsive' onClick={this.handleClick} >More</button> */}
 
                         </>

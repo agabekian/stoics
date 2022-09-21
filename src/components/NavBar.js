@@ -1,29 +1,45 @@
 import React, { Component } from "react";
 import { Link } from '@reach/router';
-import Logout from './auth/Logout'
-import Login from './auth/Login';
+
 import Profile from './auth/Profile';
 import { withAuth0 } from '@auth0/auth0-react';
 import PopUp from './PopUp';
 import About from './About';
+import Links from "./Links";
+import './NavBar.css'
 
 class NavBarCompact extends Component {
-    state = {};
-    
+
+    constructor(props) {
+        super(props);
+        this.state = { links: false }
+    }
+
+    toggleLink = () => {
+        this.setState({ links: !this.state.links })
+    }
+
     render() {
         let color1 = "#8a0303";
         return (
-            
-            <div style={{display:'flex', justifyContent:'space-around',border:'3px solid grey',fontFamily:"Cinzel",backgroundColor:'white'}}>
-                <Link to="/favs/" style={{ color: color1, margin: "10px" }}><i className="fas fa-scroll fa-2x"></i></Link>
-                {this.props.auth0.isAuthenticated ?<Logout/>:<Login/>}
-                <div onClick={this.props.toggleAbout} >stoic companion
-                {this.props.about ? <PopUp message={<About />} togglePop={this.toggleAbout} bColor={color1} fontColor='white' /> : ""}
+            <>
+                {this.props.about ? <PopUp message={<About />} toggleAbout={this.props.toggleAbout} bColor={color1} fontColor='white' /> : ""}
+                <div class="topnav">
+                    <div className="active">
+                        <div className="active" onClick={this.props.toggleAbout}>
+                            <Profile />
+                        </div>
+                        <Link to="/favs/"><i className="fas fa-scroll fa-2x"></i></Link>
+                    </div>
 
-                <Profile />
-          </div>
-                
-            </div>
+
+                    {this.state.links ? <Links toggleAbout={this.props.toggleAbout} /> : ""}
+
+                    <a href="javascript:void(0);" class="icon" onClick={this.toggleLink}>
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+            </>
         );
     }
 }

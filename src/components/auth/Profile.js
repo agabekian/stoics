@@ -14,8 +14,9 @@ const Profile = (props) => {
         fontFamily: "Cinzel"
       }}>
         <div className="QList-title">
-          <div onClick={props.toggleAbout} >stoic companion
-          </div>
+        stoic companion 
+        <span style={{fontSize:'14px'}}> {user.name}'s</span> 
+         
           {/* <img
             referrerpolicy="no-referrer"
             src={user.picture}
@@ -24,9 +25,6 @@ const Profile = (props) => {
           /> */}
           
         </div>
-        {/* <div >
-          <p>{user.name}</p>
-        </div> */}
       </div>
     )
   );
