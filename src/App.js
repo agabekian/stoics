@@ -31,7 +31,7 @@ class App extends Component {
           <Router className="App">
             <QList path="/" togglePop={this.togglePop} modal={this.state.modal} toggleLoading={this.toggleLoading} loading={this.state.loading}  />
             <Note path="/note/:id/" togglePop={this.togglePop} modal={this.state.modal} />
-            <Favs path="/favs" toggleLoading={this.toggleLoading}/>
+            <Favs path="/favs" toggleLoading={this.toggleLoading} loading={this.state.loading}/>
           </Router>
         </>
         :

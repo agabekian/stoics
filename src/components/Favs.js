@@ -24,7 +24,7 @@ export default class Favs extends Component {
             // make a call to my server/cats to get cats
             let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
             this.setState({ favs: savedQuotes.data });
-            this.toggleLoading();
+            this.props.toggleLoading();
 
         } catch (error) {
             console.log('we have an error: ', error.response);
@@ -34,7 +34,7 @@ export default class Favs extends Component {
     componentDidMount() {
         if (this.state.favs.length === 0) {
             this.props.toggleLoading();
-            this.getSavedQuotes();
+            this.getSavedQuotes()
         }
     }
 
@@ -59,9 +59,11 @@ export default class Favs extends Component {
             <>
                 <div className="QList-words">
                     <Back title="saved" link="/" />
-                    {this.state.favs.length === 0
-                        ? <p className="Favs-message">No saved quotes yet, you can add them by using a "+" button</p>
-                        : this.state.favs.map((q, idx) =>
+
+                    {/* // ? <p className="Favs-message">No saved quotes yet, you can add them by using a "+" button</p> */}
+                    {this.props.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }} />
+                        :
+                        this.state.favs.map((q, idx) =>
                         (
                             <div key={idx}>
                                 <div className="close">
