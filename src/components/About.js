@@ -8,8 +8,8 @@ export default class About extends Component {
                 <div>
                     {this.props.loading ?
                         <div>
-                            <p>Getting the wisdom...</p>
                             <i className="fas fa-spinner fa-pulse" style={{ fontSize: '4rem' }}></i>
+                            <p>Getting the wisdom...</p>
                         </div>
                         :
                         <div onClick={this.props.toggleAbout} style={{fontFamily:"Cinzel"}}>
