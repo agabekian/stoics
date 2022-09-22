@@ -1,7 +1,7 @@
 {
-  "name": "client",
-  "version": "1.0.0",
-  "description": "1. _FIRST_ Run node server.js - requires MongDB installed, will create crmdb locally.\r Without the running server sstoring quotes and commenting will not work.",
+  "name": "stoic-companion-client",
+  "version": "2.0.2",
+  "description": "updated version of the stoic quotes app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
