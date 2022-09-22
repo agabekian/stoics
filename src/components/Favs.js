@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import List from './List';
+import SavedQuote from './SavedQuote';
+
 import './Favs.css';
 import { v4 as uuidv4 } from 'uuid';
-import Back from './scrap/Back';
+// import Back from './scrap/Back';
 require('dotenv').config()
 
 export default class Favs extends Component {
@@ -58,7 +59,7 @@ export default class Favs extends Component {
         return (
             <>
                 <div className="QList-words">
-                    <Back title="saved" link="/" />
+                    {/* <Back title="saved" link="/" /> */}
 
                     {/* // ? <p className="Favs-message">No saved quotes yet, you can add them by using a "+" button</p> */}
                     {this.props.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }} />
@@ -69,7 +70,7 @@ export default class Favs extends Component {
                                 <div className="close">
                                     <i className="fa fa-times" onClick={(e) => { this.deleteEntry(q._id) }}></i>
                                 </div>
-                                <List
+                                <SavedQuote
                                     qid={q.content["0"].id}
                                     id={q._id}
                                     text={q.content["0"].text}

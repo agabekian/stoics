@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from '@reach/router';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import "./QList.css";

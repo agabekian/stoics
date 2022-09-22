@@ -5,6 +5,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Auth0Provider } from "@auth0/auth0-react";
+import { BrowserRouter } from "react-router-dom";
 
 
 
@@ -15,7 +16,10 @@ ReactDOM.render(
     clientId={process.env.REACT_APP_CLIENTID}
     redirectUri={window.location.origin}
   >
-    <App />
-  </Auth0Provider>,
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Auth0Provider>
+  ,
   document.getElementById("root")
 );

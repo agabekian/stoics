@@ -1,24 +1,30 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { useParams } from "react-router-dom";
 import axios from 'axios';
-import Back from './scrap/Back';
+// import Back from './scrap/Back';
 import PopUp from './PopUp';
 import "./Note.css";
 
 export default (props) => {
-    const { id, modal, togglePop } = props;
+    let {id} = useParams();
+    const { modal, togglePop } = props;
     const [title, setTitle] = useState("");
     const [comments, setComments] = useState([{}]);
     const [comment, setComment] = useState("");
     const [error, setError] = useState("");
 
+
     const displayEntry = () => {
+        // console.log("am i working??");
         axios.get(process.env.REACT_APP_SERVER + "/api/entries/" + id)
             .then(res => setComments(res.data.comments))
             .catch(err => console.log("bummer, error:", err))
+            console.log(process.env.REACT_APP_SERVER + "/api/entries/" + id);
     }
+    
     useEffect
         (
-            () => { displayEntry() }, [comments]
+            () => { displayEntry() }, []
         );
 
     const SubmitHandler = e => {
@@ -62,7 +68,7 @@ export default (props) => {
 
     return (
         <div className="QList-words">
-            <Back link="/favs" title="blah..." />
+            {/* <Back link="/favs" title="blah..." /> */}
             {modal ? <PopUp message={error} togglePop={togglePop} /> : ""}
             {comments.map((c, idx) =>
                 <div className="Note-comments" index={idx} key={idx}>

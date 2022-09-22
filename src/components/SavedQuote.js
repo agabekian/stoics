@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './Quote.css';
-import { Link } from '@reach/router';
+import './SavedQuote.css';
+import { Route, Routes, Link } from "react-router-dom";//to SavedQuote
 
-export default class List extends Component {
+export default class SavedQuote extends Component {
     constructor(props) {
         super(props);
     }
