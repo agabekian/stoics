@@ -44,7 +44,7 @@
   margin-top: 10%; */
   font-family: Cinzel;
   font-size: 1.5rem;
-  color: grey;
+  color: rgb(65, 64, 64);
   letter-spacing: 0.1rem;
   /* border-radius: 6%; */
   /* border: 2px solid rgb(197, 190, 190);
@@ -106,9 +106,10 @@
   }
 
   .QList-title{
+    align-self: center;
     font-size: 8px;
     position: absolute;
     top:0;
-    margin-left: 1%;
+    left:35%;
   }
 }
