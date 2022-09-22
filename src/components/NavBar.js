@@ -29,9 +29,9 @@ export default function NavBarCompact(props) {
                 </a>
                 <div className='topnav'>
                     {!links ? <Links toggleAbout={props.toggleAbout} /> : ""}
-                    {props.about ? <PopUp message={<About />} toggleAbout={props.toggleAbout} bColor={color1} fontColor='white' /> : ""}
                 </div>
             </nav>
+                    {props.about ? <PopUp message={<About />} toggleAbout={props.toggleAbout} bColor={color1} fontColor='white' /> : ""}
 
 
             {/* displays extras 'About', etc on click */}
