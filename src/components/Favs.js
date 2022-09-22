@@ -5,7 +5,6 @@ import SavedQuote from './SavedQuote';
 import './Favs.css';
 import { v4 as uuidv4 } from 'uuid';
 // import Back from './scrap/Back';
-require('dotenv').config()
 
 export default class Favs extends Component {
     constructor(props) {
