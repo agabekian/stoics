@@ -88,7 +88,7 @@ export default (props) => {
                     <label >Thou sayeth:</label><br />
                     <textarea className="Note-input" cols={23} value={comment} onChange={(e) => setComment(e.target.value)} />
                 </div>
-                <input className="btn btn-outline-secondary submit" type="submit" value="POST COMMENT" />
+                <input className="btn btn-outline-secondary submit" type="submit" value="POST IT" />
             </form>
         </div>
     )
