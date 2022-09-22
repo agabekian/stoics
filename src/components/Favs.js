@@ -59,28 +59,27 @@ export default class Favs extends Component {
         return (
             <>
                 <div className="QList-words">
-                    {/* <Back title="saved" link="/" /> */}
-
-                    {/* // ? <p className="Favs-message">No saved quotes yet, you can add them by using a "+" button</p> */}
                     {this.props.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }} />
-                        :
-                        this.state.favs.map((q, idx) =>
-                        (
-                            <div key={idx}>
-                                <div className="close">
-                                    <i className="fa fa-times" onClick={(e) => { this.deleteEntry(q._id) }}></i>
+                        : this.state.favs.length === 0
+                            ? <p className="Favs-message">No saved quotes yet, you can add them by using a "+" button</p>
+                            :
+                            this.state.favs.map((q, idx) =>
+                            (
+                                <div key={idx}>
+                                    <div className="close">
+                                        <i className="fa fa-times" onClick={(e) => { this.deleteEntry(q._id) }}></i>
+                                    </div>
+                                    <SavedQuote
+                                        qid={q.content["0"].id}
+                                        id={q._id}
+                                        text={q.content["0"].text}
+                                        author={q.content["0"].author}
+                                        source={q.content["0"].source}
+                                        update={this.updateEntry}
+                                        nums_of_comms={q.comments ? q.comments.length : 0}
+                                    />
                                 </div>
-                                <SavedQuote
-                                    qid={q.content["0"].id}
-                                    id={q._id}
-                                    text={q.content["0"].text}
-                                    author={q.content["0"].author}
-                                    source={q.content["0"].source}
-                                    update={this.updateEntry}
-                                    nums_of_comms={q.comments ? q.comments.length : 0}
-                                />
-                            </div>
-                        ))}
+                            ))}
                 </div>
             </>
         )
