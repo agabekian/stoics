@@ -28,31 +28,31 @@
 }
 
 /* Add a grey background color on mouse-over */
-  a:hover {
-  color: rgb(202, 199, 198);
-  background-color: rgb(92, 82, 82);
+a:hover {
+  color: rgb(227, 102, 102);
+  background-color: rgb(62, 56, 56);
 }
 
 .active {
-  display:flex;
+  display: flex;
   background-color: #8a0303;
-  gap:1rem;
+  gap: 1rem;
 }
 
-.navico{
+.navico {
   color: rgb(223, 219, 219);
 }
-.appname{
-}
+
 
 
 @media screen and (max-width: 480px) {
-  .appname{
-
-    display:none;
+  .appname {
+    /* display: none; */
+    font-size: 12px;
   }
-  .active{
-    width:80%;
+
+  .active {
+    width: 80%;
     display: flex;
     justify-content: space-around;
   }
