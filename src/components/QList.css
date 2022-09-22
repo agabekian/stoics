@@ -6,6 +6,7 @@
 
 .QList-title {
   align-self: center;
+  margin-left: 25%;
   color: rgb(39, 73, 25);
   letter-spacing: 0.1rem;
   font-family: Cinzel;
@@ -121,8 +122,6 @@
   .QList-title{
     font-size: 8px;
     position: absolute;
-    /* margin-left: 65px; */
-    left:0;
     bottom:0;
   }
 }
