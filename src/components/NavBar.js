@@ -21,7 +21,7 @@ export default function NavBarCompact(props) {
                     <Link to='/favs'> <i className="fas fa-scroll navico "></i></Link>
                     <Link to=''> <i className="fas fa-angle-left navico" onClick={() => navigate(-1)}></i></Link>
                     <Link to='/'> <i className="fas fa-archway navico" ></i></Link>
-                    <div className="QList-title">stoic companion</div>
+                    <p className="QList-title">stoic companion</p>
 
                     {/* <div className="appname" onClick={props.toggleAbout}>
                         <Profile />
