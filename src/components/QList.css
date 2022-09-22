@@ -5,7 +5,7 @@
 }
 
 .QList-title {
-  margin: 1rem;
+  margin-top:3%;
   color: rgb(39, 73, 25);
   letter-spacing: 0.1rem;
   font-family: Cinzel;
@@ -86,11 +86,6 @@
     right:0
   }
 
-  .QList-title {
-    font-size: 1.5vh;
-    line-height: 0px;
-    color: rgb(0, 0, 0);
-  }
 
   .btn-responsive {
     margin-top: 10px;
@@ -117,16 +112,6 @@
     display: none;
   }
 
-  .QList-title {
-    margin: 1rem;
-    color: rgb(39, 73, 25);
-    letter-spacing: 0.1rem;
-    font-family: Cinzel;
-    color: #d8c1c1;
-    /* font-size: 24px; */
-    text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
-      1px 1px 1px rgba(5, 5, 5, 0.5);
-  }
 
   .modal {
     position: fixed;

@@ -14,18 +14,18 @@ const Profile = (props) => {
         fontFamily: "Cinzel"
       }}>
         <div className="QList-title">
-        stoic companion 
-        <span style={{fontSize:'14px'}}> 
-        {/* {user.name}'s */}
-        </span> 
-         
+          stoic companion
+          <span style={{ fontSize: '14px' }}>
+            {/* {user.name}'s */}
+          </span>
+
           {/* <img
             referrerpolicy="no-referrer"
             src={user.picture}
             alt={user.name}
             style={{ borderRadius: '50%' }}
           /> */}
-          
+
         </div>
       </div>
     )

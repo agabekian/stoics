@@ -35,8 +35,25 @@
 }
 
 .active {
+  display:flex;
   background-color: #8a0303;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+.navico{
+  color: rgb(223, 219, 219);
+}
+.appname{
+}
+
+
+@media screen and (max-width: 480px) {
+  .appname{
+
+    display:none;
+  }
+  .active{
+    width:80%;
+    display: flex;
+    justify-content: space-around;
+  }
 }

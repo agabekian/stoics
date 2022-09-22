@@ -8,7 +8,7 @@ export default class Back extends Component {
             <div>
                 <div className="Favs-back">
                     <Link to={this.props.link} style={{ color: 'white' }}>
-                        <i className="fas fa-angle-left arrow"></i>
+                        <i className="fas fa-angle-left"></i>
                     </Link>
                     <Link to="/">
                         <i className="fas fa-archway home " ></i>
