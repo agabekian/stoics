@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SavedQuote.css';
+import './Quote.css';
 import GetFace from './GetFace';
 
 export default class Quote extends Component {

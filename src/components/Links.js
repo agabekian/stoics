@@ -13,10 +13,7 @@ class Links extends Component {
                         About
                     </a>
                     {this.props.about ? <PopUp message={<About />} togglePop={this.props.toggleAbout} bColor={"red"} fontColor='white' /> : ""}
-
                 </div>
-
-
 
                 {this.props.auth0.isAuthenticated ? <Logout /> : <Login />}
             </div>

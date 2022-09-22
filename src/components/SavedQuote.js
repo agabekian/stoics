@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SavedQuote.css';
+import './Quote.css';
 import { Route, Routes, Link } from "react-router-dom";//to SavedQuote
 
 export default class SavedQuote extends Component {
@@ -15,7 +15,7 @@ export default class SavedQuote extends Component {
                         {this.props.source}
                         <br />
                         <Link
-                            to={`/note/${this.props.id}/`}
+                            to={`/notes/${this.props.id}/`}
                             style={{ fontFamily: "arial", fontSize: ".7rem", letterSpacing: ".6px" }}>
                             notes ({this.props.nums_of_comms})
                         </Link>

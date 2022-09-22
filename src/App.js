@@ -31,32 +31,32 @@ class App extends Component {
 
   render() {
     return (
-      // <div>
-      <Routes className="App">
-
-        {/* <Route path="/" element= {<Home/>} /> */}
-        <Route path="/favs" element={<Favs toggleLoading={this.toggleLoading} loading={this.state.loading} />} />
-        <Route path="/note/:id" element={
-          <Note togglePop={this.togglePop} modal={this.state.modal} />
-        } />
-        <Route path="/" element={
-          <div>
-            <NavBar
-              toggleAbout={this.toggleAbout}
-              togglePop={this.togglePop}
-              about={this.state.about}
-            />
-            {/* <QList
-              togglePop={this.togglePop}
-              modal={this.state.modal}
-              toggleLoading={this.toggleLoading}
-              loading={this.state.loading}
-            /> */}
-          </div>} />
-        {/* <QList path="/" togglePop={this.togglePop} modal={this.state.modal} toggleLoading={this.toggleLoading} loading={this.state.loading} />
+      <>
+        <NavBar
+          toggleAbout={this.toggleAbout}
+          togglePop={this.togglePop}
+          about={this.state.about}
+        />
+          <Routes>
+            {/* <Route path="/" element= {<Home/>} /> */}
+            <Route path="/favs" element={<Favs toggleLoading={this.toggleLoading} loading={this.state.loading} />} />
+            <Route path="/notes/:id" element={
+              <Note togglePop={this.togglePop} modal={this.state.modal} />
+            } />
+            <Route path="/" element={
+              <div className='App'>
+                <QList
+                  togglePop={this.togglePop}
+                  modal={this.state.modal}
+                  toggleLoading={this.toggleLoading}
+                  loading={this.state.loading}
+                />
+              </div>} />
+            {/* <QList path="/" togglePop={this.togglePop} modal={this.state.modal} toggleLoading={this.toggleLoading} loading={this.state.loading} />
           <Favs path="/favs" toggleLoading={this.toggleLoading} loading={this.state.loading} /> */}
-      </Routes>
-      // </div>
+          </Routes>
+
+      </>
       // this.props.auth0.isAuthenticated ?
       // :
 
