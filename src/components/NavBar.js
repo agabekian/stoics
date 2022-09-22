@@ -17,12 +17,15 @@ export default function NavBarCompact(props) {
         <>
             <nav className="topnav">
                 <div className="active">
+                    
                     <Link to='/favs'> <i className="fas fa-scroll navico "></i></Link>
                     <Link to=''> <i className="fas fa-angle-left navico" onClick={() => navigate(-1)}></i></Link>
-                    <div className="appname" onClick={props.toggleAbout}>
-                        <Profile />
-                    </div>
                     <Link to='/'> <i className="fas fa-archway navico" ></i></Link>
+                    <div className="QList-title">stoic companion</div>
+
+                    {/* <div className="appname" onClick={props.toggleAbout}>
+                        <Profile />
+                    </div> */}
                 </div>
                 <a href="javascript:void(0);" class="icon" onClick={() => setLinks(!links)}>
                     <i class="fa fa-bars"></i>
@@ -31,7 +34,7 @@ export default function NavBarCompact(props) {
                     {!links ? <Links toggleAbout={props.toggleAbout} /> : ""}
                 </div>
             </nav>
-                    {props.about ? <PopUp message={<About />} toggleAbout={props.toggleAbout} bColor={color1} fontColor='white' /> : ""}
+            {props.about ? <PopUp message={<About />} toggleAbout={props.toggleAbout} bColor={color1} fontColor='white' /> : ""}
 
 
             {/* displays extras 'About', etc on click */}

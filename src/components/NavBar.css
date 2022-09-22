@@ -8,6 +8,7 @@
 
 .topnav #myLinks {
   color: white;
+  margin: 5px;
 }
 
 /* Style navigation menu links */
@@ -43,6 +44,9 @@ a:hover {
   color: rgb(223, 219, 219);
 }
 
+.log-btn{
+  margin:25px;
+}
 
 
 @media screen and (max-width: 480px) {
@@ -52,8 +56,9 @@ a:hover {
   }
 
   .active {
-    width: 80%;
+    width: 85%;
     display: flex;
     justify-content: space-around;
   }
+  
 }

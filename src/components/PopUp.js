@@ -8,7 +8,6 @@ export default class PopUp extends Component {
 
     componentDidMount() {
         if (this.props.autoClose) {
-
             const timer = setTimeout(() => {
                 this.props.togglePop()
             }, 1000);

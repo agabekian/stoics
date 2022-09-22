@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withAuth0 } from '@auth0/auth0-react';
 import Logout from './auth/Logout'
 import Login from './auth/Login';
+import Profile from './auth/Profile';
 
 class Links extends Component {
 
@@ -15,7 +16,11 @@ class Links extends Component {
                     {this.props.about ? <PopUp message={<About />} togglePop={this.props.toggleAbout} bColor={"red"} fontColor='white' /> : ""}
                 </div>
 
-                {this.props.auth0.isAuthenticated ? <Logout /> : <Login />}
+                    <div className='log-btn'>
+                        {this.props.auth0.isAuthenticated ? <Logout /> : <Login />}
+                    </div>
+                    <Profile />
+
             </div>
 
         );

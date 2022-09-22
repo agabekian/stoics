@@ -5,7 +5,7 @@
 }
 
 .QList-title {
-  margin-top:3%;
+  align-self: center;
   color: rgb(39, 73, 25);
   letter-spacing: 0.1rem;
   font-family: Cinzel;
@@ -109,7 +109,6 @@
   .getmore {
     display: none;
   }
-
 
   .modal {
     position: fixed;

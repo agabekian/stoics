@@ -10,24 +10,24 @@ const Profile = (props) => {
 
   return (
     isAuthenticated && (
+      <>
+      <div >
       <div style={{
-        fontFamily: "Cinzel"
+        // fontFamily: "Cinzel"
       }}>
-        <div className="QList-title">
-          stoic companion
-          <span style={{ fontSize: '14px' }}>
-            {/* {user.name}'s */}
-          </span>
 
+        <span style={{ fontSize: '14px' }}>
+          {user.name}'s
+        </span>
           {/* <img
             referrerpolicy="no-referrer"
             src={user.picture}
             alt={user.name}
             style={{ borderRadius: '50%' }}
           /> */}
-
         </div>
       </div>
+    </>
     )
   );
 };

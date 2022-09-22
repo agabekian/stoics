@@ -14,6 +14,8 @@ export default class About extends Component {
                         :
                         <div onClick={this.props.toggleAbout} style={{fontFamily:"Cinzel"}}>
                             <hr />
+                            <p style={{color:'grey'}} >Stoic Companion</p>
+                            {'\u00F7'} 
                             <p>Armen Agabekian (2022)</p>
                             <a style={{color:'grey'}} href="mailto:armasconi@gmail.com">email</a>
                             <hr />
