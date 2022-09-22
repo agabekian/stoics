@@ -40,19 +40,19 @@
 
 
 .getmore {
-  background: url("../images/marble.jpg")no-repeat center center;
-  margin-top: 10%;
+  /* background: url("../images/marble.jpg")no-repeat center center;
+  margin-top: 10%; */
   font-family: Cinzel;
   font-size: 1.5rem;
   color: grey;
   letter-spacing: 0.1rem;
-  border-radius: 6%;
-  border: 2px solid rgb(197, 190, 190);
-  height: 10%;
-  min-width: 60%;
-  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+  /* border-radius: 6%; */
+  /* border: 2px solid rgb(197, 190, 190);
+  height: 10%; */
+  /* min-width: 60%; */
+  /* text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
     1px 1px 1px rgba(90, 84, 84, 0.5);
-  box-shadow: inset 0px 1px 15px -2px #474343;
+  box-shadow: inset 0px 1px 15px -2px #474343; */
 }
 
 
@@ -65,10 +65,6 @@
   box-shadow: inset 0px 1px 15px -2px #000000;
 }
 
-.btn-responsive{
-  display: none;
-  /* background-color:rgb(222, 186, 5); */
-}
 
 
 @media screen and (max-width: 480px) {
@@ -77,39 +73,27 @@
     width: 100%;
   }
 
-  .QList-sidebar {
-    padding: 5px;
-    width: 100%;
-    background-color: #e4e4e4;
-    height: 0%;
-    position: absolute;
-    bottom: 0;
-    left:0;
-    right:0
-  }
-
-  .btn-responsive {
-    margin-top: 10px;
-    font-family: Cinzel;
-    display: block;
-    border:none;
-    /* border-radius: 1px;
-    border: 1px solid rgb(236, 239, 236);
-    text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
-      1px 1px 1px rgba(5, 5, 5, 0.5); */
-  }
+  /* .QList-sidebar {
+    display:none;
+  }  */
 
   .image1 {
     display: none;
   }
 
-  .full {
-    display: none;
-  }
-
-
+.QList-sidebar{
+  position: absolute;
+  width: 100%;
+  margin: auto;
+}
   .getmore {
-    display: none;
+    font-size: 12px;
+    background-color: rgb(228, 228, 231);
+    background-image: none;
+    /* position: absolute;
+    width: 40px;
+    top: 0;
+    right:0 */
   }
 
   .modal {
@@ -120,10 +104,11 @@
     width: auto;
     margin: 0;
   }
+
   .QList-title{
-    font-size: 12px;
+    font-size: 8px;
     position: absolute;
-    bottom:0;
+    top:0;
     margin-left: 1%;
   }
 }

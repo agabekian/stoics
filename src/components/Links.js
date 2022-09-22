@@ -9,17 +9,20 @@ class Links extends Component {
     render() {
         return (
             <div id="myLinks">
-                <div onClick={this.props.toggleAbout}>
+                <div className='menu-line' onClick={this.props.toggleAbout}>
                     <a>
                         About
                     </a>
                     {this.props.about ? <PopUp message={<About />} togglePop={this.props.toggleAbout} bColor={"red"} fontColor='white' /> : ""}
                 </div>
 
-                    <div className='log-btn'>
-                        {this.props.auth0.isAuthenticated ? <Logout /> : <Login />}
-                    </div>
+                <div className='menu-line'>
+                    {this.props.auth0.isAuthenticated ? <Logout /> : <Login />}
+                </div>
+                <div className='menu-line'>
                     <Profile />
+
+                </div>
 
             </div>
 

@@ -1,14 +1,3 @@
-.Favs-back {
-    display: flex;
-    background: grey;
-    font-size: 1.2rem;
-    justify-content: space-between;
-    text-shadow: 1px 1px #999999;
-    padding: 0px 20px 0px 20px;
-    color: rgb(223, 221, 221);
-    font-family: cinzel;
-}
-
 .modal_content {
     display: flex;
     opacity: .9;

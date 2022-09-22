@@ -6,9 +6,6 @@ import Quote from './Quote';
 import PopUp from './PopUp';
 import About from './About';
 
-import Button from 'react-bootstrap/Button';
-
-
 export default class QList extends Component {
     static defaultProps = {
         numQuotesToGet: 10
@@ -61,13 +58,8 @@ export default class QList extends Component {
 
     handleClick = () => {
         this.props.toggleLoading();
-        this.setState({ about: false })
         this.fetchQuotes();
     }
-
-    // toggleAbout() {
-    //     this.setState({ about: !this.state.about })
-    // }
 
     addThis(id) {
         console.log("posting to", process.env.REACT_APP_SERVER)
@@ -99,21 +91,13 @@ export default class QList extends Component {
         let color1 = "#8a0303";
         return (
             <div className="QList">
+                
                 <div className="QList-sidebar">
-                    {/* <NavBarCompact/> */}
-
                     <img className="image1" src="images/logo.jpg" alt="logo" />
                     {this.props.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i>
                         :
-                        <>
-                            {/* {this.state.about ? <PopUp message={<About />} togglePop={this.toggleAbout} bColor={color1} fontColor='white' /> : ""} */}
-                            {/* <Link to="/favs/" style={{ color: color1, marginTop: "40px" }}><i className="fas fa-scroll fa-4x"></i></Link> */}
-                            <button className="getmore" onClick={this.handleClick}>
-                                <div className="full">get more quotes</div>
-                            </button>
-                            {/* <button className='btn-responsive' onClick={this.handleClick} >More</button> */}
+                        <button onClick={this.handleClick} className="getmore" >get more quotes</button>
 
-                        </>
                     }
                 </div>
                 <div className="QList-words">
