@@ -120,8 +120,9 @@
     margin: 0;
   }
   .QList-title{
-    font-size: 8px;
+    font-size: 12px;
     position: absolute;
     bottom:0;
+    margin-left: 5%;
   }
 }
