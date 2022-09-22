@@ -20,19 +20,22 @@ export default function NavBarCompact(props) {
             {props.about ? <PopUp message={<About />} toggleAbout={props.toggleAbout} bColor={color1} fontColor='white' /> : ""}
             <nav className="topnav">
                 <div className="active">
-                    <div  onClick={props.toggleAbout}>
+                    <Link to='/favs'> <i className="fas fa-scroll "></i></Link>
+                    <div onClick={props.toggleAbout}>
                         <Profile />
                     </div>
-                    <Link to='/favs'> <i className="fas fa-scroll "></i></Link>
                     <Link to=''> <i className="fas fa-angle-left arrow" onClick={() => navigate(-1)}></i></Link>
                     <Link to='/'> <i className="fas fa-archway home " ></i></Link>
                 </div>
-                <a href="javascript:void(0);" class="icon" onClick={() => setLinks(!links)}>
-                    <i class="fa fa-bars"></i>
-                </a>
+                    <a href="javascript:void(0);" class="icon" onClick={() => setLinks(!links)}>
+                        <i class="fa fa-bars"></i>
+                    </a>
+                <div className='topnav'>
+                {!links ? <Links toggleAbout={props.toggleAbout} /> : ""}
+                </div>
             </nav>
 
-            {!links ? <Links toggleAbout={props.toggleAbout} /> : ""} 
+            
             {/* displays extras 'About', etc on click */}
 
         </>

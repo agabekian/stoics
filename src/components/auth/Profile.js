@@ -15,7 +15,9 @@ const Profile = (props) => {
       }}>
         <div className="QList-title">
         stoic companion 
-        <span style={{fontSize:'14px'}}> {user.name}'s</span> 
+        <span style={{fontSize:'14px'}}> 
+        {/* {user.name}'s */}
+        </span> 
          
           {/* <img
             referrerpolicy="no-referrer"
