@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Profile from './auth/Profile';
 import PopUp from './PopUp';
 import About from './About';
 import SavedQuote from "./SavedQuote";
@@ -22,13 +23,22 @@ export default function NavBarCompact(props) {
                     <Link to='/'> <i className="fas fa-archway" ></i></Link>
                     <p className="QList-title">stoic companion</p>
 
+                    {/* <div className="appname" onClick={props.toggleAbout}>
+                        <Profile />
+                    </div> */}
                 </div>
-                <a href="" className="icon" onClick={() => setLinks(!links)}>
+                <Link className="icon" onClick={() => setLinks(!links)}>
                     <i className="fa fa-bars"></i>
-                </a>
+                </Link>
+
                 {!links ? <div><Links toggleAbout={props.toggleAbout} /></div> : ""}
+
             </nav>
             {props.about ? <PopUp message={<About />} toggleAbout={props.toggleAbout} bColor={color1} fontColor='white' /> : ""}
+
+
+            {/* displays extras 'About', etc on click */}
+
         </>
     );
 }
