@@ -6,7 +6,7 @@ import PopUp from './PopUp';
 import "./Note.css";
 
 export default (props) => {
-    let {id} = useParams();
+    let { id } = useParams();
     const { modal, togglePop } = props;
     const [title, setTitle] = useState("");
     const [comments, setComments] = useState([{}]);
@@ -15,16 +15,14 @@ export default (props) => {
 
 
     const displayEntry = () => {
-        // console.log("am i working??");
         axios.get(process.env.REACT_APP_SERVER + "/api/entries/" + id)
             .then(res => setComments(res.data.comments))
             .catch(err => console.log("bummer, error:", err))
-            console.log(process.env.REACT_APP_SERVER + "/api/entries/" + id);
     }
-    
+
     useEffect
         (
-            () => { displayEntry() }, []
+            () => { displayEntry() }, [comments]
         );
 
     const SubmitHandler = e => {
@@ -58,6 +56,7 @@ export default (props) => {
         axios.patch(link)
             .then(res => {
             }).catch(err => console.log(err));
+        setComments({ comments: state.comments.filter(i => i._id != cid) })
     }
 
     const date = (uTime) => {

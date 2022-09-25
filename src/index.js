@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
@@ -10,7 +10,8 @@ import { BrowserRouter } from "react-router-dom";
 
 
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(
   <Auth0Provider
     domain={process.env.REACT_APP_DOMAIN}
     clientId={process.env.REACT_APP_CLIENTID}
@@ -20,6 +21,4 @@ ReactDOM.render(
       <App />
     </BrowserRouter>
   </Auth0Provider>
-  ,
-  document.getElementById("root")
 );

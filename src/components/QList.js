@@ -101,7 +101,7 @@ export default class QList extends Component {
                     {/* } */}
                 </div>
                 <div className="QList-words">
-                    {this.props.modal ? <PopUp dupe={this.state.dupe} fontColor="grey" togglePop={this.props.togglePop} autoClose={true} /> : null}
+                    {this.props.modal ? <PopUp dupe={this.state.dupe}  togglePop={this.props.togglePop} autoClose={true} /> : null}
                     {this.props.loading
                         ? <About loading={this.props.loading} />
                         :

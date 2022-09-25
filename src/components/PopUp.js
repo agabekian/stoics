@@ -20,9 +20,9 @@ export default class PopUp extends Component {
 
     render() {
         return (
-            <div className="modal_content" onClick={this.props.toggleAbout} style={{ backgroundColor: this.props.bColor, color: this.props.fontColor }}>
+            <div className="modal_content" onClick={this.props.toggleAbout} style={{ backgroundColor: this.props.bColor,fontFamily:"Roboto" }}>
                 {this.props.message ? this.props.message :
-                    this.props.dupe ? "Already  saved! Tap this popup to open" : "Saved the quote."
+                    this.props.dupe ? "Already  saved!" : "Saved the quote."
                 }
             </div>
         )
