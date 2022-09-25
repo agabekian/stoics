@@ -4,7 +4,7 @@ export default class About extends Component {
 
     render() {
         return (
-            <div className="About" style={{textAlign:"center" ,fontFamily:"Cinzel"}}>
+            <div className="About" style={{textAlign:"center" ,fontFamily:"Cinzel",}}>
                 <div>
                     {this.props.loading ?
                         <div>
@@ -12,7 +12,7 @@ export default class About extends Component {
                             <p>Getting the wisdom...</p>
                         </div>
                         :
-                        <div onClick={this.props.toggleAbout} style={{fontFamily:"Cinzel"}}>
+                        <div onClick={this.props.toggleAbout}>
                             <hr />
                             <p style={{color:'grey'}} >Stoic Companion</p>
                             {'\u00F7'} 

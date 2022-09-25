@@ -31,7 +31,8 @@
         margin: 13px 0px 0px 80px;
     }
 
-    .modal_content { 
+    .modal_content {
+        z-index: 1;
         position: fixed; 
         top: 3%; 
         right: 3%; 
