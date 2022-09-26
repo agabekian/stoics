@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
-// import Back from './scrap/Back';
 import PopUp from './PopUp';
 import "./Note.css";
 
 export default (props) => {
     let { id } = useParams();
     const { modal, togglePop } = props;
-    const [title, setTitle] = useState("");
+    const [title, setTitle] = useState(props.user);
     const [comments, setComments] = useState([{}]);
     const [comment, setComment] = useState("");
     const [error, setError] = useState("");
@@ -38,6 +37,7 @@ export default (props) => {
         else {
             setComments([...comments, { text: comment, author: title, date: Date() }]);
             setError("");
+            console.log(props.user+" Is posting");
             axios.patch(process.env.REACT_APP_SERVER + '/api/entries/' + id, { "author": title, "text": comment }
             ).then(res => {
                 console.log(res)
@@ -47,7 +47,7 @@ export default (props) => {
                 }
             }).catch(err => console.log(err));
             setComment("");
-            setTitle("");
+            setTitle(props.user);//reset to the signed user handle
         }
     }
 
@@ -56,7 +56,6 @@ export default (props) => {
         axios.patch(link)
             .then(res => {
             }).catch(err => console.log(err));
-        setComments({ comments: state.comments.filter(i => i._id != cid) })
     }
 
     const date = (uTime) => {
@@ -67,6 +66,7 @@ export default (props) => {
 
     return (
         <div className="QList-words">
+            {/* {props.user} */}
             {/* <Back link="/favs" title="blah..." /> */}
             {modal ? <PopUp message={error} togglePop={togglePop} /> : ""}
             {comments.map((c, idx) =>
@@ -79,14 +79,22 @@ export default (props) => {
                 </div>
             )}
             <form className="Note-form" onSubmit={SubmitHandler}>
-                <div>
+                {/* <div>
                     <label >Name:</label><br />
                     <input className="Note-input" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-                </div>
+                </div> */}
                 <div>
                     <label >Thou sayeth:</label><br />
                     <textarea className="Note-input" cols={23} value={comment} onChange={(e) => setComment(e.target.value)} />
                 </div>
+
+                <div>
+                    <label >Post Author:</label><br />
+                    <textarea className="Note-input" cols={23} 
+                     placeholder={`as ${props.user} or...`}
+                    onChange={(e) => setTitle(e.target.value)} />
+                </div>
+                
                 <input className="btn btn-outline-secondary submit" type="submit" value="POST IT" />
             </form>
         </div>

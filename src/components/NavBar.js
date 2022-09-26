@@ -9,7 +9,7 @@ import './NavBar.css'
 
 export default function NavBarCompact(props) {
 
-    const [links, setLinks] = useState({ links: false })
+    const [links, setLinks] = useState(false)
     const navigate = useNavigate();
     const color1 = "#8a0303";
 
@@ -31,7 +31,7 @@ export default function NavBarCompact(props) {
                     <i className="fa fa-bars"></i>
                 </Link>
 
-                {!links ? <div><Links toggleAbout={props.toggleAbout} /></div> : ""}
+                {links ? <div><Links toggleAbout={props.toggleAbout} /></div> : ""}
 
             </nav>
             {props.about ? <PopUp message={<About />} toggleAbout={props.toggleAbout} bColor={color1} fontColor='white' /> : ""}

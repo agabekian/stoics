@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Note from "./components/Note";
+import Profile from "./components/auth/Profile";
 import QList from "./components/QList";
 import Favs from "./components/Favs";
 import NavBar from './components/NavBar';
@@ -41,7 +41,7 @@ class App extends Component {
             {/* <Route path="/" element= {<Home/>} /> */}
             <Route path="/favs" element={<Favs toggleLoading={this.toggleLoading} loading={this.state.loading} />} />
             <Route path="/notes/:id" element={
-              <Note togglePop={this.togglePop} modal={this.state.modal} />
+              <Profile togglePop={this.togglePop} modal={this.state.modal} />
             } />
             <Route path="/" element={
               <div className='App'>

@@ -19,11 +19,6 @@ class Links extends Component {
                 <div className='menu-line'>
                     {this.props.auth0.isAuthenticated ? <Logout /> : <Login />}
                 </div>
-                <div className='menu-line'>
-                    <Profile />
-
-                </div>
-
             </div>
 
         );
