@@ -31,10 +31,9 @@ body {
 }
 
 .submit {
-    margin-top: 10%;
     color: rgb(237, 234, 240);
     background-color: rgb(127, 145, 184);
-    width: 20%;
+    min-width: 10%;
     align-self: center;
 }
 

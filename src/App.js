@@ -41,7 +41,10 @@ class App extends Component {
             {/* <Route path="/" element= {<Home/>} /> */}
             <Route path="/favs" element={<Favs toggleLoading={this.toggleLoading} loading={this.state.loading} />} />
             <Route path="/notes/:id" element={
-              <Profile togglePop={this.togglePop} modal={this.state.modal} />
+              <Profile 
+              togglePop={this.togglePop} 
+              modal={this.state.modal} 
+              />
             } />
             <Route path="/" element={
               <div className='App'>

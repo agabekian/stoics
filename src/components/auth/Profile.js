@@ -10,9 +10,8 @@ const Profile = (props) => {
   }
 
   return (
-    isAuthenticated && (
+    isAuthenticated ? 
       <>
-      <div >
       <div style={{
         // fontFamily: "Cinzel"
       }}>
@@ -27,14 +26,12 @@ const Profile = (props) => {
             style={{ borderRadius: '50%' }}
           /> */}
         </div>
-      </div>
-      <Note 
-      user = {user.name}
-      togglePop={props.togglePop} 
-      modal={props.modal}
-      />
+        <Note
+        user = {user.name}
+        togglePop = {props.togglePop}
+        />
     </>
-    )
+    : "Please login to view and post comments"
   );
 };
 

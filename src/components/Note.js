@@ -12,7 +12,6 @@ export default (props) => {
     const [comment, setComment] = useState("");
     const [error, setError] = useState("");
 
-
     const displayEntry = () => {
         axios.get(process.env.REACT_APP_SERVER + "/api/entries/" + id)
             .then(res => setComments(res.data.comments))
