@@ -64,7 +64,7 @@ const Profile = (props) => {
           user={user.name}
           togglePop={props.togglePop}
         />
-        <button onClick={storeUser}>storeUser</button>
+        {/* <button onClick={storeUser}>storeUser</button> */}
       </>
       : "Please login to view and post comments"
   );
