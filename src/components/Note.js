@@ -65,9 +65,10 @@ export default (props) => {
 
     return (
         <div className="QList-words">
+            <h1>{modal}</h1>
+            {modal ? <PopUp message={error} togglePop={togglePop} /> : ""}
             {/* {props.user} */}
             {/* <Back link="/favs" title="blah..." /> */}
-            {modal ? <PopUp message={error} togglePop={togglePop} /> : ""}
             {comments.map((c, idx) =>
                 <div className="Note-comments" index={idx} key={idx}>
                     <div className="close" onClick={(e) => deleteComment(id, c._id, idx)}>

@@ -63,6 +63,7 @@ const Profile = (props) => {
         <Note
           user={user.name}
           togglePop={props.togglePop}
+          modal={props.modal}
         />
         {/* <button onClick={storeUser}>storeUser</button> */}
       </>
