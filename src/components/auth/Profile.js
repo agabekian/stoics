@@ -66,7 +66,7 @@ const Profile = (props) => {
         />
         {/* <button onClick={storeUser}>storeUser</button> */}
       </>
-      : "Please login to view and post comments"
+      : "Please login to view and post comments."
   );
 };
 
