@@ -1,0 +1,7 @@
+{
+    "name": "stoiq-companion",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "react"
+  }

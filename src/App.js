@@ -5,12 +5,27 @@ import QList from "./components/QList";
 import Favs from "./components/Favs";
 import NavBar from './components/NavBar';
 import { Route, Routes } from "react-router-dom";
-
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { modal: false, loading: false, about: false }
+    this.state = {
+      modal: false,
+      loading: false,
+      about: false,
+      favs: [],
+    }
+  }
+
+  getSavedQuotes = async () => {
+    try {
+      console.log("preloading the quotes");
+      let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
+      this.setState({ favs: savedQuotes.data });
+    } catch (error) {
+      console.log('we have an error: ', error.response);
+    }
   }
 
   togglePop = () => {
@@ -29,6 +44,13 @@ class App extends Component {
     this.setState({ about: !this.state.about })
   }
 
+  updateFavsState = (fFavs) => { this.setState({ favs: fFavs }) }
+
+  componentDidMount() {
+    this.getSavedQuotes();
+  }
+
+
   render() {
     return (
       <>
@@ -37,27 +59,37 @@ class App extends Component {
           togglePop={this.togglePop}
           about={this.state.about}
         />
-          <Routes>
-            {/* <Route path="/" element= {<Home/>} /> */}
-            <Route path="/favs" element={<Favs toggleLoading={this.toggleLoading} loading={this.state.loading} />} />
-            <Route path="/notes/:id" element={
-              <Profile 
-              togglePop={this.togglePop} 
-              modal={this.state.modal} 
+
+        <Routes>
+          <Route path="/favs" element={
+            <Favs
+              toggleLoading={this.toggleLoading}
+              loading={this.state.loading}
+              favs={this.state.favs}
+              
+              updateFavsState={this.updateFavsState}
+            />}
+          />
+
+          <Route path="/notes/:id" element={
+            <Profile
+              togglePop={this.togglePop}
+              modal={this.state.modal}
+            />
+          } />
+          <Route path="/" element={
+            <div className='App'>
+              <QList
+                togglePop={this.togglePop}
+                modal={this.state.modal}
+                toggleLoading={this.toggleLoading}
+                loading={this.state.loading}
+                getFavs={this.getSavedQuotes}
               />
-            } />
-            <Route path="/" element={
-              <div className='App'>
-                <QList
-                  togglePop={this.togglePop}
-                  modal={this.state.modal}
-                  toggleLoading={this.toggleLoading}
-                  loading={this.state.loading}
-                />
-              </div>} />
-            {/* <QList path="/" togglePop={this.togglePop} modal={this.state.modal} toggleLoading={this.toggleLoading} loading={this.state.loading} />
+            </div>} />
+          {/* <QList path="/" togglePop={this.togglePop} modal={this.state.modal} toggleLoading={this.toggleLoading} loading={this.state.loading} />
           <Favs path="/favs" toggleLoading={this.toggleLoading} loading={this.state.loading} /> */}
-          </Routes>
+        </Routes>
 
       </>
       // this.props.auth0.isAuthenticated ?

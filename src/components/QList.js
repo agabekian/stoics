@@ -43,7 +43,6 @@ export default class QList extends Component {
                     )
                 }
             }
-
             this.setState(
                 st => ({
                     quotes: [...st.quotes, ...quotes],
@@ -70,15 +69,13 @@ export default class QList extends Component {
                 const qid = selectedQuote[0].id
                 this.props.togglePop()
                 if (!dbIndexes.has(qid)) {
-
-                    console.log("grabbed quote", selectedQuote, qid, dbIndexes)
-                    // if()
+                    // console.log("grabbed quote", selectedQuote, qid, dbIndexes)
                     axios.post(`${process.env.REACT_APP_SERVER}/api/entries`,
                         {
                             content: selectedQuote, comments: []
                         },
-                        this.setState({ dupe: false }))
-                    console.log(res);
+                        this.setState({ dupe: false }), this.props.getFavs()
+                    )
                 } else {
                     this.setState({ dupe: true })
                     console.log("you have alreay saved this quote", qid)
@@ -91,17 +88,15 @@ export default class QList extends Component {
         let color1 = "#8a0303";
         return (
             <div className="QList">
-                
                 <div className="QList-sidebar">
                     <img className="image1" src="images/logo.jpg" alt="logo" />
                     {/* {this.props.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i>
                         : */}
-                        <button onClick={this.handleClick} className="getmore" >get more quotes</button>
-
+                    <button onClick={this.handleClick} className="getmore" >get more quotes</button>
                     {/* } */}
                 </div>
                 <div className="QList-words">
-                    {this.props.modal ? <PopUp dupe={this.state.dupe}  togglePop={this.props.togglePop} autoClose={true} /> : null}
+                    {this.props.modal ? <PopUp dupe={this.state.dupe} togglePop={this.props.togglePop} autoClose={true} /> : null}
                     {this.props.loading
                         ? <About loading={this.props.loading} />
                         :
