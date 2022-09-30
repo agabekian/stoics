@@ -7,43 +7,13 @@ import { v4 as uuidv4 } from 'uuid';
 const Favs = (props) => {
     const [favs, setFavs] = useState([])
 
-    // getSavedQuotes() {
-    //     axios.get(`${process.env.REACT_APP_SERVER}/api/entries`)
-    //         .then(res => {
-    //             this.setState({ favs: res.data })
-    //         })
-    // }
-    // const getSavedQuotes = async () => {
-    //     console.log("object");
-    //     try {
-    //         // make a call to my server/cats to get cats
-    //         let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
-    //         setFavs(savedQuotes.data);
-    //         // props.toggleLoading();
-
-    //     } catch (error) {
-    //         console.log('we have an error: ', error.response);
-    //     }
-    // }
-
-    // }
-    const getSavedQuotes = async () => {
-        console.log("object");
-        try {
-            // make a call to my server/cats to get cats
-            let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
-            setFavs(savedQuotes.data);
-            // props.toggleLoading();
-
-        } catch (error) {
-            console.log('we have an error: ', error.response);
-        }
-    }
     useEffect(() => {
+        props.toggleLoading();
         const getSavedQuotes = async () => {
             let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
             setFavs(savedQuotes.data);
-            // props.toggleLoading();
+            props.toggleLoading();
+
         }
         const result = getSavedQuotes().catch(console.error);
     }, []
@@ -67,7 +37,6 @@ const Favs = (props) => {
 
 
     let idx = uuidv4();
-
     return (
         <>
             <div className="QList-words">

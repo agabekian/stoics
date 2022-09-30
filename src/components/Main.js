@@ -47,16 +47,6 @@ class Main extends Component {
     this.setState({ about: !this.state.about })
   }
 
-  // updateFavsState = (fFavs) => {
-  //   console.log("im updating func");
-  //   this.setState({change:true})
-  //   this.setState({ favs: [...this.state.favs,fFavs] }) 
-  // }
-
-  // componentDidMount() {
-  //   this.getSavedQuotes();
-  // }
-
   render() {
     return (
       <>
@@ -66,10 +56,13 @@ class Main extends Component {
           about={this.state.about}
         />
 
+
         <Routes>
           <Route path="/" element={
             <Link to='/home'>
               <Enter />
+              <h1 className="tag">STOIC COMPANION</h1>
+
             </Link>
           } />
 
@@ -87,10 +80,6 @@ class Main extends Component {
                 modal={this.state.modal}
                 toggleLoading={this.toggleLoading}
                 loading={this.state.loading}
-                getFavs={this.getSavedQuotes}
-                updateFavsState={this.updateFavsState}
-                toggleChange={this.state.toggleChange}
-                favs={this.state.favs}
               />
               <Outlet />
             </div>

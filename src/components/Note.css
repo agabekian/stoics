@@ -9,8 +9,28 @@
 body {
     background-image: url('/src/images/marble.jpg');
     text-align: center;
-    background-repeat: no-repeat;
-    background-size:cover;
+    overflow: hidden;
+    background-size: cover;
+    height: 100vh;
+
+}
+
+.bust {
+    margin-top: 5%;
+    object-fit: contain;
+    opacity: 0.8;
+    height: 80vh;
+    
+}
+
+.tag {
+    font-family: Cinzel;
+    text-shadow: 2px 2px #4f0707;
+    font-size: 64px;
+    color:rgb(194, 184, 184);
+    letter-spacing: 8px;
+    display: block;
+
 }
 
 .Note-input {
