@@ -18,18 +18,16 @@ export default class Quote extends Component {
             source.includes("Meditations") ? <a href="http://classics.mit.edu/Antoninus/meditations.mb.txt" target="_blank">Mediations</a> : this.props.source
 
         return (
-
             <>
-            <div className="Quote">
-                <GetFace source={this.props.source} author={this.props.author} />
-                <div className="Quote-text">
-                    <button className="Quote-addButton" onClick={this.handleClick}>+</button>
-                    {this.props.text}
-                    <br />
-                    <span>{this.props.author},<br />{getSource(source)}</span>
+                <div className="Quote">
+                    <GetFace source={this.props.source} author={this.props.author} />
+                    <div className="Quote-text">
+                        <button className="Quote-addButton" onClick={this.handleClick}>+</button>
+                        {this.props.text}
+                        <br />
+                        <span>{this.props.author},<br />{getSource(source)}</span>
+                    </div>
                 </div>
-            </div>
-                    
             </>
         )
     }

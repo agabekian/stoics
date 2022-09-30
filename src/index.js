@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import Main from './components/Main';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,7 +19,8 @@ root.render(
     redirectUri={window.location.origin}
   >
     <BrowserRouter>
-      <App />
+      <Main />
+    {/* <App/> */}
     </BrowserRouter>
   </Auth0Provider>
 );

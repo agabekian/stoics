@@ -18,6 +18,7 @@ export default class QList extends Component {
             quotes: JSON.parse(window.localStorage.getItem("quotes") || "[]"),
             selected: [],
             dupe: false,
+            favs: []
         };
         this.seenQuotes = new Set(this.state.quotes.map(q => q.id));
     }
@@ -43,6 +44,7 @@ export default class QList extends Component {
                     )
                 }
             }
+
             this.setState(
                 st => ({
                     quotes: [...st.quotes, ...quotes],
@@ -74,7 +76,11 @@ export default class QList extends Component {
                         {
                             content: selectedQuote, comments: []
                         },
-                        this.setState({ dupe: false }), this.props.getFavs()
+                        this.setState({ dupe: false }),
+                        // this.setState({favs: selectedQuote}),
+                        // this.props.updateFavsState([selectedQuote]),
+                        console.log("CONTENT", selectedQuote),
+                        // this.props.getFavs(),                  
                     )
                 } else {
                     this.setState({ dupe: true })
@@ -88,12 +94,13 @@ export default class QList extends Component {
         let color1 = "#8a0303";
         return (
             <div className="QList">
+
                 <div className="QList-sidebar">
                     <img className="image1" src="images/logo.jpg" alt="logo" />
                     {/* {this.props.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i>
                         : */}
                     <button onClick={this.handleClick} className="getmore" >get more quotes</button>
-                    {/* } */}
+
                 </div>
                 <div className="QList-words">
                     {this.props.modal ? <PopUp dupe={this.state.dupe} togglePop={this.props.togglePop} autoClose={true} /> : null}

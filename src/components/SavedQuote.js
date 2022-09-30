@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Quote.css';
-import { Route, Routes, Link } from "react-router-dom";//to SavedQuote
+import { Link } from "react-router-dom";
 
 export default class SavedQuote extends Component {
     constructor(props) {

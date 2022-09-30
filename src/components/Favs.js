@@ -6,30 +6,48 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Favs = (props) => {
     const [favs, setFavs] = useState([])
-    
+
     // getSavedQuotes() {
     //     axios.get(`${process.env.REACT_APP_SERVER}/api/entries`)
     //         .then(res => {
     //             this.setState({ favs: res.data })
     //         })
     // }
-    // getSavedQuotes = async () => {
+    // const getSavedQuotes = async () => {
+    //     console.log("object");
     //     try {
     //         // make a call to my server/cats to get cats
     //         let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
-    //         this.setState({ favs: savedQuotes.data });
-    //         this.props.toggleLoading();
+    //         setFavs(savedQuotes.data);
+    //         // props.toggleLoading();
 
     //     } catch (error) {
     //         console.log('we have an error: ', error.response);
     //     }
     // }
 
-    useEffect(()=> setFavs(props.favs ))
-        // if (this.state.favs.length === 0) {
-        //     this.props.toggleLoading();    
-    
     // }
+    const getSavedQuotes = async () => {
+        console.log("object");
+        try {
+            // make a call to my server/cats to get cats
+            let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
+            setFavs(savedQuotes.data);
+            // props.toggleLoading();
+
+        } catch (error) {
+            console.log('we have an error: ', error.response);
+        }
+    }
+    useEffect(() => {
+        const getSavedQuotes = async () => {
+            let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
+            setFavs(savedQuotes.data);
+            // props.toggleLoading();
+        }
+        const result = getSavedQuotes().catch(console.error);
+    }, []
+    )
 
     // const updateEntry = (entryId) => {
     //     console.log(entryId)
@@ -44,11 +62,12 @@ const Favs = (props) => {
             .then(res => {
             }).catch(err => console.log(err));
         let fFavs = favs.filter(i => i._id != entryId)
-        props.updateFavsState(fFavs);
+        setFavs(fFavs);
     }
 
 
     let idx = uuidv4();
+
     return (
         <>
             <div className="QList-words">

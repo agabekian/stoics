@@ -65,7 +65,6 @@ export default (props) => {
 
     return (
         <div className="QList-words">
-            <h1>{modal}</h1>
             {modal ? <PopUp message={error} togglePop={togglePop} /> : ""}
             {/* {props.user} */}
             {/* <Back link="/favs" title="blah..." /> */}
