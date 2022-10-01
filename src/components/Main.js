@@ -67,8 +67,11 @@ class Main extends Component {
         <Routes>
           <Route path="/" element={
             <Link to='/home'>
+              <div style={{position:'fixed',top:'0px',width:'100%',margin:'0px auto'}}>
               <Enter />
               <h1 className="tag">STOIC COMPANION</h1>
+
+              </div>
 
             </Link>
           } />
