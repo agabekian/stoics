@@ -13,7 +13,7 @@ export default function NavBarCompact(props) {
     const color1 = "#8a0303";
 
     return (
-        <>
+        <div>
             <nav className="topnav">
                 <div className="active">
                     <Link to='favs'> <i className="fas fa-scroll"></i></Link>
@@ -38,7 +38,7 @@ export default function NavBarCompact(props) {
 
             {/* displays extras 'About', etc on click */}
 
-        </>
+        </div>
     );
 }
 

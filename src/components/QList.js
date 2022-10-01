@@ -94,13 +94,11 @@ export default class QList extends Component {
         let color1 = "#8a0303";
         return (
             <div className="QList">
-
                 <div className="QList-sidebar">
                     <img className="image1" src="images/logo.jpg" alt="logo" />
                     {/* {this.props.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i>
                         : */}
                     <button onClick={this.handleClick} className="getmore" >get more quotes</button>
-
                 </div>
                 <div className="QList-words">
                     {this.props.modal ? <PopUp dupe={this.state.dupe} togglePop={this.props.togglePop} autoClose={true} /> : null}

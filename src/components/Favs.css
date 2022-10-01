@@ -12,6 +12,7 @@
 
 }
 
+
 .Favs-message {
     color: rgb(124, 124, 124);
     text-align: center;
@@ -33,11 +34,11 @@
 
     .modal_content {
         z-index: 1;
-        position: fixed; 
-        top: 3%; 
-        right: 3%; 
-        left: 3%; 
-        width: auto; 
-        margin: 0; 
+        position: fixed;
+        top: 3%;
+        right: 3%;
+        left: 3%;
+        width: auto;
+        margin: 0;
     }
 }

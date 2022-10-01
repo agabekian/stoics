@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import Profile from "./auth/Profile";
 import QList from "./QList";
-// import "./Main.css";
+import "./Main.css";
 import Enter from "./Enter";
-
 import Favs from "./Favs";
 import NavBar from './NavBar';
 import { Route, Routes, Outlet, Link } from "react-router-dom";
@@ -47,14 +46,22 @@ class Main extends Component {
     this.setState({ about: !this.state.about })
   }
 
+//   componentWillMount(){
+//     document.body.style.overflow = "hidden";
+// }
+//   componentWillUnmount(){
+//     document.body.style.overflow = "auto";
+// }
   render() {
     return (
-      <>
-        <NavBar
-          toggleAbout={this.toggleAbout}
-          togglePop={this.togglePop}
-          about={this.state.about}
-        />
+      <div>
+        <div style={{position:'fixed',top:'0px',width:'100%',margin:'0px auto'}}>
+          <NavBar
+            toggleAbout={this.toggleAbout}
+            togglePop={this.togglePop}
+            about={this.state.about}
+          />
+        </div>
 
 
         <Routes>
@@ -101,7 +108,7 @@ class Main extends Component {
           <Favs path="/favs" toggleLoading={this.toggleLoading} loading={this.state.loading} /> */}
         </Routes>
 
-      </>
+      </div>
       // this.props.auth0.isAuthenticated ?
       // :
 

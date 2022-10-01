@@ -34,12 +34,15 @@ const Favs = (props) => {
         let fFavs = favs.filter(i => i._id != entryId)
         setFavs(fFavs);
     }
-
+    // useEffect(() => {
+    //     document.body.style = 'auto';
+    //     return () => { document.body.className = ''; }
+    // });
 
     let idx = uuidv4();
     return (
         <>
-            <div className="QList-words">
+            <div className="QList-words" style={{ overflow: 'auto' }}>
                 {props.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }} /> : ""}
 
                 {favs.length === 0
