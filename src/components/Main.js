@@ -46,16 +46,16 @@ class Main extends Component {
     this.setState({ about: !this.state.about })
   }
 
-//   componentWillMount(){
-//     document.body.style.overflow = "hidden";
-// }
-//   componentWillUnmount(){
-//     document.body.style.overflow = "auto";
-// }
+  //   componentWillMount(){
+  //     document.body.style.overflow = "hidden";
+  // }
+  //   componentWillUnmount(){
+  //     document.body.style.overflow = "auto";
+  // }
   render() {
     return (
       <div>
-        <div style={{position:'fixed',top:'0px',width:'100%',margin:'0px auto'}}>
+        <div style={{ position: 'fixed', width: '100%', margin: '0px auto' }}>
           <NavBar
             toggleAbout={this.toggleAbout}
             togglePop={this.togglePop}
@@ -67,11 +67,7 @@ class Main extends Component {
         <Routes>
           <Route path="/" element={
             <Link to='/home'>
-              <div style={{position:'fixed',top:'0px',width:'100%',margin:'0px auto'}}>
               <Enter />
-              <h1 className="tag">STOIC COMPANION</h1>
-
-              </div>
 
             </Link>
           } />
@@ -110,6 +106,7 @@ class Main extends Component {
           {/* <QList path="/" togglePop={this.togglePop} modal={this.state.modal} toggleLoading={this.toggleLoading} loading={this.state.loading} />
           <Favs path="/favs" toggleLoading={this.toggleLoading} loading={this.state.loading} /> */}
         </Routes>
+        <h1 className="tag">STOIC COMPANION</h1>
 
       </div>
       // this.props.auth0.isAuthenticated ?

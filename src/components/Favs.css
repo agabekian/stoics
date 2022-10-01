@@ -24,9 +24,9 @@
 }
 
 @media screen and (max-width: 480px) {
-    .Favs-back {
+    /* .Favs-back {
         flex-direction: row;
-    }
+    } */
 
     .home {
         margin: 13px 0px 0px 80px;

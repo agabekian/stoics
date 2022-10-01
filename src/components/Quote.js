@@ -11,7 +11,6 @@ export default class Quote extends Component {
     handleClick() {
         this.props.addThis(this.props.id);
     }
-
     render() {
         const source = this.props.source;
         const getSource = source =>
@@ -19,7 +18,7 @@ export default class Quote extends Component {
 
         return (
             <>
-                <div className="Quote">
+                <div className="Quote" >
                     <GetFace source={this.props.source} author={this.props.author} />
                     <div className="Quote-text">
                         <button className="Quote-addButton" onClick={this.handleClick}>+</button>
