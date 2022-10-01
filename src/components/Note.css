@@ -20,14 +20,14 @@ body {
     object-fit: contain;
     opacity: 0.8;
     height: 80vh;
-    
+
 }
 
 .tag {
     font-family: Cinzel;
     text-shadow: 2px 2px #4f0707;
     font-size: 64px;
-    color:rgb(194, 184, 184);
+    color: rgb(194, 184, 184);
     letter-spacing: 8px;
     display: block;
 
@@ -72,4 +72,16 @@ body {
 
 label {
     font-family: 'Courier New', Courier, monospace;
+}
+
+@media screen and (max-width: 480px) {
+    .bust {
+        width: 100%;
+        margin: auto;
+    }
+
+    .tag {
+        font-size: 48px;
+        margin-bottom: 30%;
+    }
 }
