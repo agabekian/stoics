@@ -116,16 +116,15 @@ export default class QList extends Component {
             <div className="QList">
                 <div className="QList-sidebar">
                     <img className="image1" src="images/logo.jpg" alt="logo" />
+                    <button onClick={this.handleClick} className="getmore" >get more quotes</button>
                     <div className="desktopView" style={{overflow:'hidden',width:'100%',height:'100vh'}}>
                         <Wiki link={this.state.frameLink} />
                     </div>
                     {/* style="margin-left: -200px; margin-top: -200px;" */}
                     {/* {this.props.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }}></i>
                         : */}
-                    {/* <button onClick={this.handleClick} className="getmore" >get more quotes</button> */}
                 </div>
                 <div className="QList-words">
-                    <h1>cool</h1>
                     {this.props.modal ? <PopUp dupe={this.state.dupe} togglePop={this.props.togglePop} autoClose={true} /> : null}
                     {this.props.loading
                         ? <About loading={this.props.loading} />
