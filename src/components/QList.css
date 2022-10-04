@@ -19,12 +19,7 @@
 
 .QList-sidebar {
   background-color: rgb(205, 203, 203);
-  /* display: flex; */
-  /* flex-direction: column;
-  align-items: center; */
-  /* text-align: center; */
   min-width: 28%;
-  /* border-radius: 3%; */
   box-shadow: 25px 25px 50px 0 white inset, -25px -25px 50px 0 white inset;
   overflow: auto;
 }
@@ -54,9 +49,6 @@
 
 
 .QList-words {
-  margin-top: 50px;
-  /* height: 100%; */
-  /* width: 100%; */
   background: white;
   /* align-self: center; */
   box-shadow: inset 0px 1px 15px -2px #000000;
@@ -89,7 +81,7 @@
     width: 100%;
     position: fixed;
     bottom: 0;
-    left:0;
+    left:0
   }
 
 
