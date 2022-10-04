@@ -102,11 +102,12 @@ class Main extends Component {
               updateFavsState={this.updateFavsState} //update on delete in favs
             />}
           />
+          <Route path="/*" element={
+            <Profile.js/>} />
+          
 
-          {/* <QList path="/" togglePop={this.togglePop} modal={this.state.modal} toggleLoading={this.toggleLoading} loading={this.state.loading} />
-          <Favs path="/favs" toggleLoading={this.toggleLoading} loading={this.state.loading} /> */}
         </Routes>
-        {/* <h1 className="tag">STOIC COMPANION</h1> */}
+        <h1 className="tag">STOIC COMPANION</h1>
 
       </div>
       // this.props.auth0.isAuthenticated ?

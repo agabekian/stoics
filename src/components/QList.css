@@ -87,8 +87,9 @@
     font-size: 12px;
     font-weight: 600;
     width: 100%;
-    position: initial;
+    position: fixed;
     bottom: 0;
+    left:0;
   }
 
 
