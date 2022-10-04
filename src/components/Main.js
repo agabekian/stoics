@@ -102,8 +102,8 @@ class Main extends Component {
               updateFavsState={this.updateFavsState} //update on delete in favs
             />}
           />
-          <Route path="/*" element={
-            <Profile.js/>} />
+          {/* <Route path="/*" element={
+            <Main.js.js/>} /> */}
           
 
         </Routes>
