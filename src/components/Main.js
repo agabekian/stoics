@@ -65,7 +65,7 @@ class Main extends Component {
 
         <Routes>
           <Route path="" element={
-            <Link to=''>
+            <Link to='/home'>
               <Enter />
 
             </Link>
