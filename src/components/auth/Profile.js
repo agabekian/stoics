@@ -10,38 +10,35 @@ const Profile = (props) => {
     return <div>Loading ...</div>;
   }
 
-  const storeUser = () => {
-    const target = `${process.env.REACT_APP_SERVER}/api/users`
-    console.log("post to",target,user.name);
-                  axios.post(target,
-                      {
-                          name: user.name,
-                          email: user.email
-                      })      // const repsonse = axios.get(`${process.env.REACT_APP_SERVER}/api/users`)
-      //     .then(res => {
-      //         let dbUsers = new Set(res.data.map(u => u.name))
-      //         // const selectedUser = this.state.quotes.filter(q => q.id == id);
-      //         // const qid = selectedQuote[0].id
-      //         // this.props.togglePop()
-      //         if (!dbUsers.has(selectedUser)) {
+  // const storeUser = () => {
+  //   const target = `${process.env.REACT_APP_SERVER}/api/users`
+  //   console.log("post to",target,user.name);
+  //                 axios.post(target,
+  //                     {
+  //                         name: user.name,
+  //                         email: user.email
+  //                     })      // const repsonse = axios.get(`${process.env.REACT_APP_SERVER}/api/users`)
+  //         .then(res => {
+  //             let dbUsers = new Set(res.data.map(u => u.name))
+  //             if (!dbUsers.has(selectedUser)) {
 
-      //             console.log("grabbed quote", selectedQuote, qid, dbIndexes)
-      //             // if()
-      //             axios.post(`${process.env.REACT_APP_SERVER}/api/users`,
-      //                 {
-      //                     name: user.name,
-      //                     email: user.email
-      //                 },
-      //                 this.setState({ dupe: false }))
-      //             console.log(res);
-      //         } else {
-      //             this.setState({ dupe: true })
-      //             console.log("This user already exists in the database ", user_id)
-      //         }
-      //     })
-  }
+  //                 console.log("grabbed quote", selectedQuote, qid, dbIndexes)
+  //                 // if()
+  //                 axios.post(`${process.env.REACT_APP_SERVER}/api/users`,
+  //                     {
+  //                         name: user.name,
+  //                         email: user.email
+  //                     },
+  //                     this.setState({ dupe: false }))
+  //                 console.log(res);
+  //             } else {
+  //                 this.setState({ dupe: true })
+  //                 console.log("This user already exists in the database ", user_id)
+  //             }
+  //         })
+  // }
 
-  
+
 
   return (
     isAuthenticated ?
@@ -65,9 +62,12 @@ const Profile = (props) => {
           togglePop={props.togglePop}
           modal={props.modal}
         />
-        {/* <button onClick={storeUser}>storeUser</button> */}
       </>
-      : <h1>Please login to view and post comments.</h1>
+      :
+      <>
+      // <button>storeUser</button>
+      <h1 style={{marginTop:'50px'}}>Please login to view and post comments.</h1>
+      </>
   );
 };
 
