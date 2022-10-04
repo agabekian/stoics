@@ -1,7 +1,7 @@
 .Quote {
   border-bottom: 2px solid #eeeeee;
   font-weight: 400;
-  padding: 2.5rem;
+  padding: 3.5rem;
 }
 
 .face img {
@@ -28,7 +28,7 @@
 
 .Quote-text span {
   color: rgb(141, 141, 141);
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   font-style: italic;
 }
 

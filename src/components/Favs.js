@@ -42,7 +42,7 @@ const Favs = (props) => {
     let idx = uuidv4();
     return (
         <>
-            <div className="QList-words" style={{ overflow: 'auto' }}>
+            <div className="QList-words" style={{ overflow: 'auto',marginTop:0 }}>
                 {props.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }} /> : ""}
 
                 {favs.length === 0

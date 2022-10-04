@@ -50,14 +50,12 @@
   .appname {
     /* display: none; */
     margin: auto;
-
     font-size: 12px;
   }
 
   .active {
     min-width: 80%;
     display: flex;
-    /* justify-content: space-around; */
   }
   
 }

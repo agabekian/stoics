@@ -130,7 +130,7 @@ export default class QList extends Component {
                         ? <About loading={this.props.loading} />
                         :
                         this.state.quotes.map((j, idx) => (
-                            <div onClick={() => this.displayAuthorInfo(j.author)}>
+                            <div onClick={() => this.displayAuthorInfo(j.author) }>
                                 <Quote
                                     key={idx}
                                     id={j.id}
