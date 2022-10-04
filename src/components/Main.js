@@ -5,7 +5,7 @@ import "./Main.css";
 import Enter from "./Enter";
 import Favs from "./Favs";
 import NavBar from './NavBar';
-import { Route, Routes, Outlet, Link } from "react-router-dom";
+import { Route, Routes, Outlet, Link , BrowserRouter} from "react-router-dom";
 import axios from 'axios';
 
 class Main extends Component {
@@ -54,15 +54,14 @@ class Main extends Component {
   // }
   render() {
     return (
-      <div>
+      <>
         <div style={{ position: 'fixed', width: '100%', margin: '0px auto' }}>
           <NavBar
             toggleAbout={this.toggleAbout}
             togglePop={this.togglePop}
             about={this.state.about}
-          />
+            />
         </div>
-
 
         <Routes>
           <Route path="/" element={
@@ -102,17 +101,12 @@ class Main extends Component {
               updateFavsState={this.updateFavsState} //update on delete in favs
             />}
           />
-          {/* <Route path="/*" element={
-            <Main.js.js/>} /> */}
-          
 
         </Routes>
         <h1 className="tag">STOIC COMPANION</h1>
-
-      </div>
+      </>
       // this.props.auth0.isAuthenticated ?
       // :
-
     );
   }
 }
