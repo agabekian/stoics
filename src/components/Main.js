@@ -64,8 +64,8 @@ class Main extends Component {
         </div>
 
         <Routes>
-          <Route path="/" element={
-            <Link to='/'>
+          <Route path="" element={
+            <Link to=''>
               <Enter />
 
             </Link>
