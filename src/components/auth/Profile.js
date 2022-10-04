@@ -65,7 +65,6 @@ const Profile = (props) => {
       </>
       :
       <>
-      // <button>storeUser</button>
       <h1 style={{marginTop:'50px'}}>Please login to view and post comments.</h1>
       </>
   );

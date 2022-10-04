@@ -72,6 +72,7 @@ class Main extends Component {
 
           <Route path="/notes/:id" element={
             <>
+              {nav}
               <Profile
                 togglePop={this.togglePop}
                 modal={this.state.modal}
