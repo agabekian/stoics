@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Login from './Login';
 import { Link, useNavigate, Outlet } from "react-router-dom";
 
 const Reminder = (props) => {
@@ -21,21 +22,21 @@ const Reminder = (props) => {
         <>
 
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
+                {/* <Modal.Header closeButton>
                     <Modal.Title>Login ?</Modal.Title>
-                </Modal.Header>
+                </Modal.Header> */}
                 <Modal.Body><h5 >Please login to view and post comments.</h5></Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                    <Link to='/home'>home</Link>
-                    {/* <Link to='/home'> <i className="fas fa-scroll"></i></Link> */}
+                    <Button variant="warning" onClick={handleClose}>
+                        <Link to='/home'>Home</Link>
+                        {/* <Link to='/home'> <i className="fas fa-scroll"></i></Link> */}
 
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                    <Link to='/home'> <i className="fas fa-scroll"></i></Link>
+                    <Button variant="primary">
+                        <Login />
                     </Button>
-            </Modal.Footer>
-        </Modal>
+                </Modal.Footer>
+            </Modal>
         </>
     )
 

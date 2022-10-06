@@ -1,7 +1,7 @@
 .modal_content {
     display: flex;
     background-color: white;
-    position: absolute;
+    position: fixed;
     text-align: center;
     top: 30%;
     left: 50%;
@@ -9,6 +9,7 @@
     border-radius: 5px;
     border: 2px solid rgb(167, 159, 159);
 }
+
 
 .Favs-message {
     color: rgb(124, 124, 124);

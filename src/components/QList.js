@@ -29,6 +29,8 @@ export default class QList extends Component {
         if (this.state.quotes.length === 0) {
             this.props.toggleLoading(),
                 this.fetchQuotes();
+
+
         }
     }
 
