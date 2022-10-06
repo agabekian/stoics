@@ -33,6 +33,7 @@
 }
 
 .active {
+  margin-top: 0;
   display: flex;
   background-color: #8a0303;
   gap: 1rem;

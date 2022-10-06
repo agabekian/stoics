@@ -13,8 +13,8 @@ const Favs = (props) => {
             let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
             setFavs(savedQuotes.data);
             props.toggleLoading();
-
         }
+        
         const result = getSavedQuotes().catch(console.error);
     }, []
     )
@@ -42,10 +42,10 @@ const Favs = (props) => {
     let idx = uuidv4();
     return (
         <>
-            <div className="QList-words" style={{ overflow: 'auto',marginTop:0 }}>
-                {props.loading ? <i className="fas fa-spinner fa-pulse" style={{ fontSize: '1rem' }} /> : ""}
+            <div className="QList-words" >
+                {props.loading ? <i className="fas fa-spinner fa-pulse waiting" /> : 
 
-                {favs.length === 0
+                favs.length === 0
                     ? <p className="Favs-message">No saved quotes yet, you can add them by using a "+" button</p>
                     :
                     favs.map((q, idx) =>

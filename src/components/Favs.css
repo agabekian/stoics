@@ -1,6 +1,5 @@
 .modal_content {
     display: flex;
-    opacity: .9;
     background-color: white;
     position: absolute;
     text-align: center;
@@ -11,7 +10,6 @@
     border: 2px solid rgb(167, 159, 159);
 }
 
-
 .Favs-message {
     color: rgb(124, 124, 124);
     text-align: center;
@@ -20,6 +18,13 @@
 
 .Favs-title {
     margin-top: 5px;
+}
+
+.waiting {
+    font-size: 80px;
+    margin: 80px;
+    opacity: 0.7;
+    background: transparent;
 }
 
 @media screen and (max-width: 480px) {

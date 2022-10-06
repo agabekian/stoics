@@ -16,7 +16,7 @@ export default class SavedQuote extends Component {
                         <br />
                         <Link
                             to={`/notes/${this.props.id}/`}
-                            style={{ fontFamily: "arial", fontSize: ".7rem", letterSpacing: ".6px" }}>
+                            style={{ fontFamily: "arial", fontSize: ".8rem", letterSpacing: ".6px" }}>
                             notes ({this.props.nums_of_comms})
                         </Link>
                     </span>

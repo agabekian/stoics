@@ -64,9 +64,9 @@ const Profile = (props) => {
         />
       </>
       :
-      <>
-      <h5>Please login to view and post comments.</h5>
-      </>
+      <div className="tag">
+        <h5 >Please login to view and post comments.</h5>
+      </div>
   );
 };
 

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import Profile from "./auth/Profile";
 import QList from "./QList";
-import "./Main.css";
 import Enter from "./Enter";
 import Favs from "./Favs";
 import NavBar from './NavBar';
-import { Route, Routes, Outlet, Link, BrowserRouter } from "react-router-dom";
-import axios from 'axios';
+import { ProtectedRoute } from "./auth/ProtectedRoute";
+import { Route, Routes, Outlet, Link } from "react-router-dom";
+// import axios from 'axios';
 
 class Main extends Component {
   constructor(props) {
@@ -62,7 +62,6 @@ class Main extends Component {
     </div>
     return (
       <>
-
         <Routes>
           <Route path="" element={
             <Link to='/home'>
@@ -71,13 +70,13 @@ class Main extends Component {
           } />
 
           <Route path="/notes/:id" element={
-            <>
+            <ProtectedRoute togglePop={this.togglePop}>
               {nav}
               <Profile
                 togglePop={this.togglePop}
                 modal={this.state.modal}
               />
-            </>
+            </ProtectedRoute>
           } />
 
           <Route path="/home" element={
@@ -89,7 +88,7 @@ class Main extends Component {
                 toggleLoading={this.toggleLoading}
                 loading={this.state.loading}
               />
-              <Outlet />
+              {/* <Outlet /> */}
             </div>
           } />
 

@@ -115,7 +115,7 @@ export default class QList extends Component {
         return (
             <div className="QList">
                 <div className="QList-sidebar">
-                    <img className="image1" src="images/logo.jpg" alt="logo" />
+                <img className="desktopView"  src={require('../images/logoA.png')}></img>
                     <button onClick={this.handleClick} className="getmore" >get more quotes</button>
                     <div className="desktopView" style={{overflow:'hidden',width:'100%',height:'100vh'}}>
                         <Wiki link={this.state.frameLink} />

@@ -36,7 +36,7 @@ export default (props) => {
         else {
             setComments([...comments, { text: comment, author: title, date: Date() }]);
             setError("");
-            console.log(props.user+" Is posting");
+            console.log(props.user + " Is posting");
             axios.patch(process.env.REACT_APP_SERVER + '/api/entries/' + id, { "author": title, "text": comment }
             ).then(res => {
                 console.log(res)
@@ -89,11 +89,11 @@ export default (props) => {
 
                 <div>
                     <label >Post Author:</label><br />
-                    <textarea className="Note-input" cols={23} 
-                     placeholder={`as ${props.user} or...`}
-                    onChange={(e) => setTitle(e.target.value)} />
+                    <textarea className="Note-input" cols={23}
+                        placeholder={`as ${props.user} or...`}
+                        onChange={(e) => setTitle(e.target.value)} />
                 </div>
-                
+
                 <input className="btn btn-outline-secondary submit" type="submit" value="POST IT" />
             </form>
         </div>

@@ -23,12 +23,12 @@ body {
 }
 
 .tag {
+    margin-top: 40px;
     font-family: Cinzel;
     text-shadow: 2px 2px #4f0707;
     font-size: 64px;
     color: rgb(194, 184, 184);
     letter-spacing: 8px;
-    display: block;
 
 }
 
