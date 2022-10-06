@@ -5,13 +5,17 @@ import './Favs.css';
 import { v4 as uuidv4 } from 'uuid';
 
 const Favs = (props) => {
-    const [favs, setFavs] = useState([])
+    // const [favs, setFavs] = useState([]);
+    const [favs,setFavs] = useState(JSON.parse(window.localStorage.getItem("fQuotes") || "[]"));
 
     useEffect(() => {
         props.toggleLoading();
         const getSavedQuotes = async () => {
             let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
-            setFavs(savedQuotes.data);
+            // setFavs(savedQuotes.data);
+            setFavs((savedQuotes.data),
+            window.localStorage.setItem("fQuotes", JSON.stringify(favs))
+            );
             props.toggleLoading();
         }
 
@@ -23,6 +27,14 @@ const Favs = (props) => {
     //     document.body.style = 'auto';
     //     return () => { document.body.className = ''; }
     // });
+    const deleteEntry = (entryId) => {
+        console.log("deleted: ", entryId)
+        axios.delete(`${process.env.REACT_APP_SERVER}/api/entries/${entryId}`)
+            .then(res => {
+            }).catch(err => console.log(err));
+        let fFavs = favs.filter(i => i._id != entryId)
+        setFavs(fFavs);
+    }
 
     let idx = uuidv4();
     return (

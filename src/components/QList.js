@@ -29,8 +29,6 @@ export default class QList extends Component {
         if (this.state.quotes.length === 0) {
             this.props.toggleLoading(),
                 this.fetchQuotes();
-
-
         }
     }
 
@@ -117,9 +115,9 @@ export default class QList extends Component {
         return (
             <div className="QList">
                 <div className="QList-sidebar">
-                <img className="desktopView"  src={require('../images/logoA.png')}></img>
+                    <img className="desktopView" src={require('../images/logoA.png')}></img>
                     <button onClick={this.handleClick} className="getmore" >get more quotes</button>
-                    <div className="desktopView" style={{overflow:'hidden',width:'100%',height:'100vh'}}>
+                    <div className="desktopView" style={{ overflow: 'hidden', width: '100%', height: '100vh' }}>
                         <Wiki link={this.state.frameLink} />
                     </div>
                     {/* style="margin-left: -200px; margin-top: -200px;" */}
@@ -132,8 +130,8 @@ export default class QList extends Component {
                         ? <About loading={this.props.loading} />
                         :
                         this.state.quotes.map((j, idx) => (
-                            <div key={idx} onClick={() => this.displayAuthorInfo(j.author) }>
-                                <Quote     
+                            <div key={idx} onClick={() => this.displayAuthorInfo(j.author)}>
+                                <Quote
                                     id={j.id}
                                     text={j.text}
                                     author={j.author}
