@@ -25,8 +25,6 @@ body {
 .tag {
     margin-top: 40px;
     font-family: Cinzel;
-    position: absolute;
-    bottom:0;
     text-shadow: 2px 2px #4f0707;
     font-size: 64px;
     color: rgb(194, 184, 184);
