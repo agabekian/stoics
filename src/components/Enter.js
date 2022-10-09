@@ -4,10 +4,12 @@ import axios from 'axios';
 
 
 class Enter extends Component {
-    state = {}
     render() {
         return (
-            <img style={{}} src='./images/logo.jpg'></img>
+            <>
+                <img src={require('../images/logoA.png')}></img>
+                {/* <p>stoic dude in marble</p> */}
+            </>
 
         );
     }

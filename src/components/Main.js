@@ -15,10 +15,6 @@ const Main = (props) => {
   const [favs, setFavs] = useState([]);
   const [reloadStored, setReloadStored] = useState(false);
   
-
-
-
-
   useEffect(() => {
     // toggleLoading();
 
