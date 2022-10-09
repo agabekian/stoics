@@ -14,14 +14,14 @@ const Main = (props) => {
   const [about, setAbout] = useState(false);
   const [favs, setFavs] = useState([]);
   const [reloadStored, setReloadStored] = useState(false);
-  
+
   useEffect(() => {
     // toggleLoading();
 
     const getSavedQuotes = async () => {
       let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
       setFavs((savedQuotes.data),
-        window.localStorage.setItem("fQuotes", JSON.stringify(favs))
+        window.localStorage.setItem("fQuotes", JSON.stringify(savedQuotes))
       );
       // alert("done")
       // setLoading(false)
@@ -52,6 +52,7 @@ const Main = (props) => {
         <Route path="" element={
           <Link to='/home'>
             <Enter />
+            <h1 className="tag">STOIC COMPANION</h1>
           </Link>
         } />
 
@@ -74,9 +75,7 @@ const Main = (props) => {
               toggleLoading={toggleLoading}
               loading={loading}
               triggerReload={triggerReload}
-
             />
-            {/* <Outlet /> */}
           </div>
         } />
 
@@ -95,7 +94,6 @@ const Main = (props) => {
         }
         />
       </Routes>
-      <h1 className="tag">STOIC COMPANION</h1>
     </>
     // this.props.auth0.isAuthenticated ?
     // :

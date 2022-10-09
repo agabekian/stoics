@@ -79,10 +79,8 @@ export default class QList extends Component {
                             content: selectedQuote, comments: []
                         },
                         this.setState({ dupe: false }),
-                        // this.setState({favs: selectedQuote}),
-                        // this.props.updateFavsState([selectedQuote]),
                         console.log("CONTENT", selectedQuote),
-                        this.props.triggerReload()                 
+                        this.props.triggerReload()
                     )
                 } else {
                     this.setState({ dupe: true })

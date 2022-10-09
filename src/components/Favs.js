@@ -5,9 +5,9 @@ import './Favs.css';
 import { v4 as uuidv4 } from 'uuid';
 
 const Favs = (props) => {
-    const {storedTopics} = props;
+    const { storedTopics } = props;
     // const [favs, setFavs] = useState([]);
-    const [favs,setFavs] = useState(storedTopics);
+    const [favs, setFavs] = useState(storedTopics);
     // const [favs,setFavs] = useState(JSON.parse(window.localStorage.getItem("fQuotes") || "[]"));
 
     useEffect(() => {
@@ -15,14 +15,14 @@ const Favs = (props) => {
         // props.toggleLoading();
         // const getSavedQuotes = async () => {
         //     let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
-            // setFavs(savedQuotes.data);
-            // let x = JSON.parse(window.localStorage.getItem("fQuotes"));
-            // setFavs(x);
-            // window.localStorage.setItem("fQuotes", JSON.stringify(favs))
-            
-        
-            // props.toggleLoading();
-},[storedTopics])
+        // setFavs(savedQuotes.data);
+        // let x = JSON.parse(window.localStorage.getItem("fQuotes"));
+        // setFavs(x);
+        // window.localStorage.setItem("fQuotes", JSON.stringify(favs))
+
+
+        // props.toggleLoading();
+    }, [storedTopics])
 
     //     const result = getSavedQuotes().catch(console.error);
     // }, []
@@ -45,10 +45,10 @@ const Favs = (props) => {
 
                     favs.length === 0
                         ? <div>
-                        <p className="Favs-message">
-                            No saved quotes yet, you can add them by using a "+" button
-                        </p>
-                        <h1>{favs.length}</h1>
+                            <p className="Favs-message">
+                                No saved quotes yet, you can add them by using a "+" button
+                            </p>
+                            <h1>{favs.length}</h1>
                         </div>
                         :
                         favs.map((q, idx) =>
