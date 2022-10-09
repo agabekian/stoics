@@ -5,28 +5,29 @@ import './Favs.css';
 import { v4 as uuidv4 } from 'uuid';
 
 const Favs = (props) => {
+    const {storedTopics} = props;
     // const [favs, setFavs] = useState([]);
-    const [favs,setFavs] = useState(JSON.parse(window.localStorage.getItem("fQuotes") || "[]"));
+    const [favs,setFavs] = useState(storedTopics);
+    // const [favs,setFavs] = useState(JSON.parse(window.localStorage.getItem("fQuotes") || "[]"));
 
     useEffect(() => {
-        props.toggleLoading();
-        const getSavedQuotes = async () => {
-            let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
+        setFavs(storedTopics);
+        // props.toggleLoading();
+        // const getSavedQuotes = async () => {
+        //     let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
             // setFavs(savedQuotes.data);
-            setFavs((savedQuotes.data),
-            window.localStorage.setItem("fQuotes", JSON.stringify(favs))
-            );
-            props.toggleLoading();
-        }
+            // let x = JSON.parse(window.localStorage.getItem("fQuotes"));
+            // setFavs(x);
+            // window.localStorage.setItem("fQuotes", JSON.stringify(favs))
+            
+        
+            // props.toggleLoading();
+},[storedTopics])
 
-        const result = getSavedQuotes().catch(console.error);
-    }, []
-    )
+    //     const result = getSavedQuotes().catch(console.error);
+    // }, []
+    // )
 
-    // useEffect(() => {
-    //     document.body.style = 'auto';
-    //     return () => { document.body.className = ''; }
-    // });
     const deleteEntry = (entryId) => {
         console.log("deleted: ", entryId)
         axios.delete(`${process.env.REACT_APP_SERVER}/api/entries/${entryId}`)
@@ -43,7 +44,12 @@ const Favs = (props) => {
                 {props.loading ? <i className="fas fa-spinner fa-pulse waiting" /> :
 
                     favs.length === 0
-                        ? <p className="Favs-message">No saved quotes yet, you can add them by using a "+" button</p>
+                        ? <div>
+                        <p className="Favs-message">
+                            No saved quotes yet, you can add them by using a "+" button
+                        </p>
+                        <h1>{favs.length}</h1>
+                        </div>
                         :
                         favs.map((q, idx) =>
                         (
