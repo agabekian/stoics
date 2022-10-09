@@ -27,9 +27,9 @@ const Reminder = (props) => {
                 </Modal.Header> */}
                 <Modal.Body><h5 >Please login to view and post comments.</h5></Modal.Body>
                 <Modal.Footer>
-                    <Button variant="warning" onClick={handleClose}>
-                        <Link to='/home'>Home</Link>
-                        {/* <Link to='/home'> <i className="fas fa-scroll"></i></Link> */}
+                    <Button variant="danger" onClick={handleClose}>
+                        {/* <Link to='/home' style={{color:'white'}}>Home</Link> */}
+                        <Link to='/home' style={{color:'white'}}> <i className="fas fa-archway"></i></Link>
 
                     </Button>
                     <Button variant="primary">
