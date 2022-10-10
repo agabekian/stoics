@@ -48,6 +48,9 @@ const Favs = (props) => {
                             <p className="Favs-message">
                                 No saved quotes yet, you can add them by using a "+" button
                             </p>
+                            <p className="buffer">
+                                No saved quotes yet, you can add them by using a "+" button next to each quote in the main list.
+                            </p>
                         </div>
                         :
                         <>
