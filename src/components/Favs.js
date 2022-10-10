@@ -48,26 +48,34 @@ const Favs = (props) => {
                             <p className="Favs-message">
                                 No saved quotes yet, you can add them by using a "+" button
                             </p>
-                            <h1>{favs.length}</h1>
                         </div>
                         :
-                        favs.map((q, idx) =>
-                        (
-                            <div key={idx}>
-                                <div className="close">
-                                    <i className="fa fa-times" onClick={(e) => { deleteEntry(q._id) }}></i>
-                                </div>
-                                <SavedQuote
-                                    qid={q.content["0"].id}
-                                    id={q._id}
-                                    text={q.content["0"].text}
-                                    author={q.content["0"].author}
-                                    source={q.content["0"].source}
-                                    update={props.updateEntry}
-                                    nums_of_comms={q.comments ? q.comments.length : 0}
-                                />
+                        <>
+                            <div style={{ padding: "20px" }}>
+                                HACKY BUFFER ZONE
+                                <hr />
+                                Here are the saved quotes to reflect and comment on:
                             </div>
-                        ))}
+                            {favs.map((q, idx) =>
+                            (
+                                <div key={idx}>
+                                    <div className="close">
+                                        <i className="fa fa-times" onClick={(e) => { deleteEntry(q._id) }}></i>
+                                    </div>
+                                    <SavedQuote
+                                        qid={q.content["0"].id}
+                                        id={q._id}
+                                        text={q.content["0"].text}
+                                        author={q.content["0"].author}
+                                        source={q.content["0"].source}
+                                        update={props.updateEntry}
+                                        nums_of_comms={q.comments ? q.comments.length : 0}
+                                    />
+                                </div>
+                            ))}
+                        </>
+                }
+
             </div>
         </>
     )

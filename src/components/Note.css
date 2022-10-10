@@ -29,7 +29,10 @@ body {
     font-size: 64px;
     color: rgb(194, 184, 184);
     letter-spacing: 8px;
+}
 
+.buffer {
+    padding: 15px;
 }
 
 .Note-input {
@@ -68,6 +71,7 @@ body {
     border-radius: 8px;
     padding: 5px;
 }
+
 /* .Note-comments:first-child {
 } */
 
@@ -84,5 +88,9 @@ label {
     .tag {
         font-size: 48px;
         margin-bottom: 30%;
+    }
+
+    .buffer {
+        padding: 0px;
     }
 }

@@ -85,7 +85,7 @@ export default (props) => {
 
     return (
         <div className="QList-words">
-            <div style={{ padding: "15px" }}>You can post and delete all too easily random musings here</div>
+            <div className="buffer">You can post and delete all too easily random musings here</div>
 
             {modal ? <PopUp message={error} togglePop={togglePop} /> : ""}
             {/* {props.user} */}
