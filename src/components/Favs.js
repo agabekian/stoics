@@ -51,7 +51,7 @@ const Favs = (props) => {
                         </div>
                         :
                         <>
-                            <div style={{ padding: "20px" }}>
+                            <div className='buffer'>
                                 HACKY BUFFER ZONE
                                 <hr />
                                 Here are the saved quotes to reflect and comment on:
