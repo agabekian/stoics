@@ -37,7 +37,7 @@ const Favs = (props) => {
         setFavs(fFavs);
     }
 
-    let idx = uuidv4();
+    const idx = uuidv4();
     return (
         <>
             <div className="QList-words" >

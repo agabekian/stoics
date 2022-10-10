@@ -9,7 +9,7 @@
 body {
     background-image: url('/src/images/marble.jpg');
     text-align: center;
-    overflow: auto;
+    /* overflow: auto; */
     background-size: cover;
     height: 100vh;
 }
@@ -68,6 +68,8 @@ body {
     border-radius: 8px;
     padding: 5px;
 }
+/* .Note-comments:first-child {
+} */
 
 label {
     font-family: 'Courier New', Courier, monospace;

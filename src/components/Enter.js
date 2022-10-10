@@ -27,7 +27,7 @@ const Enter = () => {
         <>
             <img style={{ opacity: "0.7" }} src={require('../images/logoA.png')}></img>
             {/* <p>stoic dude in marble</p> */}
-            <h1 style={{ fontFamily: "cinzel", fontSize:"1.6em", textDecoration: "none", color: "grey" }}>{one}</h1>
+            <h1 style={{ fontFamily: "cinzel", fontSize:"1.6em", textDecoration: "none", color: "grey",padding:"12px" }}>{one}</h1>
             <p style={{ fontFamily: "cinzel", textDecoration: "none", color: "black" }}>{author}</p>
         </>
 

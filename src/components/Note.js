@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import PopUp from './PopUp';
 import "./Note.css";
+import { v4 as uuidv4 } from 'uuid';
 
 export default (props) => {
     let { id } = useParams();
@@ -20,7 +21,7 @@ export default (props) => {
 
     useEffect
         (
-            () => { displayEntry() }, [comments]
+            () => { displayEntry() }, []
         );
 
     const SubmitHandler = e => {
@@ -34,12 +35,14 @@ export default (props) => {
             togglePop();
         }
         else {
-            setComments([...comments, { text: comment, author: title, date: Date() }]);
+            let secKey = crazy();
+            setComments([...comments, { text: comment, author: title, secKey: secKey}]);
             setError("");
-            console.log(props.user + " Is posting");
-            axios.patch(process.env.REACT_APP_SERVER + '/api/entries/' + id, { "author": title, "text": comment }
+            console.log(secKey);
+            // console.log(props.user + " Is posting");
+            axios.patch(process.env.REACT_APP_SERVER + '/api/entries/' + id, { "author": title, "text": comment, "secKey": secKey }
             ).then(res => {
-                console.log(res)
+                // console.log(res)
                 if (res.data.err) {
                     setError(res.data.err);
                     togglePop();
@@ -50,8 +53,17 @@ export default (props) => {
         }
     }
 
-    const deleteComment = (id, cid, index) => {
-        let link = `${process.env.REACT_APP_SERVER}/api/entries/cut/${id}/${cid}`
+    const deleteComment = (id, cid, secKey) => {
+        // console.log("key", key);
+        // let comsAfter = [...comments];
+        // comsAfter.splice(index, 1)
+        // setComments(comsAfter);
+        console.log("keyzzzzzzzzz", secKey);
+        const comsAfter = comments.filter(q => q.secKey ? q.secKey !== secKey : q._id !== cid);
+        setComments(comsAfter);
+        let link = `${process.env.REACT_APP_SERVER}/api/entries/cut/${id}/${secKey}`
+        // Route 'cid' was not changed it was not recognized as 'secKey'. cid=secKey anyway.
+        console.log(link);
         axios.patch(link)
             .then(res => {
             }).catch(err => console.log(err));
@@ -63,20 +75,34 @@ export default (props) => {
         return local
     }
 
+    const crazy = () => {
+        let secKey = uuidv4();
+        return secKey;
+        // generates secondary key for cases where we dont want to wait for databse ids to arrive here.
+        // "refreshes" with useEffect on commentchanges ar nolonger needed
+    }
+
+
     return (
         <div className="QList-words">
+            <div style={{ padding: "15px" }}>You can post and delete all too easily random musings here</div>
+
             {modal ? <PopUp message={error} togglePop={togglePop} /> : ""}
             {/* {props.user} */}
             {/* <Back link="/favs" title="blah..." /> */}
-            {comments.map((c, idx) =>
-                <div className="Note-comments" index={idx} key={idx}>
-                    <div className="close" onClick={(e) => deleteComment(id, c._id, idx)}>
-                        <i className="fa fa-times"></i>
+            {comments.length === 0
+                ? <div style={{ padding: "15px" }}>You can quickly post and delete random musings here</div>
+                : comments.map((c, idx) =>
+
+                    <div className="Note-comments" key={idx}>
+                        <div className="close" onClick={(e) => deleteComment(id, c._id, c.secKey)}>
+                            <i className="fa fa-times"></i>
+                        </div>
+                        <p>{c.key}</p>
+                        <p>{c.author} wrote: <br /> <span>{c.text}</span></p>
+                        {c.time ? <p>{date(c.time)}</p> : ""}
                     </div>
-                    <p>{c.author} wrote: <br /> <span>{c.text}</span></p>
-                    <p>{date(c.time)}</p>
-                </div>
-            )}
+                )}
             <form className="Note-form" onSubmit={SubmitHandler}>
                 {/* <div>
                     <label >Name:</label><br />
