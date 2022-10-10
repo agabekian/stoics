@@ -34,15 +34,6 @@
         margin: 13px 0px 0px 80px;
     }
 
-    .modal_content {
-        /* align-content: center; */
-        /* z-index: 1; */
-        position: fixed;
-        top: 10%;
-        left:0%;
-        padding:0 1px 2px 90px;
-        width: 100%;
-    }
     .buffer{
         margin-top: -13px;
         background-color: rgb(200, 211, 211);
