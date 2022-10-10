@@ -53,7 +53,7 @@ const Favs = (props) => {
                         <>
                             <div className='buffer'>
                                 HACKY BUFFER ZONE
-                                <hr />
+                                {/* <hr /> */}
                                 Here are the saved quotes to reflect and comment on:
                             </div>
                             {favs.map((q, idx) =>
