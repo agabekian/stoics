@@ -6,6 +6,7 @@ import Favs from "./components/Favs";
 import NavBar from './components/NavBar';
 import { Route, Routes } from "react-router-dom";
 import axios from 'axios';
+import data from "./data/quotes.json";
 
 class App extends Component {
   constructor(props) {
@@ -21,8 +22,9 @@ class App extends Component {
   getSavedQuotes = async () => {
     try {
       console.log("preloading the quotes");
-      let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
-      this.setState({ favs: savedQuotes.data });
+      // let savedQuotes = await axios.get("gone the api"");
+      const indexedData = data.map((item, id) => Object.assign(item, { id }))
+      this.setState({ favs: indexedData });
     } catch (error) {
       console.log('we have an error: ', error.response);
     }
@@ -65,8 +67,7 @@ class App extends Component {
             <Favs
               toggleLoading={this.toggleLoading}
               loading={this.state.loading}
-              favs={this.state.favs}
-              
+              favs={this.state.favs}  
               updateFavsState={this.updateFavsState}
             />}
           />
@@ -85,6 +86,7 @@ class App extends Component {
                 toggleLoading={this.toggleLoading}
                 loading={this.state.loading}
                 getFavs={this.getSavedQuotes}
+                favs = {this.state.favs}
               />
             </div>} />
           {/* <QList path="/" togglePop={this.togglePop} modal={this.state.modal} toggleLoading={this.toggleLoading} loading={this.state.loading} />

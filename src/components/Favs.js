@@ -15,7 +15,6 @@ const Favs = (props) => {
     // }
     // getSavedQuotes = async () => {
     //     try {
-    //         // make a call to my server/cats to get cats
     //         let savedQuotes = await axios.get(`${process.env.REACT_APP_SERVER}/api/entries`);
     //         this.setState({ favs: savedQuotes.data });
     //         this.props.toggleLoading();

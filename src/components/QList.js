@@ -8,7 +8,7 @@ import About from './About';
 
 export default class QList extends Component {
     static defaultProps = {
-        numQuotesToGet: 10
+        numQuotesToGet: 2
     }
 
     constructor(props) {
@@ -23,33 +23,54 @@ export default class QList extends Component {
     }
 
     componentDidMount() {
+        console.log(this.seenQuotes)
         if (this.state.quotes.length === 0) {
             this.props.toggleLoading(),
-                this.fetchQuotes();
+            this.fetchQuotes();
         }
     }
 
     async fetchQuotes() {
-        try {
-            let quotes = [];
-            while (quotes.length < this.props.numQuotesToGet) {
-                let res = await axios.get("https://stoic-server.herokuapp.com/random");
-                let rez = res.data[0]
+        let quotes = [];
+        let i = 0;
+        try {   
+            while (quotes.length <= this.props.numQuotesToGet) {
+    
+                // let res = axios.get(`${process.env.REACT_APP_SERVER}/api/entries`)
+                let res = this.props.favs[i];
+                console.log("cur quote",res.text)
+                let rez = res
                 if (!this.seenQuotes.has(rez.id)) {
-                    quotes.push({ text: rez.body, author: rez.author, source: rez.quotesource, id: rez.id });
+                quotes.push(
+                    { 
+                    text: rez.text, 
+                    author: rez.author, 
+                    source: rez.source, 
+                    id: rez.id 
+                    }
+                );
+                this.seenQuotes.add(rez.id)
+
                 } else {
+                    i++;
                     console.log("****************duplicate found ****************",
                         res.id
                     )
                 }
             }
+                
+                console.log("Storing") 
+
             this.setState(
-                st => ({
+
+                st => (
+                    {
                     quotes: [...st.quotes, ...quotes],
                 }),
                 () => window.localStorage.setItem("quotes", JSON.stringify(this.state.quotes))
             );
             this.props.toggleLoading();
+   
         } catch (err) {
             alert(err);
         }
@@ -97,9 +118,10 @@ export default class QList extends Component {
                 </div>
                 <div className="QList-words">
                     {this.props.modal ? <PopUp dupe={this.state.dupe} togglePop={this.props.togglePop} autoClose={true} /> : null}
-                    {this.props.loading
-                        ? <About loading={this.props.loading} />
-                        :
+                    {
+                    // this.props.loading
+                        // ? <About loading={this.props.loading} />
+                        // :
                         this.state.quotes.map((j, idx) => (
                             <Quote
                                 key={idx}
