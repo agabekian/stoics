@@ -25,7 +25,7 @@ export default (props) => {
 
     const SubmitHandler = e => {
         e.preventDefault();
-        if (title.length < 3) {
+        if (title.length < 1) {
             setError("title needs 3+ chars")
             togglePop();
         }
@@ -34,10 +34,15 @@ export default (props) => {
             togglePop();
         }
         else {
-            setComments([...comments, { text: comment, author: title, date: Date() }]);
+            setComments([...comments, { 
+                text: comment, 
+                author: title,
+                secKey:12345,
+                date: Date() }]);
             setError("");
             console.log(props.user+" Is posting");
-            axios.patch(process.env.REACT_APP_SERVER + '/api/entries/' + id, { "author": title, "text": comment }
+            axios.patch(process.env.REACT_APP_SERVER + '/api/entries/' + id, { 
+                "author": title, "text": comment }
             ).then(res => {
                 console.log(res)
                 if (res.data.err) {
@@ -51,10 +56,11 @@ export default (props) => {
     }
 
     const deleteComment = (id, cid, index) => {
+        console.log("deleting ",id,cid)
         let link = `${process.env.REACT_APP_SERVER}/api/entries/cut/${id}/${cid}`
         axios.patch(link)
             .then(res => {
-            }).catch(err => console.log(err));
+            }).catch(err => console.log("from front end"));
     }
 
     const date = (uTime) => {

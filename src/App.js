@@ -48,7 +48,7 @@ class App extends Component {
 
   updateFavsState = (fFavs) => { this.setState({ favs: fFavs }) }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getSavedQuotes();
   }
 
@@ -72,7 +72,7 @@ class App extends Component {
             />}
           />
 
-          <Route path="/notes/:id" element={
+          <Route path="/notes/:id" element={ //don't comment me out I'll kill 15 min of your time by breakin api
             <Profile
               togglePop={this.togglePop}
               modal={this.state.modal}
@@ -84,7 +84,7 @@ class App extends Component {
                 togglePop={this.togglePop}
                 modal={this.state.modal}
                 toggleLoading={this.toggleLoading}
-                loading={this.state.loading}
+                // loading={this.state.loading}
                 getFavs={this.getSavedQuotes}
                 favs = {this.state.favs}
               />

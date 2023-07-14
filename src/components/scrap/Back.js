@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import "../Favs.css"
 
-
 export default class Back extends Component {
     render() {
         return (
